@@ -1,0 +1,33 @@
+.header {
+  width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #101014;
+}
+
+.header__content {
+  height: 80px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header__logo {
+  font-size: 1.3rem;
+  font-weight: 800;
+}
+
+.header__nav {
+  display: flex;
+  gap: 2rem;
+}
+
+.header__nav a {
+  transition: .25s;
+}
+
+.header__nav a:hover {
+  color: #a63cff;
+}
