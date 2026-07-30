@@ -12,16 +12,15 @@ function Header() {
             GM Eventos
           </a>
 
-          <nav className="header__nav">
+          <nav className="header__nav" aria-label="Navegación principal">
             <a href="#inicio">Inicio</a>
             <a href="#nosotros">Nosotros</a>
             <a href="#servicios">Servicios</a>
+            <a href="#eventos">Eventos</a>
             <a href="#contacto">Contacto</a>
           </nav>
 
-          <Button href="#contacto">
-            Cotizar
-          </Button>
+          <Button href="#contacto">Cotizar</Button>
         </div>
       </Container>
     </header>
