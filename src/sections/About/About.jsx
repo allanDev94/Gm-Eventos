@@ -23,18 +23,24 @@ const values = [
   },
 ];
 
-function About() {
+function About({ showHeader = true }) {
   return (
     <section className="about" id="nosotros">
       <Container>
-        <div className="about__grid">
-          <div className="about__heading">
-            <p className="about__eyebrow">Sobre GM Eventos</p>
+        <div
+          className={`about__grid ${
+            !showHeader ? "about__grid--without-header" : ""
+          }`}
+        >
+          {showHeader && (
+            <div className="about__heading">
+              <p className="about__eyebrow">Sobre GM Eventos</p>
 
-            <h2 className="about__title">
-              Nos involucramos en cada detalle para que disfrutes tu evento
-            </h2>
-          </div>
+              <h2 className="about__title">
+                Nos involucramos en cada detalle para que disfrutes tu evento
+              </h2>
+            </div>
+          )}
 
           <div className="about__content">
             <p className="about__lead">

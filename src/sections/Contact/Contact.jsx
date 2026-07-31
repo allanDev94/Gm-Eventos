@@ -7,7 +7,7 @@ import Button from "../../components/Button/Button";
 // Debe incluir código de país, pero sin +, espacios ni guiones.
 const WHATSAPP_NUMBER = "56989340450";
 
-function Contact() {
+function Contact({ showHeader = true }) {
   const handleSubmit = (event) => {
     event.preventDefault();
 
@@ -47,41 +47,46 @@ ${message || "Sin detalles adicionales"}
     <section className="contact" id="contacto">
       <Container>
         <div className="contact__layout">
-          <div className="contact__information">
-            <p className="contact__eyebrow">Hablemos de tu evento</p>
+          {showHeader && (
+            <div className="contact__information">
+              <p className="contact__eyebrow">Hablemos de tu evento</p>
 
-            <h2 className="contact__title">
-              Cuéntanos tu idea y creemos algo memorable
-            </h2>
+              <h2 className="contact__title">
+                Cuéntanos tu idea y creemos algo memorable
+              </h2>
 
-            <p className="contact__description">
-              Completa el formulario con la información principal de tu evento.
-              Prepararemos una propuesta adaptada a tus necesidades, espacio y
-              cantidad de invitados.
-            </p>
+              <p className="contact__description">
+                Completa el formulario con la información principal de tu
+                evento. Prepararemos una propuesta adaptada a tus necesidades,
+                espacio y cantidad de invitados.
+              </p>
 
-            <div className="contact__details">
-              <a
-                className="contact-detail"
-                href={`https://wa.me/${WHATSAPP_NUMBER}`}
-                target="_blank"
-                rel="noreferrer"
-              >
-                <span className="contact-detail__label">WhatsApp</span>
-                <strong>Escríbenos directamente</strong>
-              </a>
+              <div className="contact__details">
+                <a
+                  className="contact-detail"
+                  href={`https://wa.me/${WHATSAPP_NUMBER}`}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <span className="contact-detail__label">WhatsApp</span>
+                  <strong>Escríbenos directamente</strong>
+                </a>
 
-              <a className="contact-detail" href="mailto:contacto@gmeventos.cl">
-                <span className="contact-detail__label">Correo</span>
-                <strong>contacto@gmeventos.cl</strong>
-              </a>
+                <a
+                  className="contact-detail"
+                  href="mailto:contacto@gmeventos.cl"
+                >
+                  <span className="contact-detail__label">Correo</span>
+                  <strong>contacto@gmeventos.cl</strong>
+                </a>
 
-              <div className="contact-detail">
-                <span className="contact-detail__label">Cobertura</span>
-                <strong>Santiago y alrededores</strong>
+                <div className="contact-detail">
+                  <span className="contact-detail__label">Cobertura</span>
+                  <strong>Santiago y alrededores</strong>
+                </div>
               </div>
             </div>
-          </div>
+          )}
 
           <form className="contact-form" onSubmit={handleSubmit}>
             <div className="contact-form__row">

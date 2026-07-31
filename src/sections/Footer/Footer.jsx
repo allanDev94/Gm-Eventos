@@ -1,8 +1,10 @@
+import { Link } from "react-router-dom";
+
 import "./Footer.css";
 
 import Container from "../../components/Container/Container";
 
-const WHATSAPP_NUMBER = "569XXXXXXXX";
+const WHATSAPP_NUMBER = "56989340450";
 
 function Footer() {
   const currentYear = new Date().getFullYear();
@@ -12,9 +14,9 @@ function Footer() {
       <Container>
         <div className="footer__top">
           <div className="footer__brand">
-            <a className="footer__logo" href="#inicio">
+            <Link className="footer__logo" to="/">
               GM Eventos
-            </a>
+            </Link>
 
             <p className="footer__description">
               Creamos experiencias memorables mediante sonido, iluminación,
@@ -27,11 +29,11 @@ function Footer() {
               <p className="footer__heading">Navegación</p>
 
               <nav aria-label="Navegación del pie de página">
-                <a href="#inicio">Inicio</a>
-                <a href="#nosotros">Nosotros</a>
-                <a href="#servicios">Servicios</a>
-                <a href="#eventos">Eventos</a>
-                <a href="#contacto">Contacto</a>
+                <Link to="/">Inicio</Link>
+                <Link to="/nosotros">Nosotros</Link>
+                <Link to="/servicios">Servicios</Link>
+                <Link to="/eventos">Eventos</Link>
+                <Link to="/contacto">Contacto</Link>
               </nav>
             </div>
 
@@ -80,10 +82,10 @@ function Footer() {
         <div className="footer__bottom">
           <p>© {currentYear} GM Eventos. Todos los derechos reservados.</p>
 
-          <a className="footer__back-to-top" href="#inicio">
-            Volver arriba
+          <Link className="footer__back-to-top" to="/">
+            Volver al inicio
             <span aria-hidden="true">↑</span>
-          </a>
+          </Link>
         </div>
       </Container>
     </footer>

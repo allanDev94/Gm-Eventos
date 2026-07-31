@@ -31,31 +31,33 @@ const events = [
   },
 ];
 
-function Portfolio() {
+function Portfolio({ showHeader = true }) {
   return (
     <section className="portfolio" id="eventos">
       <Container>
-        <div className="portfolio__header">
-          <div>
-            <p className="portfolio__eyebrow">Eventos realizados</p>
+        {showHeader && (
+          <div className="portfolio__header">
+            <div>
+              <p className="portfolio__eyebrow">Eventos realizados</p>
 
-            <h2 className="portfolio__title">
-              Experiencias creadas para momentos únicos
-            </h2>
+              <h2 className="portfolio__title">
+                Experiencias creadas para momentos únicos
+              </h2>
+            </div>
+
+            <div className="portfolio__introduction">
+              <p>
+                Cada evento tiene una identidad diferente. Diseñamos propuestas
+                adaptadas al espacio, al público y a la experiencia que cada
+                cliente desea crear.
+              </p>
+
+              <Button href="#contacto" variant="secondary">
+                Cuéntanos tu idea
+              </Button>
+            </div>
           </div>
-
-          <div className="portfolio__introduction">
-            <p>
-              Cada evento tiene una identidad diferente. Diseñamos propuestas
-              adaptadas al espacio, al público y a la experiencia que cada
-              cliente desea crear.
-            </p>
-
-            <Button href="#contacto" variant="secondary">
-              Cuéntanos tu idea
-            </Button>
-          </div>
-        </div>
+        )}
 
         <div className="portfolio__grid">
           {events.map((event, index) => (

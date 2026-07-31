@@ -1,25 +1,27 @@
-import Header from "./components/Header/Header";
-import Hero from "./sections/Hero/Hero";
-import Clients from "./sections/Clients/Clients";
-import About from "./sections/About/About";
-import Services from "./sections/Services/Services";
-import Portfolio from "./sections/Portfolio/Portfolio";
-import Contact from "./sections/Contact/Contact";
-import Footer from "./sections/Footer/Footer";
+import { Navigate, Route, Routes } from "react-router-dom";
+
+import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
+
+import HomePage from "./pages/HomePage/HomePage";
+import AboutPage from "./pages/AboutPage/AboutPage";
+import ServicesPage from "./pages/ServicesPage/ServicesPage";
+import EventsPage from "./pages/EventsPage/EventsPage";
+import ContactPage from "./pages/ContactPage/ContactPage";
 
 function App() {
   return (
     <>
-      <Header />
-      <main>
-        <Hero />
-        <Clients />
-        <About />
-        <Services />
-        <Portfolio />
-        <Contact />
-        <Footer />
-      </main>
+      <ScrollToTop />
+
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/nosotros" element={<AboutPage />} />
+        <Route path="/servicios" element={<ServicesPage />} />
+        <Route path="/eventos" element={<EventsPage />} />
+        <Route path="/contacto" element={<ContactPage />} />
+
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Routes>
     </>
   );
 }

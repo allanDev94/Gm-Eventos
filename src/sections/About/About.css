@@ -118,3 +118,11 @@
     padding: 1.4rem;
   }
 }
+.about__grid--without-header {
+  grid-template-columns: 1fr;
+}
+
+.about__grid--without-header .about__content {
+  width: 100%;
+  max-width: 900px;
+}

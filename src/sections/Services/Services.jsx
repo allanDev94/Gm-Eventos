@@ -48,30 +48,32 @@ const services = [
   },
 ];
 
-function Services() {
+function Services({ showHeader = true }) {
   return (
     <section className="services" id="servicios">
       <Container>
-        <div className="services__header">
-          <div>
-            <p className="services__eyebrow">Nuestros servicios</p>
+        {showHeader && (
+          <div className="services__header">
+            <div>
+              <p className="services__eyebrow">Nuestros servicios</p>
 
-            <h2 className="services__title">
-              Todo lo necesario para crear una experiencia memorable
-            </h2>
+              <h2 className="services__title">
+                Todo lo necesario para crear una experiencia memorable
+              </h2>
+            </div>
+
+            <div className="services__introduction">
+              <p>
+                Diseñamos soluciones personalizadas de sonido, iluminación,
+                música y producción según las características de cada evento.
+              </p>
+
+              <Button href="#contacto" variant="secondary">
+                Solicitar cotización
+              </Button>
+            </div>
           </div>
-
-          <div className="services__introduction">
-            <p>
-              Diseñamos soluciones personalizadas de sonido, iluminación,
-              música y producción según las características de cada evento.
-            </p>
-
-            <Button href="#contacto" variant="secondary">
-              Solicitar cotización
-            </Button>
-          </div>
-        </div>
+        )}
 
         <div className="services__grid">
           {services.map((service) => (
