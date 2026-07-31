@@ -126,12 +126,11 @@
 .portfolio-card__overlay {
   position: absolute;
   inset: 0;
-  background:
-    linear-gradient(
-      180deg,
-      rgba(10, 10, 14, 0.08) 35%,
-      rgba(10, 10, 14, 0.85) 100%
-    );
+  background: linear-gradient(
+    180deg,
+    rgba(10, 10, 14, 0.08) 35%,
+    rgba(10, 10, 14, 0.85) 100%
+  );
   pointer-events: none;
 }
 
@@ -233,5 +232,20 @@
   .portfolio-card__category {
     top: 1rem;
     left: 1rem;
+  }
+}
+.portfolio__footer {
+  display: flex;
+  justify-content: center;
+  margin-top: 3rem;
+}
+
+@media (max-width: 700px) {
+  .portfolio__footer {
+    margin-top: 2rem;
+  }
+
+  .portfolio__footer .button {
+    width: 100%;
   }
 }

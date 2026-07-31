@@ -169,3 +169,18 @@
     padding-top: 3rem;
   }
 }
+.services__footer {
+  display: flex;
+  justify-content: center;
+  margin-top: 3rem;
+}
+
+@media (max-width: 600px) {
+  .services__footer {
+    margin-top: 2rem;
+  }
+
+  .services__footer .button {
+    width: 100%;
+  }
+}

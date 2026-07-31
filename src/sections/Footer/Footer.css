@@ -87,8 +87,18 @@
   display: inline-flex;
   align-items: center;
   gap: 0.55rem;
+
+  padding: 0;
+
   color: rgba(255, 255, 255, 0.72);
+  font: inherit;
   font-weight: 600;
+
+  border: 0;
+  background: transparent;
+
+  cursor: pointer;
+
   transition: color 0.25s ease;
 }
 

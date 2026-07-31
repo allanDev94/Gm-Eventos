@@ -1,25 +1,36 @@
+import { Link } from "react-router-dom";
+
 import "./Button.css";
 
 function Button({
   children,
+  to,
   href,
   type = "button",
   variant = "primary",
   className = "",
-  ...props
+  ...rest
 }) {
-  const buttonClassName = `button button--${variant} ${className}`.trim();
+  const buttonClasses = `button button--${variant} ${className}`.trim();
+
+  if (to) {
+    return (
+      <Link className={buttonClasses} to={to} {...rest}>
+        {children}
+      </Link>
+    );
+  }
 
   if (href) {
     return (
-      <a href={href} className={buttonClassName} {...props}>
+      <a className={buttonClasses} href={href} {...rest}>
         {children}
       </a>
     );
   }
 
   return (
-    <button type={type} className={buttonClassName} {...props}>
+    <button className={buttonClasses} type={type} {...rest}>
       {children}
     </button>
   );

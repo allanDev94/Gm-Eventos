@@ -4,6 +4,7 @@ import Hero from "../../sections/Hero/Hero";
 import Clients from "../../sections/Clients/Clients";
 import Services from "../../sections/Services/Services";
 import Portfolio from "../../sections/Portfolio/Portfolio";
+import CallToAction from "../../sections/CallToAction/CallToAction";
 import Footer from "../../sections/Footer/Footer";
 
 function HomePage() {
@@ -14,8 +15,9 @@ function HomePage() {
       <main>
         <Hero />
         <Clients />
-        <Services />
-        <Portfolio />
+        <Services limit={3} />
+        <Portfolio limit={2} />
+        <CallToAction />
       </main>
 
       <Footer />

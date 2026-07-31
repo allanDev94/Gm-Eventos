@@ -8,6 +8,13 @@ const WHATSAPP_NUMBER = "56989340450";
 
 function Footer() {
   const currentYear = new Date().getFullYear();
+  const handleBackToTop = () => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth",
+    });
+  };
 
   return (
     <footer className="footer">
@@ -82,10 +89,14 @@ function Footer() {
         <div className="footer__bottom">
           <p>© {currentYear} GM Eventos. Todos los derechos reservados.</p>
 
-          <Link className="footer__back-to-top" to="/">
-            Volver al inicio
+          <button
+            className="footer__back-to-top"
+            type="button"
+            onClick={handleBackToTop}
+          >
+            Volver arriba
             <span aria-hidden="true">↑</span>
-          </Link>
+          </button>
         </div>
       </Container>
     </footer>

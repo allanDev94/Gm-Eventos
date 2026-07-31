@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { NavLink, useLocation } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 import "./Header.css";
 
@@ -7,7 +7,6 @@ import Container from "../Container/Container";
 
 function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const location = useLocation();
 
   const getNavLinkClass = ({ isActive }) =>
     isActive ? "header__link header__link--active" : "header__link";
@@ -15,10 +14,6 @@ function Header() {
   const closeMenu = () => {
     setIsMenuOpen(false);
   };
-
-  useEffect(() => {
-    closeMenu();
-  }, [location.pathname]);
 
   useEffect(() => {
     document.body.style.overflow = isMenuOpen ? "hidden" : "";
@@ -101,7 +96,9 @@ function Header() {
             aria-label={isMenuOpen ? "Cerrar menú" : "Abrir menú"}
             aria-expanded={isMenuOpen}
             aria-controls="main-navigation"
-            onClick={() => setIsMenuOpen((currentState) => !currentState)}
+            onClick={() => {
+              setIsMenuOpen((currentState) => !currentState);
+            }}
           >
             <span />
             <span />

@@ -10,7 +10,7 @@ const events = [
     category: "Celebración",
     description:
       "Producción de sonido, iluminación, música y efectos para una celebración inolvidable.",
-    image: "/assets/img/hero/hero01.jpg",
+    image: "/assets/img/events/01.JPG",
     imagePosition: "center",
   },
   {
@@ -20,6 +20,7 @@ const events = [
     description:
       "Soluciones audiovisuales y producción técnica para encuentros, celebraciones y actividades corporativas.",
     image: null,
+    imagePosition: "center",
   },
   {
     id: 3,
@@ -28,12 +29,19 @@ const events = [
     description:
       "Ambientación, sonido e iluminación para acompañar uno de los momentos más importantes de cada generación.",
     image: null,
+    imagePosition: "center",
   },
 ];
 
-function Portfolio({ showHeader = true }) {
+function Portfolio({ showHeader = true, limit }) {
+  const hasLimit = Number.isInteger(limit) && limit > 0;
+
+  const visibleEvents = hasLimit ? events.slice(0, limit) : events;
+
+  const showViewAllButton = hasLimit && visibleEvents.length < events.length;
+
   return (
-    <section className="portfolio" id="eventos">
+    <section className="portfolio">
       <Container>
         {showHeader && (
           <div className="portfolio__header">
@@ -52,57 +60,75 @@ function Portfolio({ showHeader = true }) {
                 cliente desea crear.
               </p>
 
-              <Button href="#contacto" variant="secondary">
+              <Button to="/contacto" variant="secondary">
                 Cuéntanos tu idea
               </Button>
             </div>
           </div>
         )}
 
-        <div className="portfolio__grid">
-          {events.map((event, index) => (
-            <article
-              className={`portfolio-card ${
-                index === 0 ? "portfolio-card--featured" : ""
-              }`}
-              key={event.id}
-            >
-              <div className="portfolio-card__media">
-                {event.image ? (
-                  <img
-                    src={event.image}
-                    alt={`${event.title} producido por GM Eventos`}
-                    style={{ objectPosition: event.imagePosition }}
-                  />
-                ) : (
-                  <div
-                    className="portfolio-card__placeholder"
-                    aria-hidden="true"
-                  >
-                    <span>GM</span>
-                  </div>
-                )}
+        <div
+          className={`portfolio__grid ${
+            hasLimit ? "portfolio__grid--preview" : ""
+          }`}
+        >
+          {visibleEvents.map((event, index) => {
+            const isFeatured = !hasLimit && index === 0;
 
-                <div className="portfolio-card__overlay" />
+            return (
+              <article
+                className={`portfolio-card ${
+                  isFeatured ? "portfolio-card--featured" : ""
+                }`}
+                key={event.id}
+              >
+                <div className="portfolio-card__media">
+                  {event.image ? (
+                    <img
+                      src={event.image}
+                      alt={`${event.title} producido por GM Eventos`}
+                      style={{
+                        objectPosition: event.imagePosition,
+                      }}
+                    />
+                  ) : (
+                    <div
+                      className="portfolio-card__placeholder"
+                      aria-hidden="true"
+                    >
+                      <span>GM</span>
+                    </div>
+                  )}
 
-                <span className="portfolio-card__category">
-                  {event.category}
-                </span>
-              </div>
+                  <div className="portfolio-card__overlay" />
 
-              <div className="portfolio-card__content">
-                <span className="portfolio-card__number">
-                  {String(event.id).padStart(2, "0")}
-                </span>
-
-                <div>
-                  <h3>{event.title}</h3>
-                  <p>{event.description}</p>
+                  <span className="portfolio-card__category">
+                    {event.category}
+                  </span>
                 </div>
-              </div>
-            </article>
-          ))}
+
+                <div className="portfolio-card__content">
+                  <span className="portfolio-card__number">
+                    {String(event.id).padStart(2, "0")}
+                  </span>
+
+                  <div>
+                    <h3>{event.title}</h3>
+                    <p>{event.description}</p>
+                  </div>
+                </div>
+              </article>
+            );
+          })}
         </div>
+
+        {showViewAllButton && (
+          <div className="portfolio__footer">
+            <Button to="/eventos" variant="secondary">
+              Ver todos los eventos
+            </Button>
+          </div>
+        )}
       </Container>
     </section>
   );

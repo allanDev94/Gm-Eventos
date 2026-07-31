@@ -48,9 +48,16 @@ const services = [
   },
 ];
 
-function Services({ showHeader = true }) {
+function Services({ showHeader = true, limit }) {
+  const hasLimit = Number.isInteger(limit) && limit > 0;
+
+  const visibleServices = hasLimit ? services.slice(0, limit) : services;
+
+  const showViewAllButton =
+    hasLimit && visibleServices.length < services.length;
+
   return (
-    <section className="services" id="servicios">
+    <section className="services">
       <Container>
         {showHeader && (
           <div className="services__header">
@@ -68,7 +75,7 @@ function Services({ showHeader = true }) {
                 música y producción según las características de cada evento.
               </p>
 
-              <Button href="#contacto" variant="secondary">
+              <Button to="/contacto" variant="secondary">
                 Solicitar cotización
               </Button>
             </div>
@@ -76,7 +83,7 @@ function Services({ showHeader = true }) {
         )}
 
         <div className="services__grid">
-          {services.map((service) => (
+          {visibleServices.map((service) => (
             <article className="service-card" key={service.id}>
               <div className="service-card__top">
                 <span className="service-card__number">{service.id}</span>
@@ -99,6 +106,14 @@ function Services({ showHeader = true }) {
             </article>
           ))}
         </div>
+
+        {showViewAllButton && (
+          <div className="services__footer">
+            <Button to="/servicios" variant="secondary">
+              Ver todos los servicios
+            </Button>
+          </div>
+        )}
       </Container>
     </section>
   );
