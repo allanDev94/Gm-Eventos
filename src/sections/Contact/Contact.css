@@ -1,38 +1,55 @@
 .contact {
   position: relative;
   overflow: hidden;
+
   padding-block: 7rem;
+
   background-color: #0b0b0f;
 }
 
+/* Resplandor decorativo */
+
 .contact::before {
   content: "";
+
   position: absolute;
   top: -250px;
   left: -250px;
+
   width: 550px;
   height: 550px;
+
   border-radius: 50%;
+
   background-color: rgba(166, 60, 255, 0.12);
   filter: blur(100px);
+
   pointer-events: none;
 }
 
+/* Distribución principal */
+
 .contact__layout {
   position: relative;
+
   display: grid;
   grid-template-columns: minmax(0, 0.85fr) minmax(450px, 1.15fr);
   gap: 6rem;
   align-items: start;
 }
 
+/* Información de contacto */
+
 .contact__information {
+  min-width: 0;
+
   position: sticky;
   top: 120px;
 }
 
 .contact__eyebrow {
   margin-bottom: 1rem;
+
   color: #c58cff;
   font-size: 0.85rem;
   font-weight: 700;
@@ -42,6 +59,8 @@
 
 .contact__title {
   max-width: 650px;
+
+  color: #ffffff;
   font-size: clamp(2.4rem, 5vw, 4.5rem);
   line-height: 1.02;
   letter-spacing: -0.04em;
@@ -50,24 +69,34 @@
 .contact__description {
   max-width: 580px;
   margin-top: 1.75rem;
+
   color: rgba(255, 255, 255, 0.65);
   line-height: 1.75;
 }
 
+/* Datos: WhatsApp, correo y cobertura */
+
 .contact__details {
   display: grid;
-  gap: 0;
+
   margin-top: 3rem;
+
   border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .contact-detail {
+  min-width: 0;
+
   display: flex;
   flex-direction: column;
   gap: 0.45rem;
+
   padding-block: 1.35rem;
+
   color: #ffffff;
+
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
   transition:
     color 0.25s ease,
     padding-left 0.25s ease;
@@ -76,6 +105,14 @@
 a.contact-detail:hover {
   padding-left: 0.5rem;
   color: #c58cff;
+}
+
+a.contact-detail:focus-visible {
+  color: #c58cff;
+
+  outline: 2px solid #c58cff;
+  outline-offset: 0.35rem;
+  border-radius: 0.25rem;
 }
 
 .contact-detail__label {
@@ -87,14 +124,25 @@ a.contact-detail:hover {
 }
 
 .contact-detail strong {
+  max-width: 100%;
+
   font-size: 1rem;
   font-weight: 600;
+  line-height: 1.5;
+
+  overflow-wrap: anywhere;
 }
 
+/* Formulario */
+
 .contact-form {
+  min-width: 0;
+
   padding: 2.5rem;
+
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 1.5rem;
+
   background-color: rgba(255, 255, 255, 0.035);
   backdrop-filter: blur(12px);
 }
@@ -106,9 +154,12 @@ a.contact-detail:hover {
 }
 
 .contact-form__field {
+  min-width: 0;
+
   display: flex;
   flex-direction: column;
   gap: 0.65rem;
+
   margin-bottom: 1.25rem;
 }
 
@@ -122,7 +173,10 @@ a.contact-detail:hover {
 .contact-form__field select,
 .contact-form__field textarea {
   width: 100%;
+  min-width: 0;
+
   padding: 0.95rem 1rem;
+
   color: #ffffff;
   font: inherit;
 
@@ -147,6 +201,7 @@ a.contact-detail:hover {
 .contact-form__field select:focus,
 .contact-form__field textarea:focus {
   border-color: #a63cff;
+
   background-color: rgba(166, 60, 255, 0.07);
   box-shadow: 0 0 0 3px rgba(166, 60, 255, 0.12);
 }
@@ -172,26 +227,86 @@ a.contact-detail:hover {
 
 .contact-form__notice {
   margin-top: 1rem;
+
   color: rgba(255, 255, 255, 0.4);
   font-size: 0.75rem;
   line-height: 1.5;
   text-align: center;
 }
 
-@media (max-width: 1000px) {
+/* Página /contacto sin título repetido */
+
+.contact--without-header {
+  padding-top: 5rem;
+}
+
+.contact__layout--without-header {
+  grid-template-columns: minmax(240px, 0.65fr) minmax(0, 1.35fr);
+  gap: 4rem;
+}
+
+.contact__layout--without-header .contact__details {
+  margin-top: 0;
+}
+
+/* Pantallas medianas */
+
+@media (max-width: 1100px) {
   .contact__layout {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 0.8fr) minmax(400px, 1.2fr);
     gap: 4rem;
+  }
+
+  .contact__layout--without-header {
+    grid-template-columns: minmax(220px, 0.6fr) minmax(0, 1.4fr);
+  }
+}
+
+/* Tablet */
+
+@media (max-width: 900px) {
+  .contact {
+    padding-block: 5rem;
+  }
+
+  .contact--without-header {
+    padding-top: 4rem;
+  }
+
+  .contact__layout,
+  .contact__layout--without-header {
+    grid-template-columns: 1fr;
+    gap: 3.5rem;
   }
 
   .contact__information {
     position: static;
   }
+
+  .contact__details,
+  .contact__layout--without-header .contact__details {
+    margin-top: 0;
+  }
+
+  .contact__information:has(.contact__heading) .contact__details {
+    margin-top: 3rem;
+  }
 }
+
+/* Móvil */
 
 @media (max-width: 700px) {
   .contact {
-    padding-block: 5rem;
+    padding-block: 4rem;
+  }
+
+  .contact--without-header {
+    padding-top: 3.5rem;
+  }
+
+  .contact__layout,
+  .contact__layout--without-header {
+    gap: 3rem;
   }
 
   .contact-form {
@@ -203,14 +318,30 @@ a.contact-detail:hover {
     grid-template-columns: 1fr;
     gap: 0;
   }
+
+  .contact__title {
+    font-size: clamp(2.2rem, 9vw, 3.3rem);
+  }
 }
 
-@media (max-width: 480px) {
-  .contact {
-    padding-block: 4rem;
-  }
+/* Teléfonos pequeños */
 
+@media (max-width: 480px) {
   .contact-form {
     padding: 1.25rem;
+  }
+
+  .contact-form__field input,
+  .contact-form__field select,
+  .contact-form__field textarea {
+    padding: 0.9rem;
+  }
+
+  .contact-detail {
+    padding-block: 1.2rem;
+  }
+
+  .contact-form .button {
+    min-height: 50px;
   }
 }

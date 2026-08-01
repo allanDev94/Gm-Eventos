@@ -6,7 +6,7 @@ import Container from "../../components/Container/Container";
 function Hero() {
   return (
     <section className="hero" id="inicio">
-      <div className="hero__overlay" />
+      <div className="hero__overlay" aria-hidden="true" />
 
       <Container>
         <div className="hero__content">

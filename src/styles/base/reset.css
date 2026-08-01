@@ -9,10 +9,6 @@
   padding: 0;
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
 body {
   min-width: 320px;
   min-height: 100vh;
@@ -27,15 +23,22 @@ svg {
   max-width: 100%;
 }
 
+img,
+picture {
+  height: auto;
+}
+
 button,
 input,
 textarea,
 select {
+  color: inherit;
   font: inherit;
 }
 
 button {
   border: none;
+  background: none;
   cursor: pointer;
 }
 

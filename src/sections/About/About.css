@@ -3,6 +3,8 @@
   background-color: #101014;
 }
 
+/* Distribución principal */
+
 .about__grid {
   display: grid;
   grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
@@ -10,13 +12,18 @@
   align-items: start;
 }
 
+/* Título lateral */
+
 .about__heading {
   position: sticky;
   top: 7rem;
+
+  min-width: 0;
 }
 
 .about__eyebrow {
   margin-bottom: 1rem;
+
   color: #c58cff;
   font-size: 0.85rem;
   font-weight: 700;
@@ -26,41 +33,56 @@
 
 .about__title {
   max-width: 560px;
+
+  color: #ffffff;
   font-size: clamp(2.25rem, 4vw, 4rem);
   line-height: 1.05;
   letter-spacing: -0.04em;
 }
 
+/* Contenido principal */
+
 .about__content {
+  min-width: 0;
+
   color: rgba(255, 255, 255, 0.68);
   font-size: 1.05rem;
 }
 
 .about__lead {
   margin-bottom: 1.5rem;
+
   color: #ffffff;
   font-size: clamp(1.25rem, 2vw, 1.6rem);
   line-height: 1.45;
 }
 
 .about__description {
+  max-width: 780px;
   line-height: 1.8;
 }
+
+/* Valores */
 
 .about__values {
   display: grid;
   gap: 1rem;
+
   margin-top: 3rem;
 }
 
 .about__value {
+  min-width: 0;
+
   display: grid;
-  grid-template-columns: auto 1fr;
+  grid-template-columns: auto minmax(0, 1fr);
   gap: 1.5rem;
+
   padding: 1.75rem;
 
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 1rem;
+
   background-color: rgba(255, 255, 255, 0.03);
 
   transition:
@@ -71,11 +93,14 @@
 
 .about__value:hover {
   transform: translateY(-4px);
+
   border-color: rgba(197, 140, 255, 0.45);
   background-color: rgba(197, 140, 255, 0.06);
 }
 
 .about__value-number {
+  padding-top: 0.25rem;
+
   color: #c58cff;
   font-size: 0.8rem;
   font-weight: 700;
@@ -83,18 +108,43 @@
 
 .about__value h3 {
   margin-bottom: 0.5rem;
+
   color: #ffffff;
   font-size: 1.2rem;
+  line-height: 1.3;
 }
 
 .about__value p {
+  color: rgba(255, 255, 255, 0.65);
   font-size: 0.95rem;
-  line-height: 1.6;
+  line-height: 1.65;
 }
+
+/* Versión utilizada en /nosotros */
+
+.about--without-header {
+  padding-top: 5rem;
+}
+
+.about__grid--without-header {
+  grid-template-columns: 1fr;
+}
+
+.about__grid--without-header .about__content {
+  width: 100%;
+  max-width: 900px;
+  margin-inline: auto;
+}
+
+/* Tablet */
 
 @media (max-width: 900px) {
   .about {
     padding-block: 5rem;
+  }
+
+  .about--without-header {
+    padding-top: 4rem;
   }
 
   .about__grid {
@@ -105,24 +155,68 @@
   .about__heading {
     position: static;
   }
+
+  .about__title {
+    max-width: 700px;
+    font-size: clamp(2.2rem, 7vw, 3.6rem);
+  }
+
+  .about__content {
+    max-width: 760px;
+  }
+
+  .about__grid--without-header .about__content {
+    max-width: 900px;
+  }
 }
 
-@media (max-width: 480px) {
+/* Móvil */
+
+@media (max-width: 600px) {
   .about {
     padding-block: 4rem;
+  }
+
+  .about--without-header {
+    padding-top: 3.5rem;
+  }
+
+  .about__grid {
+    gap: 2.5rem;
+  }
+
+  .about__values {
+    margin-top: 2.5rem;
+  }
+
+  .about__value {
+    padding: 1.5rem;
+  }
+}
+
+/* Teléfonos pequeños */
+
+@media (max-width: 480px) {
+  .about__title {
+    font-size: clamp(2rem, 10vw, 2.8rem);
+  }
+
+  .about__content {
+    font-size: 1rem;
+  }
+
+  .about__lead {
+    font-size: 1.25rem;
   }
 
   .about__value {
     grid-template-columns: 1fr;
     gap: 0.75rem;
+
     padding: 1.4rem;
   }
-}
-.about__grid--without-header {
-  grid-template-columns: 1fr;
-}
 
-.about__grid--without-header .about__content {
-  width: 100%;
-  max-width: 900px;
+  .about__value-number {
+    padding-top: 0;
+  }
 }

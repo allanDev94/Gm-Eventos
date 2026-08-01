@@ -93,6 +93,7 @@ function Footer() {
             className="footer__back-to-top"
             type="button"
             onClick={handleBackToTop}
+            aria-label="Volver al comienzo de la página"
           >
             Volver arriba
             <span aria-hidden="true">↑</span>

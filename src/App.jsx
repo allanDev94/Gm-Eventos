@@ -1,6 +1,7 @@
 import { Navigate, Route, Routes } from "react-router-dom";
 
 import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
+import PageMetadata from "./components/PageMetadata/PageMetadata";
 
 import HomePage from "./pages/HomePage/HomePage";
 import AboutPage from "./pages/AboutPage/AboutPage";
@@ -12,6 +13,7 @@ function App() {
   return (
     <>
       <ScrollToTop />
+      <PageMetadata />
 
       <Routes>
         <Route path="/" element={<HomePage />} />

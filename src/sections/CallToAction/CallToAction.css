@@ -92,7 +92,9 @@
   }
 
   .call-to-action__actions {
-    max-width: 420px;
+    width: 80%;
+    max-width: 520px;
+    margin-inline: auto;
   }
 }
 

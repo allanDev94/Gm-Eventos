@@ -1,22 +1,30 @@
 .footer {
   padding-top: 5rem;
+
   background-color: #07070a;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
+
+/* Contenido principal */
 
 .footer__top {
   display: grid;
   grid-template-columns: minmax(260px, 0.85fr) minmax(0, 1.15fr);
   gap: 6rem;
+
   padding-bottom: 4rem;
 }
 
+/* Información de la marca */
+
 .footer__brand {
+  min-width: 0;
   max-width: 430px;
 }
 
 .footer__logo {
   display: inline-block;
+
   color: #ffffff;
   font-size: clamp(1.7rem, 3vw, 2.3rem);
   font-weight: 800;
@@ -25,9 +33,12 @@
 
 .footer__description {
   margin-top: 1.5rem;
+
   color: rgba(255, 255, 255, 0.58);
   line-height: 1.75;
 }
+
+/* Columnas de navegación */
 
 .footer__navigation {
   display: grid;
@@ -35,8 +46,13 @@
   gap: 2rem;
 }
 
+.footer__column {
+  min-width: 0;
+}
+
 .footer__heading {
   margin-bottom: 1.25rem;
+
   color: rgba(255, 255, 255, 0.38);
   font-size: 0.75rem;
   font-weight: 700;
@@ -54,9 +70,13 @@
 
 .footer__column a,
 .footer__column span {
+  max-width: 100%;
+
   color: rgba(255, 255, 255, 0.72);
   font-size: 0.95rem;
   line-height: 1.5;
+
+  overflow-wrap: anywhere;
 }
 
 .footer__column a {
@@ -70,8 +90,18 @@
   transform: translateX(0.25rem);
 }
 
+.footer__column a:focus-visible {
+  color: #c58cff;
+  outline: 2px solid #c58cff;
+  outline-offset: 0.35rem;
+  border-radius: 0.2rem;
+}
+
+/* Parte inferior */
+
 .footer__bottom {
   min-height: 90px;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -83,7 +113,13 @@
   border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
+.footer__bottom p {
+  line-height: 1.6;
+}
+
 .footer__back-to-top {
+  flex-shrink: 0;
+
   display: inline-flex;
   align-items: center;
   gap: 0.55rem;
@@ -106,14 +142,24 @@
   color: #c58cff;
 }
 
+.footer__back-to-top:focus-visible {
+  color: #c58cff;
+  outline: 2px solid #c58cff;
+  outline-offset: 0.4rem;
+  border-radius: 0.2rem;
+}
+
 .footer__back-to-top span {
   font-size: 1rem;
+
   transition: transform 0.25s ease;
 }
 
 .footer__back-to-top:hover span {
   transform: translateY(-0.2rem);
 }
+
+/* Tablet */
 
 @media (max-width: 900px) {
   .footer__top {
@@ -126,26 +172,52 @@
   }
 }
 
+/* Tablet pequeña y móvil */
+
 @media (max-width: 650px) {
   .footer {
     padding-top: 4rem;
   }
 
+  .footer__top {
+    gap: 3rem;
+    padding-bottom: 3rem;
+  }
+
   .footer__navigation {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 1.5rem;
     row-gap: 3rem;
   }
 
   .footer__bottom {
     min-height: auto;
+
     flex-direction: column;
     align-items: flex-start;
+    gap: 1rem;
+
     padding-block: 1.5rem;
   }
 }
 
+/* Teléfonos */
+
 @media (max-width: 450px) {
+  .footer {
+    padding-top: 3.5rem;
+  }
+
   .footer__navigation {
     grid-template-columns: 1fr;
+    row-gap: 2.5rem;
+  }
+
+  .footer__description {
+    margin-top: 1.25rem;
+  }
+
+  .footer__back-to-top {
+    min-height: 44px;
   }
 }

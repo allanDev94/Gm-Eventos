@@ -82,7 +82,11 @@ function Services({ showHeader = true, limit }) {
           </div>
         )}
 
-        <div className="services__grid">
+        <div
+          className={`services__grid ${
+            hasLimit ? "services__grid--preview" : ""
+          }`}
+        >
           {visibleServices.map((service) => (
             <article className="service-card" key={service.id}>
               <div className="service-card__top">

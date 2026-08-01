@@ -12,6 +12,7 @@
 
 .clients__eyebrow {
   margin-bottom: 0.5rem;
+
   color: #c58cff;
   font-size: 0.8rem;
   font-weight: 700;
@@ -31,10 +32,13 @@
 }
 
 .clients__item {
+  min-width: 0;
   min-height: 90px;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
   padding: 1rem;
 
   color: rgba(255, 255, 255, 0.55);
@@ -62,7 +66,14 @@
 
 @media (max-width: 900px) {
   .clients__list {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .clients__item {
+    flex: 0 1 calc((100% - 2rem) / 3);
   }
 }
 
@@ -72,10 +83,16 @@
   }
 
   .clients__list {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem;
   }
 
-  .clients__item:last-child {
-    grid-column: 1 / -1;
+  .clients__item {
+    flex-basis: calc((100% - 0.75rem) / 2);
+  }
+}
+
+@media (max-width: 420px) {
+  .clients__item {
+    flex-basis: 100%;
   }
 }

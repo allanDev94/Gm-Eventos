@@ -3,8 +3,7 @@ import "./Contact.css";
 import Container from "../../components/Container/Container";
 import Button from "../../components/Button/Button";
 
-// Reemplazar por el número real de GM Eventos.
-// Debe incluir código de país, pero sin +, espacios ni guiones.
+// Número con código de país, sin +, espacios ni guiones.
 const WHATSAPP_NUMBER = "56989340450";
 
 function Contact({ showHeader = true }) {
@@ -44,51 +43,61 @@ ${message || "Sin detalles adicionales"}
   };
 
   return (
-    <section className="contact" id="contacto">
+    <section
+      className={`contact ${!showHeader ? "contact--without-header" : ""}`}
+      id="contacto"
+    >
       <Container>
-        <div className="contact__layout">
-          {showHeader && (
-            <div className="contact__information">
-              <p className="contact__eyebrow">Hablemos de tu evento</p>
+        <div
+          className={`contact__layout ${
+            !showHeader ? "contact__layout--without-header" : ""
+          }`}
+        >
+          <div className="contact__information">
+            {showHeader && (
+              <div className="contact__heading">
+                <p className="contact__eyebrow">Hablemos de tu evento</p>
 
-              <h2 className="contact__title">
-                Cuéntanos tu idea y creemos algo memorable
-              </h2>
+                <h2 className="contact__title">
+                  Cuéntanos tu idea y creemos algo memorable
+                </h2>
 
-              <p className="contact__description">
-                Completa el formulario con la información principal de tu
-                evento. Prepararemos una propuesta adaptada a tus necesidades,
-                espacio y cantidad de invitados.
-              </p>
+                <p className="contact__description">
+                  Completa el formulario con la información principal de tu
+                  evento. Prepararemos una propuesta adaptada a tus necesidades,
+                  espacio y cantidad de invitados.
+                </p>
+              </div>
+            )}
 
-              <div className="contact__details">
-                <a
-                  className="contact-detail"
-                  href={`https://wa.me/${WHATSAPP_NUMBER}`}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <span className="contact-detail__label">WhatsApp</span>
-                  <strong>Escríbenos directamente</strong>
-                </a>
+            <div className="contact__details">
+              <a
+                className="contact-detail"
+                href={`https://wa.me/${WHATSAPP_NUMBER}`}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <span className="contact-detail__label">WhatsApp</span>
+                <strong>Escríbenos directamente</strong>
+              </a>
 
-                <a
-                  className="contact-detail"
-                  href="mailto:contacto@gmeventos.cl"
-                >
-                  <span className="contact-detail__label">Correo</span>
-                  <strong>contacto@gmeventos.cl</strong>
-                </a>
+              <a className="contact-detail" href="mailto:contacto@gmeventos.cl">
+                <span className="contact-detail__label">Correo</span>
+                <strong>contacto@gmeventos.cl</strong>
+              </a>
 
-                <div className="contact-detail">
-                  <span className="contact-detail__label">Cobertura</span>
-                  <strong>Santiago y alrededores</strong>
-                </div>
+              <div className="contact-detail">
+                <span className="contact-detail__label">Cobertura</span>
+                <strong>Santiago y alrededores</strong>
               </div>
             </div>
-          )}
+          </div>
 
-          <form className="contact-form" onSubmit={handleSubmit}>
+          <form
+            className="contact-form"
+            onSubmit={handleSubmit}
+            aria-label="Formulario de cotización"
+          >
             <div className="contact-form__row">
               <div className="contact-form__field">
                 <label htmlFor="name">Nombre</label>
