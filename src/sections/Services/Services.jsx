@@ -2,8 +2,9 @@ import { useState } from "react";
 
 import "./Services.css";
 
-import Container from "../../components/Container/Container";
 import Button from "../../components/Button/Button";
+import Container from "../../components/Container/Container";
+import { RevealGroup, RevealItem } from "../../components/Reveal/Reveal";
 import ServiceModal from "../../components/ServiceModal/ServiceModal";
 
 const FALLBACK_IMAGE = "/assets/img/events/01.JPG";
@@ -348,72 +349,76 @@ function Services({ showHeader = true, limit }) {
             </div>
           )}
 
-          <div
+          <RevealGroup
             className={`services__grid ${
               hasLimit ? "services__grid--preview" : ""
             }`}
+            stagger={0.12}
+            delay={0.08}
+            amount={0.15}
           >
             {visibleServices.map((service) => (
-              <article
-                className={`service-card ${
-                  service.hasDetails ? "service-card--interactive" : ""
-                }`}
-                key={service.id}
-                role={service.hasDetails ? "button" : undefined}
-                tabIndex={service.hasDetails ? 0 : undefined}
-                aria-haspopup={service.hasDetails ? "dialog" : undefined}
-                aria-label={
-                  service.hasDetails
-                    ? `Ver detalles de ${service.title}`
-                    : undefined
-                }
-                onClick={
-                  service.hasDetails
-                    ? () => openServiceModal(service)
-                    : undefined
-                }
-                onKeyDown={
-                  service.hasDetails
-                    ? (event) => handleServiceKeyDown(event, service)
-                    : undefined
-                }
-              >
-                <img
-                  className="service-card__image"
-                  src={service.image}
-                  alt={service.imageAlt}
-                  onError={handleImageError}
-                />
+              <RevealItem className="services__reveal-item" key={service.id}>
+                <article
+                  className={`service-card ${
+                    service.hasDetails ? "service-card--interactive" : ""
+                  }`}
+                  role={service.hasDetails ? "button" : undefined}
+                  tabIndex={service.hasDetails ? 0 : undefined}
+                  aria-haspopup={service.hasDetails ? "dialog" : undefined}
+                  aria-label={
+                    service.hasDetails
+                      ? `Ver detalles de ${service.title}`
+                      : undefined
+                  }
+                  onClick={
+                    service.hasDetails
+                      ? () => openServiceModal(service)
+                      : undefined
+                  }
+                  onKeyDown={
+                    service.hasDetails
+                      ? (event) => handleServiceKeyDown(event, service)
+                      : undefined
+                  }
+                >
+                  <img
+                    className="service-card__image"
+                    src={service.image}
+                    alt={service.imageAlt}
+                    onError={handleImageError}
+                  />
 
-                <div className="service-card__overlay" aria-hidden="true" />
+                  <div className="service-card__overlay" aria-hidden="true" />
 
-                <div className="service-card__body">
-                  <div className="service-card__content">
-                    <h3>{service.title}</h3>
+                  <div className="service-card__body">
+                    <div className="service-card__content">
+                      <h3>{service.title}</h3>
 
-                    <p>{service.description}</p>
+                      <p>{service.description}</p>
+                    </div>
+
+                    <div className="service-card__services">
+                      <p className="service-card__includes-label">Incluye:</p>
+
+                      <ul className="service-card__features">
+                        {service.features.map((feature) => (
+                          <li key={feature}>{feature}</li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    {service.hasDetails && (
+                      <span className="service-card__details-label">
+                        Ver detalles
+                        <span aria-hidden="true">→</span>
+                      </span>
+                    )}
                   </div>
-
-                  <div className="service-card__services">
-                    <p className="service-card__includes-label">Incluye:</p>
-
-                    <ul className="service-card__features">
-                      {service.features.map((feature) => (
-                        <li key={feature}>{feature}</li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  {service.hasDetails && (
-                    <span className="service-card__details-label">
-                      Ver detalles
-                      <span aria-hidden="true">→</span>
-                    </span>
-                  )}
-                </div>
-              </article>
+                </article>
+              </RevealItem>
             ))}
-          </div>
+          </RevealGroup>
 
           {showViewAllButton && (
             <div className="services__footer">

@@ -1,0 +1,16 @@
+.reveal-item {
+  min-width: 0;
+  height: 100%;
+}
+
+.reveal-item > article,
+.reveal-item > div,
+.reveal-item > a {
+  height: 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-item {
+    transform: none !important;
+  }
+}

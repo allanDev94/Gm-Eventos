@@ -50,6 +50,19 @@
   gap: 1.5rem;
 }
 
+.portfolio__reveal-item {
+  min-width: 0;
+  height: 100%;
+}
+
+.portfolio__reveal-item .portfolio-card {
+  height: 100%;
+}
+
+.portfolio__reveal-item--featured {
+  grid-column: 1 / -1;
+}
+
 .portfolio-card {
   min-width: 0;
 }

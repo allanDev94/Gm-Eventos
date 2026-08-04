@@ -1,7 +1,8 @@
 import "./Portfolio.css";
 
-import Container from "../../components/Container/Container";
 import Button from "../../components/Button/Button";
+import Container from "../../components/Container/Container";
+import { RevealGroup, RevealItem } from "../../components/Reveal/Reveal";
 
 const events = [
   {
@@ -67,60 +68,72 @@ function Portfolio({ showHeader = true, limit }) {
           </div>
         )}
 
-        <div
+        <RevealGroup
           className={`portfolio__grid ${
             hasLimit ? "portfolio__grid--preview" : ""
           }`}
+          stagger={0.14}
+          delay={0.08}
+          amount={0.15}
         >
           {visibleEvents.map((event, index) => {
             const isFeatured = !hasLimit && index === 0;
 
             return (
-              <article
-                className={`portfolio-card ${
-                  isFeatured ? "portfolio-card--featured" : ""
+              <RevealItem
+                className={`portfolio__reveal-item ${
+                  isFeatured ? "portfolio__reveal-item--featured" : ""
                 }`}
                 key={event.id}
               >
-                <div className="portfolio-card__media">
-                  {event.image ? (
-                    <img
-                      src={event.image}
-                      alt={`${event.title} producido por GM Eventos`}
-                      style={{
-                        objectPosition: event.imagePosition,
-                      }}
-                    />
-                  ) : (
+                <article
+                  className={`portfolio-card ${
+                    isFeatured ? "portfolio-card--featured" : ""
+                  }`}
+                >
+                  <div className="portfolio-card__media">
+                    {event.image ? (
+                      <img
+                        src={event.image}
+                        alt={`${event.title} producido por GM Eventos`}
+                        style={{
+                          objectPosition: event.imagePosition,
+                        }}
+                      />
+                    ) : (
+                      <div
+                        className="portfolio-card__placeholder"
+                        aria-hidden="true"
+                      >
+                        <span>GM</span>
+                      </div>
+                    )}
+
                     <div
-                      className="portfolio-card__placeholder"
+                      className="portfolio-card__overlay"
                       aria-hidden="true"
-                    >
-                      <span>GM</span>
-                    </div>
-                  )}
+                    />
 
-                  <div className="portfolio-card__overlay" />
-
-                  <span className="portfolio-card__category">
-                    {event.category}
-                  </span>
-                </div>
-
-                <div className="portfolio-card__content">
-                  <span className="portfolio-card__number">
-                    {String(event.id).padStart(2, "0")}
-                  </span>
-
-                  <div>
-                    <h3>{event.title}</h3>
-                    <p>{event.description}</p>
+                    <span className="portfolio-card__category">
+                      {event.category}
+                    </span>
                   </div>
-                </div>
-              </article>
+
+                  <div className="portfolio-card__content">
+                    <span className="portfolio-card__number">
+                      {String(event.id).padStart(2, "0")}
+                    </span>
+
+                    <div>
+                      <h3>{event.title}</h3>
+                      <p>{event.description}</p>
+                    </div>
+                  </div>
+                </article>
+              </RevealItem>
             );
           })}
-        </div>
+        </RevealGroup>
 
         {showViewAllButton && (
           <div className="portfolio__footer">
