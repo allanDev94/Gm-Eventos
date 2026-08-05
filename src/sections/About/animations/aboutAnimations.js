@@ -5,6 +5,7 @@ const createStaggerContainer = ({
   delayChildren = 0,
 } = {}) => ({
   hidden: {},
+
   visible: {
     transition: {
       staggerChildren,
@@ -99,32 +100,4 @@ export const commitmentContentVariants = createStaggerContainer({
 
 export const commitmentItemVariants = createFadeSlide({
   x: 40,
-});
-
-/* ========================================
-   CTA FINAL
-======================================== */
-
-export const ctaContainerVariants = createFadeSlide({
-  y: 55,
-  scale: 0.97,
-  duration: 0.85,
-});
-
-export const ctaContentVariants = createStaggerContainer({
-  staggerChildren: 0.11,
-  delayChildren: 0.15,
-});
-
-export const ctaItemVariants = createFadeSlide({
-  y: 28,
-});
-
-export const ctaActionsVariants = createStaggerContainer({
-  staggerChildren: 0.12,
-  delayChildren: 0.32,
-});
-
-export const ctaActionItemVariants = createFadeSlide({
-  x: 38,
 });
