@@ -33,222 +33,23 @@ import {
   values,
 } from "./data/aboutData";
 
-/* ========================================
-   ANIMACIONES: QUIÉNES SOMOS
-======================================== */
-
-const storyContentVariants = {
-  hidden: {},
-  visible: {
-    transition: {
-      staggerChildren: 0.12,
-      delayChildren: 0.08,
-    },
-  },
-};
-
-const storyItemVariants = {
-  hidden: {
-    opacity: 0,
-    x: -38,
-  },
-  visible: {
-    opacity: 1,
-    x: 0,
-    transition: {
-      duration: 0.65,
-      ease: [0.16, 1, 0.3, 1],
-    },
-  },
-};
-
-const storyVisualVariants = {
-  hidden: {},
-  visible: {
-    transition: {
-      staggerChildren: 0.16,
-      delayChildren: 0.12,
-    },
-  },
-};
-
-const storyGalleryVariants = {
-  hidden: {
-    opacity: 0,
-    x: 55,
-    scale: 0.96,
-  },
-  visible: {
-    opacity: 1,
-    x: 0,
-    scale: 1,
-    transition: {
-      duration: 0.85,
-      ease: [0.16, 1, 0.3, 1],
-    },
-  },
-};
-
-const storyDetailVariants = {
-  hidden: {
-    opacity: 0,
-    y: 35,
-    scale: 0.9,
-  },
-  visible: {
-    opacity: 1,
-    y: 0,
-    scale: 1,
-    transition: {
-      duration: 0.7,
-      delay: 0.3,
-      ease: [0.16, 1, 0.3, 1],
-    },
-  },
-};
-
-const storyHighlightsVariants = {
-  hidden: {},
-  visible: {
-    transition: {
-      staggerChildren: 0.1,
-    },
-  },
-};
-
-const storyHighlightItemVariants = {
-  hidden: {
-    opacity: 0,
-    y: 26,
-    scale: 0.97,
-  },
-  visible: {
-    opacity: 1,
-    y: 0,
-    scale: 1,
-    transition: {
-      duration: 0.55,
-      ease: [0.16, 1, 0.3, 1],
-    },
-  },
-};
-
-/* ========================================
-   ANIMACIONES: NUESTRO COMPROMISO
-======================================== */
-
-const commitmentMediaVariants = {
-  hidden: {
-    opacity: 0,
-    x: -60,
-    scale: 0.96,
-  },
-  visible: {
-    opacity: 1,
-    x: 0,
-    scale: 1,
-    transition: {
-      duration: 0.8,
-      ease: [0.16, 1, 0.3, 1],
-    },
-  },
-};
-
-const commitmentContentVariants = {
-  hidden: {},
-  visible: {
-    transition: {
-      staggerChildren: 0.12,
-      delayChildren: 0.18,
-    },
-  },
-};
-
-const commitmentItemVariants = {
-  hidden: {
-    opacity: 0,
-    x: 40,
-  },
-  visible: {
-    opacity: 1,
-    x: 0,
-    transition: {
-      duration: 0.65,
-      ease: [0.16, 1, 0.3, 1],
-    },
-  },
-};
-
-/* ========================================
-   ANIMACIONES: CTA
-======================================== */
-
-const ctaContainerVariants = {
-  hidden: {
-    opacity: 0,
-    y: 55,
-    scale: 0.97,
-  },
-  visible: {
-    opacity: 1,
-    y: 0,
-    scale: 1,
-    transition: {
-      duration: 0.85,
-      ease: [0.16, 1, 0.3, 1],
-    },
-  },
-};
-
-const ctaContentVariants = {
-  hidden: {},
-  visible: {
-    transition: {
-      staggerChildren: 0.11,
-      delayChildren: 0.15,
-    },
-  },
-};
-
-const ctaItemVariants = {
-  hidden: {
-    opacity: 0,
-    y: 28,
-  },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.65,
-      ease: [0.16, 1, 0.3, 1],
-    },
-  },
-};
-
-const ctaActionsVariants = {
-  hidden: {},
-  visible: {
-    transition: {
-      staggerChildren: 0.12,
-      delayChildren: 0.32,
-    },
-  },
-};
-
-const ctaActionItemVariants = {
-  hidden: {
-    opacity: 0,
-    x: 38,
-  },
-  visible: {
-    opacity: 1,
-    x: 0,
-    transition: {
-      duration: 0.65,
-      ease: [0.16, 1, 0.3, 1],
-    },
-  },
-};
+import {
+  commitmentContentVariants,
+  commitmentItemVariants,
+  commitmentMediaVariants,
+  ctaActionItemVariants,
+  ctaActionsVariants,
+  ctaContainerVariants,
+  ctaContentVariants,
+  ctaItemVariants,
+  storyContentVariants,
+  storyDetailVariants,
+  storyGalleryVariants,
+  storyHighlightItemVariants,
+  storyHighlightsVariants,
+  storyItemVariants,
+  storyVisualVariants,
+} from "./animations/aboutAnimations";
 
 function About({ showHeader = true }) {
   const shouldReduceMotion = useReducedMotion();
