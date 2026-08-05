@@ -44,360 +44,6 @@
 }
 
 /* ========================================
-   NUESTRO COMPROMISO
-======================================== */
-
-.about__commitment {
-  display: grid;
-  grid-template-columns: minmax(380px, 0.95fr) minmax(0, 1.05fr);
-  gap: clamp(3rem, 6vw, 6rem);
-  align-items: stretch;
-
-  margin-top: 8rem;
-  padding-top: 6rem;
-
-  border-top: 1px solid rgba(255, 255, 255, 0.09);
-}
-
-.about__commitment-media {
-  position: relative;
-  overflow: hidden;
-
-  min-width: 0;
-  min-height: 540px;
-  height: 100%;
-
-  border: 1px solid rgba(197, 140, 255, 0.2);
-  border-radius: 1.6rem;
-
-  background-color: #18181f;
-
-  box-shadow:
-    0 1.8rem 4.5rem rgba(0, 0, 0, 0.28),
-    0 0 3rem rgba(166, 60, 255, 0.06);
-
-  transition:
-    border-color 0.35s ease,
-    box-shadow 0.35s ease,
-    transform 0.35s ease;
-}
-
-.about__commitment-media:hover {
-  border-color: rgba(197, 140, 255, 0.42);
-
-  box-shadow:
-    0 2rem 5rem rgba(0, 0, 0, 0.34),
-    0 0 3.5rem rgba(166, 60, 255, 0.11);
-
-  transform: translateY(-0.3rem);
-}
-
-.about__commitment-swiper {
-  position: absolute;
-  inset: 0;
-
-  width: 100%;
-  height: 100%;
-}
-
-.about__commitment-swiper .swiper-wrapper,
-.about__commitment-swiper .swiper-slide {
-  width: 100%;
-  height: 100%;
-}
-
-.about__commitment-slide {
-  position: relative;
-
-  width: 100%;
-  height: 100%;
-}
-
-.about__commitment-slide img {
-  width: 100%;
-  height: 100%;
-
-  object-fit: cover;
-
-  transform: scale(1.03);
-
-  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.about__commitment-swiper .swiper-slide-active .about__commitment-slide img {
-  transform: scale(1);
-}
-
-.about__commitment-overlay {
-  position: absolute;
-  inset: 0;
-
-  background:
-    linear-gradient(
-      180deg,
-      rgba(7, 7, 10, 0.03) 30%,
-      rgba(7, 7, 10, 0.2) 64%,
-      rgba(7, 7, 10, 0.7) 100%
-    ),
-    linear-gradient(90deg, rgba(12, 9, 18, 0.16), transparent 65%);
-
-  pointer-events: none;
-}
-
-/* Paginación */
-
-.about__commitment-swiper .swiper-pagination {
-  right: auto;
-  bottom: 1.65rem;
-  left: 1.5rem;
-  z-index: 5;
-
-  width: auto;
-
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 0.4rem;
-}
-
-.about__commitment-swiper .swiper-pagination-bullet {
-  width: 0.45rem;
-  height: 0.45rem;
-  margin: 0 !important;
-
-  background-color: rgba(255, 255, 255, 0.58);
-  opacity: 1;
-
-  transition:
-    width 0.3s ease,
-    border-radius 0.3s ease,
-    background-color 0.3s ease,
-    transform 0.3s ease;
-}
-
-.about__commitment-swiper .swiper-pagination-bullet:hover {
-  background-color: rgba(255, 255, 255, 0.9);
-
-  transform: scale(1.15);
-}
-
-.about__commitment-swiper .swiper-pagination-bullet-active {
-  width: 1.5rem;
-
-  border-radius: 999px;
-
-  background-color: #c58cff;
-}
-
-/* Controles */
-
-.about__commitment-controls {
-  position: absolute;
-  right: 1.35rem;
-  bottom: 1.35rem;
-  z-index: 5;
-
-  display: flex;
-  align-items: center;
-  gap: 0.55rem;
-}
-
-.about__commitment-controls button {
-  width: 2.65rem;
-  height: 2.65rem;
-
-  display: grid;
-  place-items: center;
-
-  padding: 0;
-
-  color: #ffffff;
-  cursor: pointer;
-
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 50%;
-
-  background-color: rgba(15, 13, 20, 0.72);
-
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-
-  transition:
-    color 0.25s ease,
-    border-color 0.25s ease,
-    background-color 0.25s ease,
-    transform 0.25s ease;
-}
-
-.about__commitment-controls button:hover {
-  color: #1a1021;
-
-  border-color: #d4a1ff;
-  background-color: #d4a1ff;
-
-  transform: translateY(-0.15rem);
-}
-
-.about__commitment-controls button:focus-visible {
-  outline: 3px solid rgba(197, 140, 255, 0.42);
-  outline-offset: 3px;
-}
-
-.about__commitment-counter {
-  min-width: 4.2rem;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.3rem;
-
-  padding: 0.55rem 0.75rem;
-
-  color: rgba(255, 255, 255, 0.48);
-  font-size: 0.7rem;
-
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  border-radius: 999px;
-
-  background-color: rgba(15, 13, 20, 0.72);
-
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-}
-
-.about__commitment-counter strong {
-  color: #ffffff;
-}
-
-/* Contenido */
-
-.about__commitment-content {
-  position: relative;
-
-  min-width: 0;
-  padding-left: 2rem;
-}
-
-.about__commitment-content::before {
-  content: "";
-
-  position: absolute;
-  top: 0.2rem;
-  bottom: 0.2rem;
-  left: 0;
-
-  width: 2px;
-
-  background: linear-gradient(180deg, #c58cff, rgba(197, 140, 255, 0.05));
-}
-
-.about__commitment-content::after {
-  content: "";
-
-  position: absolute;
-  top: 10%;
-  left: -5rem;
-  z-index: -1;
-
-  width: 15rem;
-  height: 15rem;
-
-  border-radius: 50%;
-
-  background-color: rgba(166, 60, 255, 0.08);
-  filter: blur(4rem);
-
-  pointer-events: none;
-}
-
-.about__commitment-content h2 {
-  max-width: 700px;
-
-  color: #ffffff;
-  font-size: clamp(2.3rem, 4vw, 4rem);
-  line-height: 1.05;
-  letter-spacing: -0.04em;
-}
-
-.about__commitment-content > p:not(.about__eyebrow) {
-  max-width: 680px;
-  margin-top: 1.35rem;
-
-  color: rgba(255, 255, 255, 0.65);
-  line-height: 1.8;
-}
-
-.about__commitment-values {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 0.75rem;
-
-  margin-top: 2.2rem;
-  padding: 0;
-
-  list-style: none;
-}
-
-.about__commitment-values li {
-  min-width: 0;
-
-  display: flex;
-  flex-direction: column;
-  gap: 0.8rem;
-
-  padding: 1rem;
-
-  border: 1px solid rgba(255, 255, 255, 0.09);
-  border-radius: 1rem;
-
-  background-color: rgba(255, 255, 255, 0.025);
-
-  transition:
-    border-color 0.3s ease,
-    background-color 0.3s ease,
-    transform 0.3s ease;
-}
-
-.about__commitment-values li:hover {
-  border-color: rgba(197, 140, 255, 0.36);
-  background-color: rgba(166, 60, 255, 0.055);
-
-  transform: translateY(-0.25rem);
-}
-
-.about__commitment-value-icon {
-  width: 2.5rem;
-  height: 2.5rem;
-
-  display: grid;
-  place-items: center;
-
-  color: #d4a1ff;
-
-  border: 1px solid rgba(197, 140, 255, 0.25);
-  border-radius: 0.8rem;
-
-  background-color: rgba(166, 60, 255, 0.09);
-}
-
-.about__commitment-values li div {
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
-}
-
-.about__commitment-values strong {
-  color: #ffffff;
-  font-size: 0.83rem;
-}
-
-.about__commitment-values li div span {
-  color: rgba(255, 255, 255, 0.52);
-  font-size: 0.72rem;
-  line-height: 1.5;
-}
-
-/* ========================================
    CTA FINAL
 ======================================== */
 
@@ -488,8 +134,6 @@
   pointer-events: none;
 }
 
-/* Resplandores */
-
 .about__cta-glow {
   position: absolute;
   z-index: -1;
@@ -522,8 +166,6 @@
 
   background-color: rgba(255, 76, 145, 0.11);
 }
-
-/* Contenido */
 
 .about__cta-content {
   position: relative;
@@ -558,8 +200,6 @@
   font-size: 1rem;
   line-height: 1.75;
 }
-
-/* Beneficios */
 
 .about__cta-benefits {
   display: flex;
@@ -609,8 +249,6 @@
 
   color: #d3a0ff;
 }
-
-/* Acciones */
 
 .about__cta-actions {
   position: relative;
@@ -736,26 +374,7 @@
   text-align: center;
 }
 
-/* ========================================
-   ESCRITORIO MEDIANO
-======================================== */
-
 @media (max-width: 1100px) {
-  .about__commitment {
-    grid-template-columns:
-      minmax(340px, 0.9fr)
-      minmax(0, 1.1fr);
-    gap: 3rem;
-  }
-
-  .about__commitment-media {
-    min-height: 500px;
-  }
-
-  .about__commitment-values {
-    grid-template-columns: 1fr;
-  }
-
   .about__cta {
     grid-template-columns:
       minmax(0, 1fr)
@@ -764,10 +383,6 @@
   }
 }
 
-/* ========================================
-   TABLET
-======================================== */
-
 @media (max-width: 900px) {
   .about {
     padding-block: 5rem;
@@ -775,22 +390,6 @@
 
   .about--without-header {
     padding-top: 4rem;
-  }
-
-  .about__commitment {
-    grid-template-columns: 1fr;
-    gap: 3.5rem;
-  }
-
-  .about__commitment-media {
-    min-height: auto;
-    height: auto;
-
-    aspect-ratio: 16 / 10;
-  }
-
-  .about__commitment-content {
-    padding-left: 1.5rem;
   }
 
   .about__cta {
@@ -806,10 +405,6 @@
   }
 }
 
-/* ========================================
-   MÓVIL
-======================================== */
-
 @media (max-width: 700px) {
   .about {
     padding-block: 4rem;
@@ -817,36 +412,6 @@
 
   .about--without-header {
     padding-top: 3.5rem;
-  }
-
-  .about__commitment {
-    margin-top: 5rem;
-    padding-top: 4rem;
-  }
-
-  .about__commitment-media {
-    aspect-ratio: 4 / 5;
-  }
-
-  .about__commitment-swiper .swiper-pagination {
-    right: auto;
-    bottom: 1.35rem;
-    left: 1rem;
-
-    width: auto;
-    padding-left: 0;
-  }
-
-  .about__commitment-controls {
-    right: 1rem;
-    bottom: 1rem;
-    left: auto;
-
-    justify-content: flex-end;
-  }
-
-  .about__commitment-values {
-    grid-template-columns: 1fr;
   }
 
   .about__cta {
@@ -872,33 +437,9 @@
   }
 }
 
-/* ========================================
-   TELÉFONOS PEQUEÑOS
-======================================== */
-
 @media (max-width: 480px) {
-  .about__commitment-content h2,
   .about__cta h2 {
     font-size: clamp(2rem, 10vw, 2.8rem);
-  }
-
-  .about__commitment-content {
-    padding-left: 1.1rem;
-  }
-
-  .about__commitment-controls {
-    gap: 0.35rem;
-  }
-
-  .about__commitment-controls button {
-    width: 2.4rem;
-    height: 2.4rem;
-  }
-
-  .about__commitment-counter {
-    min-width: 3.8rem;
-
-    padding-inline: 0.6rem;
   }
 
   .about__cta {
@@ -914,14 +455,7 @@
   }
 }
 
-/* ========================================
-   ACCESIBILIDAD
-======================================== */
-
 @media (prefers-reduced-motion: reduce) {
-  .about__commitment-media,
-  .about__commitment-slide img,
-  .about__commitment-values li,
   .about__cta,
   .about__cta-benefits li,
   .about__cta-button,
