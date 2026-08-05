@@ -1,0 +1,351 @@
+/* ========================================
+   QUÉ NOS DIFERENCIA
+======================================== */
+
+.about__values-block {
+  margin-top: 8rem;
+  padding-top: 6rem;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.09);
+}
+
+.about__values {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+.about__value {
+  --value-accent: #c58cff;
+  --value-rgb: 197, 140, 255;
+
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+
+  min-width: 0;
+  min-height: 365px;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 1.35rem 1.45rem 1.8rem;
+
+  border: 1px solid rgba(var(--value-rgb), 0.23);
+  border-radius: 1.5rem;
+
+  background:
+    radial-gradient(
+      circle at 50% 37%,
+      rgba(var(--value-rgb), 0.22),
+      transparent 29%
+    ),
+    linear-gradient(
+      165deg,
+      rgba(var(--value-rgb), 0.11),
+      rgba(255, 255, 255, 0.025) 54%,
+      rgba(8, 8, 12, 0.17) 100%
+    ),
+    #15151b;
+
+  box-shadow:
+    0 1.2rem 3rem rgba(0, 0, 0, 0.16),
+    inset 0 1px rgba(255, 255, 255, 0.04);
+
+  transition:
+    border-color 0.35s ease,
+    box-shadow 0.35s ease,
+    transform 0.35s ease;
+}
+
+.about__value--violet {
+  --value-accent: #c58cff;
+  --value-rgb: 197, 140, 255;
+}
+
+.about__value--pink {
+  --value-accent: #ff6aae;
+  --value-rgb: 255, 106, 174;
+}
+
+.about__value--coral {
+  --value-accent: #ff8875;
+  --value-rgb: 255, 136, 117;
+}
+
+.about__value--gold {
+  --value-accent: #ffc861;
+  --value-rgb: 255, 200, 97;
+}
+
+.about__value::before {
+  content: "";
+
+  position: absolute;
+  top: 0;
+  right: 20%;
+  left: 20%;
+
+  height: 2px;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--value-accent),
+    transparent
+  );
+
+  opacity: 0.85;
+}
+
+.about__value::after {
+  content: "";
+
+  position: absolute;
+  right: -4rem;
+  bottom: -5rem;
+  z-index: -1;
+
+  width: 11rem;
+  height: 11rem;
+
+  border-radius: 50%;
+
+  background-color: rgba(var(--value-rgb), 0.14);
+  filter: blur(2.8rem);
+
+  transition:
+    background-color 0.4s ease,
+    transform 0.5s ease;
+}
+
+.about__value:hover {
+  border-color: rgba(var(--value-rgb), 0.6);
+
+  box-shadow:
+    0 1.8rem 4rem rgba(0, 0, 0, 0.28),
+    0 0 2.8rem rgba(var(--value-rgb), 0.09);
+
+  transform: translateY(-0.5rem);
+}
+
+.about__value:hover::after {
+  background-color: rgba(var(--value-rgb), 0.24);
+
+  transform: scale(1.18);
+}
+
+.about__value-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.about__value-icon {
+  width: 2.65rem;
+  height: 2.65rem;
+
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+
+  color: var(--value-accent);
+
+  border: 1px solid rgba(var(--value-rgb), 0.3);
+  border-radius: 0.85rem;
+
+  background-color: rgba(var(--value-rgb), 0.1);
+
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.06);
+
+  transition:
+    color 0.3s ease,
+    border-color 0.3s ease,
+    background-color 0.3s ease,
+    transform 0.4s ease;
+}
+
+.about__value-label {
+  display: inline-flex;
+  align-items: center;
+
+  padding: 0.4rem 0.68rem;
+
+  color: var(--value-accent);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+
+  border: 1px solid rgba(var(--value-rgb), 0.27);
+  border-radius: 999px;
+
+  background-color: rgba(var(--value-rgb), 0.08);
+}
+
+.about__value:hover .about__value-icon {
+  color: #ffffff;
+
+  border-color: rgba(var(--value-rgb), 0.65);
+  background-color: rgba(var(--value-rgb), 0.22);
+
+  transform: translateY(-0.2rem) rotate(-6deg) scale(1.06);
+}
+
+.about__value-visual {
+  position: relative;
+
+  width: 10rem;
+  height: 10rem;
+
+  display: grid;
+  place-items: center;
+
+  margin: 0.65rem auto 0.75rem;
+}
+
+.about__value-visual::before {
+  content: "";
+
+  position: absolute;
+  inset: 0.7rem;
+
+  border: 1px solid rgba(var(--value-rgb), 0.17);
+  border-radius: 40% 60% 55% 45% / 48% 45% 55% 52%;
+
+  background: radial-gradient(
+    circle,
+    rgba(var(--value-rgb), 0.14),
+    rgba(var(--value-rgb), 0.035) 65%,
+    transparent 66%
+  );
+
+  box-shadow:
+    inset 0 1px rgba(255, 255, 255, 0.06),
+    0 0 2.4rem rgba(var(--value-rgb), 0.1);
+
+  transition:
+    border-radius 0.5s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease,
+    transform 0.45s ease;
+}
+
+.about__value-image {
+  position: relative;
+  z-index: 1;
+
+  width: 8rem;
+  height: 8rem;
+
+  object-fit: contain;
+
+  filter: drop-shadow(0 1rem 1.4rem rgba(0, 0, 0, 0.27));
+
+  transition:
+    filter 0.35s ease,
+    transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.about__value:hover .about__value-visual::before {
+  border-color: rgba(var(--value-rgb), 0.44);
+  border-radius: 55% 45% 42% 58% / 43% 58% 42% 57%;
+
+  box-shadow:
+    inset 0 1px rgba(255, 255, 255, 0.1),
+    0 0 3rem rgba(var(--value-rgb), 0.2);
+
+  transform: scale(1.05) rotate(3deg);
+}
+
+.about__value:hover .about__value-image {
+  filter: drop-shadow(0 1.2rem 1.7rem rgba(0, 0, 0, 0.34));
+
+  transform: translateY(-0.4rem) scale(1.06) rotate(1deg);
+}
+
+.about__value-content {
+  margin-top: auto;
+
+  text-align: center;
+}
+
+.about__value h3 {
+  max-width: 270px;
+  margin-inline: auto;
+
+  color: #ffffff;
+  font-size: 1.16rem;
+  line-height: 1.32;
+  letter-spacing: -0.015em;
+}
+
+.about__value p {
+  max-width: 290px;
+  margin: 0.8rem auto 0;
+
+  color: rgba(255, 255, 255, 0.64);
+  font-size: 0.85rem;
+  line-height: 1.68;
+}
+
+/* ========================================
+   RESPONSIVE
+======================================== */
+
+@media (max-width: 1100px) {
+  .about__values {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .about__value {
+    min-height: 355px;
+  }
+}
+
+@media (max-width: 700px) {
+  .about__values-block {
+    margin-top: 5rem;
+    padding-top: 4rem;
+  }
+
+  .about__values {
+    grid-template-columns: 1fr;
+  }
+
+  .about__value {
+    min-height: 350px;
+  }
+}
+
+@media (max-width: 480px) {
+  .about__value {
+    min-height: 335px;
+    padding: 1.25rem 1.25rem 1.65rem;
+  }
+
+  .about__value-visual {
+    width: 9rem;
+    height: 9rem;
+  }
+
+  .about__value-image {
+    width: 7rem;
+    height: 7rem;
+  }
+
+  .about__value h3 {
+    font-size: 1.15rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .about__value,
+  .about__value::after,
+  .about__value-icon,
+  .about__value-visual::before,
+  .about__value-image {
+    transition-duration: 1ms !important;
+  }
+}

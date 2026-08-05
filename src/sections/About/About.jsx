@@ -21,16 +21,16 @@ import "./About.css";
 
 import Button from "../../components/Button/Button";
 import Container from "../../components/Container/Container";
-import { RevealGroup, RevealItem } from "../../components/Reveal/Reveal";
+import ProcessSection from "./components/ProcessSection/ProcessSection";
+import ValuesSection from "./components/ValuesSection/ValuesSection";
+
+import StorySection from "./components/StorySection/StorySection";
 
 import {
   FALLBACK_IMAGE,
   commitmentPhotos,
   commitmentPoints,
   ctaBenefits,
-  processSteps,
-  storyHighlights,
-  values,
 } from "./data/aboutData";
 
 import {
@@ -42,13 +42,6 @@ import {
   ctaContainerVariants,
   ctaContentVariants,
   ctaItemVariants,
-  storyContentVariants,
-  storyDetailVariants,
-  storyGalleryVariants,
-  storyHighlightItemVariants,
-  storyHighlightsVariants,
-  storyItemVariants,
-  storyVisualVariants,
 } from "./animations/aboutAnimations";
 
 function About({ showHeader = true }) {
@@ -82,248 +75,25 @@ function About({ showHeader = true }) {
             QUIÉNES SOMOS
         ====================================== */}
 
-        <div className="about__story">
-          <motion.div
-            className="about__story-content"
-            variants={storyContentVariants}
-            initial={shouldReduceMotion ? false : "hidden"}
-            whileInView={shouldReduceMotion ? undefined : "visible"}
-            viewport={{
-              once: true,
-              amount: 0.2,
-            }}
-          >
-            <motion.p className="about__eyebrow" variants={storyItemVariants}>
-              Quiénes somos
-            </motion.p>
-
-            <motion.h2
-              className="about__story-title"
-              variants={storyItemVariants}
-            >
-              Producción cercana, profesional y adaptada a cada cliente
-            </motion.h2>
-
-            <motion.p className="about__lead" variants={storyItemVariants}>
-              Creamos experiencias personalizadas para matrimonios, eventos
-              corporativos, graduaciones, fiestas y celebraciones privadas.
-            </motion.p>
-
-            <motion.p
-              className="about__description"
-              variants={storyItemVariants}
-            >
-              En GM Eventos trabajamos junto a cada cliente para conocer su
-              idea, entender el tipo de público y diseñar una propuesta que se
-              adapte al espacio, estilo y necesidades de la celebración.
-            </motion.p>
-
-            <motion.p
-              className="about__description"
-              variants={storyItemVariants}
-            >
-              Nuestra prioridad es que puedas disfrutar tu evento con
-              tranquilidad, sabiendo que la música, el sonido, la iluminación y
-              los detalles técnicos están correctamente coordinados.
-            </motion.p>
-          </motion.div>
-
-          <motion.div
-            className="about__story-visual-column"
-            variants={storyVisualVariants}
-            initial={shouldReduceMotion ? false : "hidden"}
-            whileInView={shouldReduceMotion ? undefined : "visible"}
-            viewport={{
-              once: true,
-              amount: 0.18,
-            }}
-          >
-            <motion.div
-              className="about__story-gallery"
-              variants={storyGalleryVariants}
-            >
-              <figure className="about__story-main-media">
-                <img
-                  src="/assets/img/about/story/main.jpg"
-                  alt="Equipo de GM Eventos trabajando en la producción de una celebración"
-                  loading="lazy"
-                  decoding="async"
-                  onError={handleImageError}
-                />
-
-                <div className="about__story-main-overlay" aria-hidden="true" />
-
-                <figcaption>
-                  <span>GM Eventos</span>
-
-                  <strong>
-                    Creamos momentos que se convierten en recuerdos
-                  </strong>
-                </figcaption>
-              </figure>
-
-              <motion.figure
-                className="about__story-detail-media"
-                variants={storyDetailVariants}
-              >
-                <img
-                  src="/assets/img/about/story/detail.jpg"
-                  alt="Detalle del montaje técnico realizado por GM Eventos"
-                  loading="lazy"
-                  decoding="async"
-                  onError={handleImageError}
-                />
-              </motion.figure>
-
-              <div className="about__story-decoration" aria-hidden="true">
-                <span />
-                <span />
-                <span />
-              </div>
-            </motion.div>
-
-            <motion.ul
-              className="about__story-highlights"
-              variants={storyHighlightsVariants}
-            >
-              {storyHighlights.map((highlight) => {
-                const Icon = highlight.icon;
-
-                return (
-                  <motion.li
-                    key={highlight.id}
-                    variants={storyHighlightItemVariants}
-                  >
-                    <span className="about__story-highlight-icon">
-                      <Icon size={22} strokeWidth={1.8} aria-hidden="true" />
-                    </span>
-
-                    <div>
-                      <strong>{highlight.title}</strong>
-                      <span>{highlight.description}</span>
-                    </div>
-                  </motion.li>
-                );
-              })}
-            </motion.ul>
-          </motion.div>
-        </div>
+        <StorySection />
 
         {/* =====================================
             NUESTRA FORMA DE TRABAJAR
         ====================================== */}
 
-        <div className="about__process">
-          <div className="about__section-heading">
-            <div>
-              <p className="about__eyebrow">Nuestra forma de trabajar</p>
+        <StorySection />
 
-              <h2>De tu idea a una experiencia memorable</h2>
-            </div>
-
-            <p>
-              Organizamos cada proyecto mediante un proceso claro que nos
-              permite entender tus necesidades, preparar la producción y
-              coordinar correctamente cada etapa.
-            </p>
-          </div>
-
-          <RevealGroup
-            className="about__process-grid"
-            stagger={0.14}
-            delay={0.1}
-            amount={0.2}
-          >
-            {processSteps.map((step) => (
-              <RevealItem key={step.id}>
-                <article className={`about__step about__step--${step.theme}`}>
-                  <div className="about__step-top">
-                    <span className="about__step-label">Paso {step.id}</span>
-                  </div>
-
-                  <div className="about__step-visual">
-                    <img
-                      className="about__step-image"
-                      src={step.image}
-                      alt=""
-                      aria-hidden="true"
-                      loading="lazy"
-                      decoding="async"
-                    />
-                  </div>
-
-                  <div className="about__step-content">
-                    <h3>{step.title}</h3>
-                    <p>{step.description}</p>
-                  </div>
-                </article>
-              </RevealItem>
-            ))}
-          </RevealGroup>
-        </div>
+        <ProcessSection />
 
         {/* =====================================
             QUÉ NOS DIFERENCIA
         ====================================== */}
 
-        <div className="about__values-block">
-          <div className="about__section-heading">
-            <div>
-              <p className="about__eyebrow">Qué nos diferencia</p>
+        <StorySection />
 
-              <h2>Una producción pensada para generar confianza</h2>
-            </div>
+        <ProcessSection />
 
-            <p>
-              Más que instalar equipos, buscamos comprender la celebración y
-              entregar una solución que represente lo que cada cliente desea
-              transmitir.
-            </p>
-          </div>
-
-          <RevealGroup
-            className="about__values"
-            stagger={0.14}
-            delay={0.08}
-            amount={0.15}
-          >
-            {values.map((value) => {
-              const Icon = value.icon;
-
-              return (
-                <RevealItem key={value.id}>
-                  <article
-                    className={`about__value about__value--${value.theme}`}
-                  >
-                    <div className="about__value-top">
-                      <span className="about__value-icon">
-                        <Icon size={22} strokeWidth={1.8} aria-hidden="true" />
-                      </span>
-
-                      <span className="about__value-label">{value.label}</span>
-                    </div>
-
-                    <div className="about__value-visual">
-                      <img
-                        className="about__value-image"
-                        src={value.image}
-                        alt=""
-                        aria-hidden="true"
-                        loading="lazy"
-                        decoding="async"
-                      />
-                    </div>
-
-                    <div className="about__value-content">
-                      <h3>{value.title}</h3>
-                      <p>{value.description}</p>
-                    </div>
-                  </article>
-                </RevealItem>
-              );
-            })}
-          </RevealGroup>
-        </div>
+        <ValuesSection />
 
         {/* =====================================
             NUESTRO COMPROMISO

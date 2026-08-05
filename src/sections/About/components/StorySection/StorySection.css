@@ -1,0 +1,494 @@
+/* ========================================
+   QUIÉNES SOMOS
+======================================== */
+
+.about__story {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(470px, 0.96fr);
+  gap: clamp(3.5rem, 6vw, 6rem);
+  align-items: start;
+}
+
+.about__story-content {
+  min-width: 0;
+}
+
+.about__story-title {
+  max-width: 760px;
+
+  color: #ffffff;
+  font-size: clamp(2.3rem, 4.5vw, 4.2rem);
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+}
+
+.about__lead {
+  max-width: 720px;
+  margin-top: 2rem;
+
+  color: #ffffff;
+  font-size: clamp(1.2rem, 2vw, 1.55rem);
+  line-height: 1.5;
+}
+
+.about__description {
+  max-width: 720px;
+  margin-top: 1.35rem;
+
+  color: rgba(255, 255, 255, 0.66);
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+/* Columna visual derecha */
+
+.about__story-visual-column {
+  min-width: 0;
+
+  display: grid;
+  gap: 1rem;
+
+  margin-top: 3.6rem;
+}
+
+/* Galería editorial */
+
+.about__story-gallery {
+  position: relative;
+  isolation: isolate;
+
+  min-width: 0;
+  min-height: 430px;
+}
+
+.about__story-gallery::before {
+  content: "";
+
+  position: absolute;
+  top: 5%;
+  right: 4%;
+  z-index: -1;
+
+  width: 65%;
+  height: 70%;
+
+  border-radius: 50%;
+
+  background-color: rgba(166, 60, 255, 0.15);
+  filter: blur(4.5rem);
+
+  pointer-events: none;
+}
+
+.about__story-main-media {
+  position: absolute;
+  inset: 0 11% 0 0;
+  overflow: hidden;
+
+  margin: 0;
+
+  border: 1px solid rgba(197, 140, 255, 0.19);
+  border-radius: 1.5rem;
+
+  background-color: #18181f;
+
+  box-shadow:
+    0 1.8rem 4.5rem rgba(0, 0, 0, 0.3),
+    0 0 2.8rem rgba(166, 60, 255, 0.07);
+
+  transition:
+    border-color 0.35s ease,
+    box-shadow 0.35s ease,
+    transform 0.45s ease;
+}
+
+.about__story-main-media:hover {
+  border-color: rgba(197, 140, 255, 0.45);
+
+  box-shadow:
+    0 2rem 5rem rgba(0, 0, 0, 0.37),
+    0 0 3.2rem rgba(166, 60, 255, 0.12);
+
+  transform: translateY(-0.25rem);
+}
+
+.about__story-main-media img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.about__story-main-media:hover img {
+  transform: scale(1.045);
+}
+
+.about__story-main-overlay {
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      180deg,
+      transparent 38%,
+      rgba(7, 7, 10, 0.23) 62%,
+      rgba(7, 7, 10, 0.9) 100%
+    ),
+    linear-gradient(90deg, rgba(12, 9, 18, 0.21), transparent 65%);
+
+  pointer-events: none;
+}
+
+.about__story-main-media figcaption {
+  position: absolute;
+  right: 39%;
+  bottom: 1.35rem;
+  left: 1.35rem;
+  z-index: 2;
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.about__story-main-media figcaption span {
+  color: #d3a0ff;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+
+.about__story-main-media figcaption strong {
+  max-width: 310px;
+
+  color: #ffffff;
+  font-size: clamp(0.95rem, 1.35vw, 1.2rem);
+  line-height: 1.35;
+}
+
+/* Fotografía secundaria */
+
+.about__story-detail-media {
+  position: absolute;
+  right: 0;
+  bottom: 1.15rem;
+  z-index: 3;
+  overflow: hidden;
+
+  width: 41%;
+  height: 53%;
+  margin: 0;
+
+  border: 0.4rem solid #101014;
+  border-radius: 1.3rem;
+
+  background-color: #18181f;
+
+  box-shadow:
+    0 1.4rem 3.5rem rgba(0, 0, 0, 0.4),
+    0 0 2.2rem rgba(166, 60, 255, 0.1);
+
+  transition:
+    border-color 0.35s ease,
+    transform 0.4s ease;
+}
+
+.about__story-detail-media:hover {
+  border-color: #17121d;
+
+  transform: translateY(-0.35rem) rotate(-1deg);
+}
+
+.about__story-detail-media img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.about__story-detail-media:hover img {
+  transform: scale(1.07);
+}
+
+/* Puntos decorativos */
+
+.about__story-decoration {
+  position: absolute;
+  top: 1.2rem;
+  right: 1.2rem;
+  z-index: 4;
+
+  display: flex;
+  gap: 0.4rem;
+}
+
+.about__story-decoration span {
+  width: 0.45rem;
+  height: 0.45rem;
+
+  border-radius: 50%;
+
+  background-color: rgba(255, 255, 255, 0.35);
+}
+
+.about__story-decoration span:first-child {
+  width: 1.5rem;
+
+  border-radius: 999px;
+
+  background-color: #c58cff;
+}
+
+/* Tarjetas bajo la galería */
+
+.about__story-highlights {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
+
+  width: 100%;
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+}
+
+.about__story-highlights li {
+  min-width: 0;
+  min-height: 155px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+
+  padding: 1rem 0.85rem;
+
+  text-align: center;
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1rem;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(166, 60, 255, 0.08),
+      rgba(255, 255, 255, 0.018)
+    ),
+    #15151a;
+
+  box-shadow:
+    0 1rem 2.5rem rgba(0, 0, 0, 0.12),
+    inset 0 1px rgba(255, 255, 255, 0.035);
+
+  transition:
+    border-color 0.3s ease,
+    background-color 0.3s ease,
+    box-shadow 0.3s ease,
+    transform 0.3s ease;
+}
+
+.about__story-highlights li:hover {
+  border-color: rgba(197, 140, 255, 0.42);
+  background-color: rgba(166, 60, 255, 0.065);
+
+  box-shadow:
+    0 1.2rem 3rem rgba(0, 0, 0, 0.2),
+    0 0 2rem rgba(166, 60, 255, 0.08);
+
+  transform: translateY(-0.3rem);
+}
+
+/* Ícono centrado */
+
+.about__story-highlight-icon {
+  width: 2.75rem;
+  height: 2.75rem;
+
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+
+  margin-inline: auto;
+
+  color: #d3a0ff;
+
+  border: 1px solid rgba(197, 140, 255, 0.3);
+  border-radius: 0.85rem;
+
+  background: linear-gradient(
+    145deg,
+    rgba(166, 60, 255, 0.22),
+    rgba(166, 60, 255, 0.08)
+  );
+
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.07);
+
+  transition:
+    color 0.3s ease,
+    border-color 0.3s ease,
+    background-color 0.3s ease,
+    transform 0.35s ease;
+}
+
+.about__story-highlights li:hover .about__story-highlight-icon {
+  color: #ffffff;
+
+  border-color: rgba(197, 140, 255, 0.65);
+  background-color: rgba(166, 60, 255, 0.22);
+
+  transform: translateY(-0.15rem) rotate(-4deg) scale(1.05);
+}
+
+.about__story-highlights li div {
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.about__story-highlights strong {
+  color: #ffffff;
+  font-size: 0.8rem;
+  line-height: 1.35;
+}
+
+.about__story-highlights li div span {
+  color: rgba(255, 255, 255, 0.53);
+  font-size: 0.67rem;
+  line-height: 1.5;
+}
+
+/* ========================================
+   ESCRITORIO MEDIANO
+======================================== */
+
+@media (max-width: 1180px) {
+  .about__story {
+    grid-template-columns: 1fr;
+    gap: 4rem;
+  }
+
+  .about__story-content {
+    max-width: 850px;
+  }
+
+  .about__story-visual-column {
+    width: min(100%, 850px);
+    margin-top: 0;
+  }
+
+  .about__story-gallery {
+    min-height: 500px;
+  }
+}
+
+/* ========================================
+   TABLET
+======================================== */
+
+@media (max-width: 900px) {
+  .about__story-visual-column {
+    width: min(100%, 760px);
+  }
+
+  .about__story-gallery {
+    min-height: 480px;
+  }
+}
+
+/* ========================================
+   MÓVIL
+======================================== */
+
+@media (max-width: 700px) {
+  .about__story {
+    gap: 3rem;
+  }
+
+  .about__story-gallery {
+    min-height: 430px;
+  }
+
+  .about__story-main-media {
+    inset: 0 5% 0 0;
+  }
+
+  .about__story-detail-media {
+    width: 45%;
+    height: 48%;
+  }
+
+  .about__story-main-media figcaption {
+    right: 36%;
+    bottom: 1.15rem;
+    left: 1.15rem;
+  }
+
+  .about__story-highlights {
+    grid-template-columns: 1fr;
+  }
+
+  .about__story-highlights li {
+    min-height: auto;
+    padding: 1.15rem;
+  }
+}
+
+/* ========================================
+   TELÉFONOS PEQUEÑOS
+======================================== */
+
+@media (max-width: 480px) {
+  .about__story-title {
+    font-size: clamp(2rem, 10vw, 2.8rem);
+  }
+
+  .about__story-gallery {
+    min-height: 390px;
+  }
+
+  .about__story-main-media {
+    inset: 0 0 17% 0;
+  }
+
+  .about__story-detail-media {
+    right: 0.75rem;
+    bottom: 0;
+
+    width: 51%;
+    height: 39%;
+  }
+
+  .about__story-main-media figcaption {
+    right: 1.1rem;
+    bottom: 4.5rem;
+  }
+
+  .about__story-main-media figcaption strong {
+    max-width: 230px;
+    font-size: 0.92rem;
+  }
+}
+
+/* ========================================
+   ACCESIBILIDAD
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .about__story-highlights li,
+  .about__story-highlight-icon,
+  .about__story-main-media,
+  .about__story-main-media img,
+  .about__story-detail-media,
+  .about__story-detail-media img {
+    transition-duration: 1ms !important;
+  }
+}
