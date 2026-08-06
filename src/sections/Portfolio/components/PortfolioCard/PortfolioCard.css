@@ -194,19 +194,9 @@
 ======================================== */
 
 .portfolio-card__content {
-  display: grid;
-  grid-template-columns: auto minmax(0, 1fr);
-  gap: 1.5rem;
+  display: block;
 
   padding-top: 1.5rem;
-}
-
-.portfolio-card__number {
-  padding-top: 0.35rem;
-
-  color: #c58cff;
-  font-size: 0.8rem;
-  font-weight: 700;
 }
 
 .portfolio-card__information {
@@ -307,14 +297,7 @@
   }
 
   .portfolio-card__content {
-    grid-template-columns: 1fr;
-    gap: 0.5rem;
-
     padding-top: 1.25rem;
-  }
-
-  .portfolio-card__number {
-    padding-top: 0;
   }
 
   .portfolio-card__category {

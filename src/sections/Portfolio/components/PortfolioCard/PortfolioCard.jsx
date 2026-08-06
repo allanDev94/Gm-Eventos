@@ -60,10 +60,6 @@ function PortfolioCard({ event, isFeatured = false, onOpen }) {
       </div>
 
       <div className="portfolio-card__content">
-        <span className="portfolio-card__number" aria-hidden="true">
-          {String(event.id).padStart(2, "0")}
-        </span>
-
         <div className="portfolio-card__information">
           <h3>{event.title}</h3>
 
