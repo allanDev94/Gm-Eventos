@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import Button from "../../components/Button/Button";
 import Container from "../../components/Container/Container";
-import ServiceModal from "../../components/ServiceModal/ServiceModal";
+import ServiceModal from "./components/ServiceModal/ServiceModal";
 
 import ServicesGrid from "./components/ServicesGrid/ServicesGrid";
 import ServicesHeader from "./components/ServicesHeader/ServicesHeader";
