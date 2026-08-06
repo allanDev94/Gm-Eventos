@@ -1,0 +1,59 @@
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1rem, 2vw, 1.5rem);
+  align-items: stretch;
+}
+
+/* Vista previa utilizada en Inicio */
+
+.services-grid--preview {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+/* ========================================
+   ESCRITORIO MEDIANO
+======================================== */
+
+@media (max-width: 1180px) {
+  .services-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .services-grid--preview {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* ========================================
+   NOTEBOOK Y TABLET
+======================================== */
+
+@media (max-width: 980px) {
+  .services-grid,
+  .services-grid--preview {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* ========================================
+   MÓVIL
+======================================== */
+
+@media (max-width: 680px) {
+  .services-grid,
+  .services-grid--preview {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+
+/* ========================================
+   ACCESIBILIDAD
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .services-grid {
+    scroll-behavior: auto;
+  }
+}

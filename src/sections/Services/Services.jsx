@@ -1,23 +1,17 @@
 import { useState } from "react";
 
-import { motion, useReducedMotion } from "motion/react";
-
 import Button from "../../components/Button/Button";
 import Container from "../../components/Container/Container";
 import ServiceModal from "../../components/ServiceModal/ServiceModal";
 
-import ServiceCard from "./components/ServiceCard/ServiceCard";
+import ServicesGrid from "./components/ServicesGrid/ServicesGrid";
 import ServicesHeader from "./components/ServicesHeader/ServicesHeader";
 
 import { SERVICES_FALLBACK_IMAGE, services } from "./data/servicesData";
 
-import { servicesGridVariants } from "./animations/servicesAnimations";
-
 import "./Services.css";
 
 function Services({ showHeader = true, limit }) {
-  const shouldReduceMotion = useReducedMotion();
-
   const [selectedService, setSelectedService] = useState(null);
 
   const hasLimit = Number.isInteger(limit) && limit > 0;
@@ -41,31 +35,16 @@ function Services({ showHeader = true, limit }) {
 
   return (
     <>
-      <section className="services">
+      <section className="services" id="servicios">
         <Container>
           {showHeader && <ServicesHeader />}
 
-          <motion.div
-            className={`services__grid ${
-              hasLimit ? "services__grid--preview" : ""
-            }`}
-            variants={servicesGridVariants}
-            initial={shouldReduceMotion ? false : "hidden"}
-            whileInView={shouldReduceMotion ? undefined : "visible"}
-            viewport={{
-              once: true,
-              amount: 0.1,
-            }}
-          >
-            {visibleServices.map((service) => (
-              <ServiceCard
-                key={service.id}
-                service={service}
-                fallbackImage={SERVICES_FALLBACK_IMAGE}
-                onOpen={openServiceModal}
-              />
-            ))}
-          </motion.div>
+          <ServicesGrid
+            services={visibleServices}
+            fallbackImage={SERVICES_FALLBACK_IMAGE}
+            onOpen={openServiceModal}
+            isPreview={hasLimit}
+          />
 
           {showViewAllButton && (
             <div className="services__footer">

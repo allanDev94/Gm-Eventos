@@ -10,401 +10,168 @@
       rgba(166, 60, 255, 0.1),
       transparent 30%
     ),
+    radial-gradient(
+      circle at 0% 70%,
+      rgba(255, 76, 145, 0.05),
+      transparent 28%
+    ),
     #101014;
 }
 
-/* Contenedor más ancho solo para Servicios */
+/* ========================================
+   CONTENEDOR
+======================================== */
 
 .services .container {
+  position: relative;
+  z-index: 1;
+
   max-width: 1360px;
 }
 
-/* Encabezado */
+/* ========================================
+   DECORACIÓN DE FONDO
+======================================== */
 
-.services__header {
-  display: grid;
-  grid-template-columns: minmax(0, 1.2fr) minmax(300px, 0.8fr);
-  gap: 5rem;
-  align-items: end;
-
-  margin-bottom: 4rem;
-}
-
-.services__heading,
-.services__introduction {
-  min-width: 0;
-}
-
-.services__eyebrow {
-  margin-bottom: 1rem;
-
-  color: #c58cff;
-  font-size: 0.85rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-}
-
-.services__title {
-  max-width: 760px;
-
-  color: #ffffff;
-  font-size: clamp(2.5rem, 4.7vw, 4.8rem);
-  line-height: 1.03;
-  letter-spacing: -0.045em;
-}
-
-.services__introduction {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 2rem;
-}
-
-.services__introduction p {
-  max-width: 540px;
-
-  color: rgba(255, 255, 255, 0.65);
-  font-size: 1rem;
-  line-height: 1.8;
-}
-
-/* Cuadrícula */
-
-.services__grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1.75rem;
-}
-
-/* Tarjeta */
-
-.service-card {
-  position: relative;
-  isolation: isolate;
-  overflow: hidden;
-
-  min-width: 0;
-  min-height: 390px;
-
-  display: flex;
-
-  border: 1px solid rgba(255, 255, 255, 0.13);
-  border-radius: 1.4rem;
-
-  background-color: #0b0b0f;
-
-  transition:
-    border-color 0.35s ease,
-    box-shadow 0.35s ease,
-    transform 0.35s ease;
-}
-
-.service-card::after {
+.services::before {
   content: "";
 
   position: absolute;
-  inset: 0;
-  z-index: 3;
+  top: 7rem;
+  right: -12rem;
 
-  border: 1px solid transparent;
-  border-radius: inherit;
+  width: 30rem;
+  height: 30rem;
+
+  border: 1px solid rgba(255, 255, 255, 0.025);
+  border-radius: 50%;
+
+  box-shadow:
+    0 0 0 5rem rgba(255, 255, 255, 0.006),
+    0 0 0 10rem rgba(255, 255, 255, 0.003);
 
   pointer-events: none;
-
-  transition: border-color 0.35s ease;
 }
 
-.service-card:hover {
-  border-color: rgba(197, 140, 255, 0.4);
+.services::after {
+  content: "";
 
-  box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.32);
-
-  transform: translateY(-0.4rem);
-}
-
-.service-card:hover::after {
-  border-color: rgba(197, 140, 255, 0.24);
-}
-
-/* Imagen de fondo */
-
-.service-card__image {
   position: absolute;
-  inset: 0;
-  z-index: -3;
+  bottom: 8rem;
+  left: -8rem;
 
-  width: 100%;
-  height: 100%;
+  width: 18rem;
+  height: 18rem;
 
-  object-fit: cover;
+  border: 1px solid rgba(197, 140, 255, 0.035);
+  border-radius: 50%;
 
-  transition:
-    filter 0.55s ease,
-    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
 }
 
-.service-card:hover .service-card__image {
-  filter: brightness(1.05);
-  transform: scale(1.065);
-}
-
-/* Capa oscura */
-
-.service-card__overlay {
-  position: absolute;
-  inset: 0;
-  z-index: -2;
-
-  background:
-    linear-gradient(
-      180deg,
-      rgba(5, 5, 8, 0.08) 0%,
-      rgba(5, 5, 8, 0.35) 38%,
-      rgba(5, 5, 8, 0.96) 100%
-    ),
-    linear-gradient(90deg, rgba(5, 5, 8, 0.48) 0%, rgba(5, 5, 8, 0.08) 100%);
-}
-
-/* Contenido */
-
-.service-card__body {
-  position: relative;
-  z-index: 2;
-
-  width: 100%;
-  min-width: 0;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-
-  padding: 1.65rem;
-}
-
-.service-card__content {
-  margin-top: auto;
-  padding-top: 3rem;
-}
-
-.service-card__content h3 {
-  max-width: 360px;
-
-  color: #ffffff;
-  font-size: clamp(1.5rem, 2vw, 1.9rem);
-  line-height: 1.08;
-  letter-spacing: -0.025em;
-}
-
-.service-card__content p {
-  max-width: 400px;
-  margin-top: 0.85rem;
-
-  color: rgba(255, 255, 255, 0.9);
-  font-size: 0.88rem;
-  line-height: 1.65;
-
-  text-shadow:
-    0 2px 5px rgba(0, 0, 0, 0.95),
-    0 0 14px rgba(0, 0, 0, 0.75);
-}
-
-/* Servicios incluidos */
-
-.service-card__services {
-  margin-top: 1.2rem;
-}
-
-.service-card__includes-label {
-  width: fit-content;
-  margin-bottom: 0.7rem;
-
-  color: #e1b6ff;
-  font-size: 0.76rem;
-  font-weight: 700;
-
-  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.9);
-}
-
-.service-card__features {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-}
-
-.service-card__features li {
-  padding: 0.48rem 0.68rem;
-
-  color: rgba(255, 255, 255, 0.86);
-  font-size: 0.66rem;
-  line-height: 1.25;
-
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  border-radius: 999px;
-
-  background-color: rgba(11, 11, 15, 0.56);
-
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-}
-
-/* Tarjeta interactiva */
-
-.service-card--interactive {
-  cursor: pointer;
-}
-
-.service-card--interactive:focus-visible {
-  outline: 2px solid #c58cff;
-  outline-offset: 0.35rem;
-}
-
-.service-card__details-label {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.55rem;
-
-  width: fit-content;
-  margin-top: 1.1rem;
-
-  color: #d49cff;
-  font-size: 0.76rem;
-  font-weight: 700;
-
-  transition:
-    color 0.25s ease,
-    gap 0.25s ease,
-    transform 0.25s ease;
-}
-
-.service-card--interactive:hover .service-card__details-label {
-  gap: 0.8rem;
-  color: #ffffff;
-  transform: translateX(0.15rem);
-}
-
-/* Botón inferior */
+/* ========================================
+   BOTÓN INFERIOR
+======================================== */
 
 .services__footer {
   display: flex;
   justify-content: center;
+  align-items: center;
 
   margin-top: 3rem;
 }
 
-/* Escritorio mediano */
+.services__footer .button {
+  min-width: 230px;
+}
+
+/* ========================================
+   ESCRITORIO MEDIANO
+======================================== */
 
 @media (max-width: 1100px) {
-  .services__header {
-    gap: 3rem;
+  .services {
+    padding-block: 6rem;
   }
 
-  .services__grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .service-card {
-    min-height: 380px;
+  .services__footer {
+    margin-top: 2.75rem;
   }
 }
 
-/* Vista previa del Inicio en tablet */
-
-@media (min-width: 701px) and (max-width: 1100px) {
-  .services__grid--preview .service-card:last-child {
-    grid-column: 1 / -1;
-    min-height: 360px;
-  }
-
-  .services__grid--preview .service-card:last-child .service-card__content,
-  .services__grid--preview .service-card:last-child .service-card__content p {
-    max-width: 620px;
-  }
-}
-
-/* Tablet */
+/* ========================================
+   TABLET
+======================================== */
 
 @media (max-width: 900px) {
   .services {
     padding-block: 5rem;
   }
 
-  .services__header {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-
-    margin-bottom: 3rem;
+  .services::before {
+    top: 5rem;
+    right: -16rem;
   }
 
-  .services__introduction {
-    gap: 1.5rem;
-  }
-
-  .services__title {
-    max-width: 720px;
+  .services__footer {
+    margin-top: 2.5rem;
   }
 }
 
-/* Móvil */
+/* ========================================
+   MÓVIL
+======================================== */
 
 @media (max-width: 700px) {
   .services {
     padding-block: 4rem;
   }
 
-  .services__grid {
-    grid-template-columns: 1fr;
-    gap: 1.25rem;
+  .services::before {
+    display: none;
   }
 
-  .service-card {
-    min-height: 380px;
+  .services::after {
+    bottom: 5rem;
+    left: -12rem;
   }
 
-  .service-card__body {
-    padding: 1.35rem;
+  .services__footer {
+    margin-top: 2rem;
   }
 
-  .service-card__content {
-    padding-top: 3rem;
-  }
-
-  .service-card__content h3 {
-    max-width: 320px;
-    font-size: clamp(1.6rem, 8vw, 2.05rem);
-  }
-
-  .service-card__content p {
-    font-size: 0.9rem;
-  }
-
-  .service-card__features li {
-    font-size: 0.7rem;
+  .services__footer .button {
+    width: min(100%, 320px);
+    min-width: 0;
   }
 }
 
-/* Teléfonos pequeños */
+/* ========================================
+   TELÉFONOS PEQUEÑOS
+======================================== */
 
 @media (max-width: 420px) {
-  .service-card {
-    min-height: 400px;
+  .services {
+    padding-block: 3.5rem;
   }
 
-  .service-card__features {
-    gap: 0.4rem;
+  .services__footer {
+    margin-top: 1.75rem;
   }
 
-  .service-card__features li {
-    padding: 0.45rem 0.6rem;
+  .services__footer .button {
+    width: 100%;
   }
 }
 
-/* Accesibilidad */
+/* ========================================
+   ACCESIBILIDAD
+======================================== */
 
 @media (prefers-reduced-motion: reduce) {
-  .service-card,
-  .service-card__image,
-  .service-card__details-label {
-    transition-duration: 1ms !important;
+  .services,
+  .services::before,
+  .services::after {
+    scroll-behavior: auto;
   }
 }
