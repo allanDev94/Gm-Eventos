@@ -1,6 +1,10 @@
 .portfolio-gallery {
   width: 100%;
   min-width: 0;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
 
   background-color: #0d0d12;
 }
@@ -11,7 +15,8 @@
 
   width: 100%;
   min-height: 34rem;
-  height: 100%;
+
+  flex: 1 1 auto;
 
   background-color: #111117;
 }
@@ -195,7 +200,6 @@
   background: none;
 
   cursor: pointer;
-
   opacity: 0.55;
 
   transition:
@@ -233,7 +237,7 @@
   .portfolio-gallery__swiper .swiper-slide,
   .portfolio-gallery__image,
   .portfolio-gallery__placeholder {
-    min-height: 28rem;
+    min-height: 25rem;
   }
 }
 
@@ -248,7 +252,7 @@
   .portfolio-gallery__swiper .swiper-slide,
   .portfolio-gallery__image,
   .portfolio-gallery__placeholder {
-    min-height: 21rem;
+    min-height: 16rem;
   }
 
   .portfolio-gallery__navigation {
@@ -264,5 +268,14 @@
   .portfolio-gallery__counter {
     right: 0.75rem;
     bottom: 0.75rem;
+  }
+
+  .portfolio-gallery__thumbnails {
+    padding: 0.7rem;
+  }
+
+  .portfolio-gallery__thumbnail {
+    width: 4.2rem;
+    height: 3rem;
   }
 }

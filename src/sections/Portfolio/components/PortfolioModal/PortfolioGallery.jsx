@@ -80,7 +80,7 @@ function PortfolioGallery({ event }) {
     return (
       <div className="portfolio-gallery">
         <div className="portfolio-gallery__stage">
-          <GalleryImage image={gallery[0]} />
+          <GalleryImage key={gallery[0].id} image={gallery[0]} />
         </div>
       </div>
     );
@@ -118,7 +118,7 @@ function PortfolioGallery({ event }) {
         >
           {gallery.map((image) => (
             <SwiperSlide key={image.id}>
-              <GalleryImage image={image} />
+              <GalleryImage key={image.id} image={image} />
             </SwiperSlide>
           ))}
         </Swiper>
