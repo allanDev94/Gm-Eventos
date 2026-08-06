@@ -73,10 +73,6 @@ function ServiceCard({ service, fallbackImage, onOpen, animationDelay = 0 }) {
 
       <div className="services-card__overlay" aria-hidden="true" />
 
-      <span className="services-card__number" aria-hidden="true">
-        {service.id}
-      </span>
-
       <div className="services-card__body">
         <div className="services-card__content">
           <h3>{service.title}</h3>
