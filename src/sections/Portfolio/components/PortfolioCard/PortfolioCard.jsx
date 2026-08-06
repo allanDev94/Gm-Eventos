@@ -25,7 +25,15 @@ function PortfolioCard({ event, isFeatured = false, onOpen }) {
         isFeatured ? "portfolio-card--featured" : ""
       }`}
       whileHover={shouldReduceMotion ? undefined : portfolioCardHover}
+      whileTap={shouldReduceMotion ? undefined : { scale: 0.995 }}
     >
+      <button
+        className="portfolio-card__trigger"
+        type="button"
+        aria-label={`Ver detalles de ${event.title}`}
+        onClick={openEvent}
+      />
+
       <div className="portfolio-card__media">
         {showImage ? (
           <img
@@ -61,16 +69,11 @@ function PortfolioCard({ event, isFeatured = false, onOpen }) {
 
           <p>{event.description}</p>
 
-          <button
-            className="portfolio-card__action"
-            type="button"
-            aria-label={`Ver detalles de ${event.title}`}
-            onClick={openEvent}
-          >
+          <div className="portfolio-card__action" aria-hidden="true">
             <span>Ver evento</span>
 
-            <ArrowUpRight size={19} strokeWidth={1.9} aria-hidden="true" />
-          </button>
+            <ArrowUpRight size={19} strokeWidth={1.9} />
+          </div>
         </div>
       </div>
     </motion.article>

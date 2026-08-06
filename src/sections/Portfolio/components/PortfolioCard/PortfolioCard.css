@@ -1,6 +1,53 @@
 .portfolio-card {
+  position: relative;
+
   min-width: 0;
   height: 100%;
+
+  border-radius: 1.25rem;
+
+  cursor: pointer;
+
+  transition:
+    box-shadow 0.35s ease,
+    transform 0.35s ease;
+}
+
+.portfolio-card:hover {
+  box-shadow:
+    0 1.5rem 3.5rem rgba(0, 0, 0, 0.22),
+    0 0 2.5rem rgba(197, 140, 255, 0.07);
+}
+
+/* ========================================
+   BOTÓN QUE CUBRE TODA LA TARJETA
+======================================== */
+
+.portfolio-card__trigger {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+
+  width: 100%;
+  height: 100%;
+
+  padding: 0;
+
+  border: none;
+  border-radius: 1.25rem;
+
+  background: transparent;
+
+  cursor: pointer;
+}
+
+.portfolio-card__trigger:focus {
+  outline: none;
+}
+
+.portfolio-card__trigger:focus-visible {
+  outline: 3px solid rgba(197, 140, 255, 0.85);
+  outline-offset: 5px;
 }
 
 /* ========================================
@@ -40,7 +87,7 @@
 }
 
 .portfolio-card:hover .portfolio-card__media img {
-  filter: brightness(1.05);
+  filter: brightness(1.06) saturate(1.04);
 
   transform: scale(1.045);
 }
@@ -172,6 +219,12 @@
   color: #ffffff;
   font-size: clamp(1.4rem, 2.5vw, 2rem);
   line-height: 1.2;
+
+  transition: color 0.25s ease;
+}
+
+.portfolio-card:hover .portfolio-card__information h3 {
+  color: #d9b4ff;
 }
 
 .portfolio-card__information p {
@@ -181,24 +234,20 @@
   line-height: 1.7;
 }
 
+/* ========================================
+   INDICADOR VER EVENTO
+======================================== */
+
 .portfolio-card__action {
   display: inline-flex;
   align-items: center;
   gap: 0.55rem;
 
   margin-top: 1.15rem;
-  padding: 0;
 
   color: #d3a4ff;
-  font: inherit;
   font-size: 0.78rem;
   font-weight: 700;
-
-  border: none;
-
-  background: none;
-
-  cursor: pointer;
 
   transition: color 0.25s ease;
 }
@@ -207,18 +256,12 @@
   transition: transform 0.3s ease;
 }
 
-.portfolio-card__action:hover {
+.portfolio-card:hover .portfolio-card__action {
   color: #ffffff;
 }
 
-.portfolio-card__action:hover svg {
+.portfolio-card:hover .portfolio-card__action svg {
   transform: translate(0.2rem, -0.2rem);
-}
-
-.portfolio-card__action:focus-visible {
-  outline: 3px solid rgba(197, 140, 255, 0.65);
-  outline-offset: 5px;
-  border-radius: 0.2rem;
 }
 
 /* ========================================
@@ -251,6 +294,11 @@
 ======================================== */
 
 @media (max-width: 480px) {
+  .portfolio-card,
+  .portfolio-card__trigger {
+    border-radius: 1rem;
+  }
+
   .portfolio-card__media,
   .portfolio-card--featured .portfolio-card__media {
     height: 360px;
@@ -291,7 +339,11 @@
 ======================================== */
 
 @media (prefers-reduced-motion: reduce) {
-  .portfolio-card__media img {
+  .portfolio-card,
+  .portfolio-card__media img,
+  .portfolio-card__information h3,
+  .portfolio-card__action,
+  .portfolio-card__action svg {
     transition-duration: 1ms !important;
   }
 }
