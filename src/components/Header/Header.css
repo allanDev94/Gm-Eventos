@@ -10,8 +10,14 @@
 
   background-color: rgba(11, 11, 15, 0.96);
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+
   backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
 }
+
+/* ========================================
+   CONTENIDO
+======================================== */
 
 .header__content {
   min-height: 80px;
@@ -20,8 +26,12 @@
   align-items: center;
   justify-content: space-between;
 
-  gap: 2rem;
+  gap: clamp(1rem, 2vw, 2rem);
 }
+
+/* ========================================
+   LOGO
+======================================== */
 
 .header__logo {
   position: relative;
@@ -35,12 +45,18 @@
   letter-spacing: -0.04em;
 }
 
+/* ========================================
+   NAVEGACIÓN
+======================================== */
+
 .header__nav {
+  min-width: 0;
+
   display: flex;
   align-items: center;
   justify-content: center;
 
-  gap: 2rem;
+  gap: clamp(1.15rem, 2vw, 2rem);
 }
 
 .header__link {
@@ -86,13 +102,24 @@
   color: #c58cff;
 }
 
-.header__cta {
+/* ========================================
+   BOTONES
+======================================== */
+
+.header__content > .header__cta {
+  display: inline-flex;
   flex-shrink: 0;
+
+  white-space: nowrap;
 }
 
-.header__mobile-cta {
+.header__nav > .header__mobile-cta {
   display: none;
 }
+
+/* ========================================
+   BOTÓN DEL MENÚ
+======================================== */
 
 .header__menu-button {
   position: relative;
@@ -105,6 +132,8 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
+
+  flex-shrink: 0;
 
   gap: 5px;
   padding: 0;
@@ -124,6 +153,11 @@
 .header__menu-button:hover {
   border-color: rgba(197, 140, 255, 0.5);
   background-color: rgba(197, 140, 255, 0.1);
+}
+
+.header__menu-button:focus-visible {
+  outline: 2px solid #c58cff;
+  outline-offset: 3px;
 }
 
 .header__menu-button span {
@@ -152,6 +186,32 @@
   transform: translateY(-7px) rotate(-45deg);
 }
 
+/* ========================================
+   ESCRITORIO MEDIANO
+======================================== */
+
+@media (max-width: 1100px) {
+  .header__content {
+    gap: 1.25rem;
+  }
+
+  .header__nav {
+    gap: 1.25rem;
+  }
+
+  .header__link {
+    font-size: 0.9rem;
+  }
+
+  .header__cta {
+    padding-inline: 1.3rem;
+  }
+}
+
+/* ========================================
+   TABLET
+======================================== */
+
 @media (max-width: 900px) {
   .header__nav {
     gap: 1rem;
@@ -160,7 +220,17 @@
   .header__link {
     font-size: 0.85rem;
   }
+
+  .header__cta {
+    padding-inline: 1.1rem;
+
+    font-size: 0.85rem;
+  }
 }
+
+/* ========================================
+   MENÚ MÓVIL
+======================================== */
 
 @media (max-width: 760px) {
   .header {
@@ -175,7 +245,7 @@
     font-size: 1.25rem;
   }
 
-  .header__cta {
+  .header__content > .header__cta {
     display: none;
   }
 
@@ -197,7 +267,9 @@
     justify-content: flex-start;
 
     gap: 0;
-    padding: 6.5rem 1.5rem 2rem;
+
+    padding: calc(6.5rem + env(safe-area-inset-top)) 1.5rem
+      calc(2rem + env(safe-area-inset-bottom));
 
     background:
       radial-gradient(
@@ -214,6 +286,7 @@
     transform: translateY(-1rem);
 
     overflow-y: auto;
+    overscroll-behavior: contain;
 
     transition:
       opacity 0.25s ease,
@@ -257,7 +330,7 @@
     color: #c58cff;
   }
 
-  .header__mobile-cta {
+  .header__nav > .header__mobile-cta {
     width: 100%;
 
     display: inline-flex;
@@ -267,6 +340,10 @@
     margin-top: 1.5rem;
   }
 }
+
+/* ========================================
+   TELÉFONOS PEQUEÑOS
+======================================== */
 
 @media (max-width: 420px) {
   .header__nav {
@@ -278,7 +355,21 @@
     font-size: 1.1rem;
   }
 
-  .header__mobile-cta {
+  .header__nav > .header__mobile-cta {
     min-height: 50px;
+  }
+}
+
+/* ========================================
+   ACCESIBILIDAD
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .header__link,
+  .header__link::after,
+  .header__nav,
+  .header__menu-button,
+  .header__menu-button span {
+    transition-duration: 1ms !important;
   }
 }

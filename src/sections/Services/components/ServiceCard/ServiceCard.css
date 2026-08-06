@@ -1,0 +1,324 @@
+.services-card {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+
+  min-width: 0;
+  min-height: 31rem;
+
+  display: flex;
+  align-items: flex-end;
+
+  color: #ffffff;
+
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  border-radius: 1.4rem;
+
+  background-color: #17171d;
+
+  box-shadow:
+    0 1.4rem 3rem rgba(0, 0, 0, 0.22),
+    inset 0 1px rgba(255, 255, 255, 0.04);
+
+  transition:
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.services-card--interactive {
+  cursor: pointer;
+}
+
+.services-card--interactive:hover {
+  border-color: rgba(197, 140, 255, 0.42);
+
+  box-shadow:
+    0 1.8rem 4rem rgba(0, 0, 0, 0.34),
+    0 0 2.5rem rgba(166, 60, 255, 0.1);
+}
+
+.services-card--interactive:focus-visible {
+  outline: 3px solid rgba(197, 140, 255, 0.65);
+  outline-offset: 4px;
+}
+
+/* ========================================
+   IMAGEN
+======================================== */
+
+.services-card__image {
+  position: absolute;
+  inset: 0;
+  z-index: -3;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center;
+
+  filter: brightness(0.76) saturate(0.96);
+
+  transform: scale(1.01);
+
+  transition:
+    filter 0.65s ease,
+    transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.services-card--interactive:hover .services-card__image {
+  filter: brightness(0.86) saturate(1.08);
+
+  transform: scale(1.065);
+}
+
+/* ========================================
+   CAPA DE CONTRASTE
+======================================== */
+
+.services-card__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(8, 8, 12, 0.05) 0%,
+      rgba(8, 8, 12, 0.1) 25%,
+      rgba(8, 8, 12, 0.5) 52%,
+      rgba(8, 8, 12, 0.91) 75%,
+      rgba(8, 8, 12, 0.99) 100%
+    ),
+    linear-gradient(130deg, rgba(166, 60, 255, 0.09), transparent 48%);
+}
+
+/* ========================================
+   CONTENIDO
+======================================== */
+
+.services-card__body {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  padding: clamp(1.25rem, 2.2vw, 1.65rem);
+}
+
+.services-card__content h3 {
+  max-width: 95%;
+
+  color: #ffffff;
+  font-size: clamp(1.55rem, 2.3vw, 2.05rem);
+  line-height: 1.05;
+  letter-spacing: -0.035em;
+
+  text-wrap: balance;
+}
+
+.services-card__content > p {
+  max-width: 95%;
+  margin-top: 0.65rem;
+
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 0.82rem;
+  line-height: 1.55;
+
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.7);
+}
+
+/* ========================================
+   SERVICIOS INCLUIDOS
+======================================== */
+
+.services-card__services {
+  padding-top: 0.9rem;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.11);
+}
+
+.services-card__includes-label {
+  margin-bottom: 0.6rem;
+
+  color: #d2a1ff;
+  font-size: 0.68rem;
+  font-weight: 750;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+
+.services-card__features {
+  display: grid;
+  gap: 0.42rem;
+
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+}
+
+.services-card__features li {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 0.48rem;
+  align-items: center;
+
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 0.75rem;
+  line-height: 1.35;
+}
+
+.services-card__features svg {
+  color: #c58cff;
+  flex-shrink: 0;
+}
+
+/* ========================================
+   VER DETALLES
+======================================== */
+
+.services-card__details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+
+  margin-top: 0.1rem;
+  padding: 0.85rem 0.15rem 0;
+
+  color: #ffffff;
+  font-size: 0.78rem;
+  font-weight: 750;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+
+  transition:
+    color 0.25s ease,
+    padding-inline 0.25s ease;
+}
+
+.services-card__details svg {
+  color: #d5a4ff;
+
+  transition:
+    color 0.25s ease,
+    transform 0.3s ease;
+}
+
+.services-card--interactive:hover .services-card__details {
+  color: #d9adff;
+
+  padding-inline: 0.3rem;
+}
+
+.services-card--interactive:hover .services-card__details svg {
+  color: #ffffff;
+
+  transform: translate(0.2rem, -0.2rem);
+}
+
+/* ========================================
+   ESCRITORIO MEDIANO
+======================================== */
+
+@media (max-width: 1100px) {
+  .services-card {
+    min-height: 30rem;
+  }
+
+  .services-card__content h3 {
+    font-size: clamp(1.55rem, 2.7vw, 1.95rem);
+  }
+}
+
+/* ========================================
+   TABLET
+======================================== */
+
+@media (max-width: 800px) {
+  .services-card {
+    min-height: 29rem;
+  }
+
+  .services-card__content h3 {
+    max-width: 100%;
+  }
+
+  .services-card__content > p {
+    max-width: 100%;
+
+    font-size: 0.84rem;
+  }
+
+  .services-card__features li {
+    font-size: 0.78rem;
+  }
+}
+
+/* ========================================
+   MÓVIL
+======================================== */
+
+@media (max-width: 600px) {
+  .services-card {
+    min-height: 29rem;
+
+    border-radius: 1.2rem;
+  }
+
+  .services-card__body {
+    gap: 0.9rem;
+
+    padding: 1.25rem;
+  }
+
+  .services-card__content h3 {
+    font-size: 1.7rem;
+  }
+
+  .services-card__content > p {
+    font-size: 0.82rem;
+    line-height: 1.55;
+  }
+
+  .services-card__features li {
+    font-size: 0.76rem;
+  }
+
+  .services-card__details {
+    min-height: 2.3rem;
+  }
+}
+
+/* ========================================
+   TELÉFONOS PEQUEÑOS
+======================================== */
+
+@media (max-width: 380px) {
+  .services-card {
+    min-height: 30rem;
+  }
+
+  .services-card__body {
+    padding: 1.1rem;
+  }
+
+  .services-card__content h3 {
+    font-size: 1.6rem;
+  }
+}
+
+/* ========================================
+   ACCESIBILIDAD
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .services-card,
+  .services-card__image,
+  .services-card__details,
+  .services-card__details svg {
+    transition-duration: 1ms !important;
+  }
+}

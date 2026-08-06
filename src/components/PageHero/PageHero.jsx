@@ -1,17 +1,21 @@
-import "./PageHero.css";
-
 import Container from "../Container/Container";
 
-function PageHero({ eyebrow, title, description }) {
+import "./PageHero.css";
+
+function PageHero({ eyebrow, title, description, variant = "default" }) {
+  const isCompact = variant === "compact";
+
   return (
-    <section className="page-hero">
+    <section className={`page-hero ${isCompact ? "page-hero--compact" : ""}`}>
       <Container>
         <div className="page-hero__content">
-          <p className="page-hero__eyebrow">{eyebrow}</p>
+          {eyebrow && <p className="page-hero__eyebrow">{eyebrow}</p>}
 
           <h1 className="page-hero__title">{title}</h1>
 
-          <p className="page-hero__description">{description}</p>
+          {description && (
+            <p className="page-hero__description">{description}</p>
+          )}
         </div>
       </Container>
     </section>
