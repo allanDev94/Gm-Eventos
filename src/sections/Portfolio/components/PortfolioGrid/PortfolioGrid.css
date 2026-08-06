@@ -1,0 +1,34 @@
+.portfolio__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  gap: 1.5rem;
+}
+
+.portfolio__reveal-item {
+  min-width: 0;
+  height: 100%;
+}
+
+.portfolio__reveal-item .portfolio-card {
+  height: 100%;
+}
+
+.portfolio__reveal-item--featured {
+  grid-column: 1 / -1;
+}
+
+/* ========================================
+   MÓVIL Y TABLET PEQUEÑA
+======================================== */
+
+@media (max-width: 700px) {
+  .portfolio__grid,
+  .portfolio__grid--preview {
+    grid-template-columns: 1fr;
+  }
+
+  .portfolio__reveal-item--featured {
+    grid-column: auto;
+  }
+}
