@@ -1,38 +1,10 @@
-import "./Portfolio.css";
-
 import Button from "../../components/Button/Button";
 import Container from "../../components/Container/Container";
 import { RevealGroup, RevealItem } from "../../components/Reveal/Reveal";
 
-const events = [
-  {
-    id: 1,
-    title: "Matrimonio",
-    category: "Celebración",
-    description:
-      "Producción de sonido, iluminación, música y efectos para una celebración inolvidable.",
-    image: "/assets/img/events/01.JPG",
-    imagePosition: "center",
-  },
-  {
-    id: 2,
-    title: "Eventos corporativos",
-    category: "Empresas",
-    description:
-      "Soluciones audiovisuales y producción técnica para encuentros, celebraciones y actividades corporativas.",
-    image: null,
-    imagePosition: "center",
-  },
-  {
-    id: 3,
-    title: "Graduaciones y galas",
-    category: "Eventos",
-    description:
-      "Ambientación, sonido e iluminación para acompañar uno de los momentos más importantes de cada generación.",
-    image: null,
-    imagePosition: "center",
-  },
-];
+import { events } from "./data/eventsData";
+
+import "./Portfolio.css";
 
 function Portfolio({ showHeader = true, limit }) {
   const hasLimit = Number.isInteger(limit) && limit > 0;
@@ -42,7 +14,10 @@ function Portfolio({ showHeader = true, limit }) {
   const showViewAllButton = hasLimit && visibleEvents.length < events.length;
 
   return (
-    <section className="portfolio">
+    <section
+      className={`portfolio ${!showHeader ? "portfolio--without-header" : ""}`}
+      id="eventos"
+    >
       <Container>
         {showHeader && (
           <div className="portfolio__header">
@@ -99,6 +74,8 @@ function Portfolio({ showHeader = true, limit }) {
                         style={{
                           objectPosition: event.imagePosition,
                         }}
+                        loading="lazy"
+                        decoding="async"
                       />
                     ) : (
                       <div
@@ -120,12 +97,13 @@ function Portfolio({ showHeader = true, limit }) {
                   </div>
 
                   <div className="portfolio-card__content">
-                    <span className="portfolio-card__number">
+                    <span className="portfolio-card__number" aria-hidden="true">
                       {String(event.id).padStart(2, "0")}
                     </span>
 
                     <div>
                       <h3>{event.title}</h3>
+
                       <p>{event.description}</p>
                     </div>
                   </div>
