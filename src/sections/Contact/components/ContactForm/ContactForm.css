@@ -1,0 +1,546 @@
+.contact-form {
+  min-width: 0;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: clamp(1.4rem, 2.5vw, 2rem);
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1.6rem;
+
+  background-color: #15151b;
+
+  box-shadow:
+    0 1.8rem 4rem rgba(0, 0, 0, 0.24),
+    inset 0 1px rgba(255, 255, 255, 0.045);
+}
+
+/* ========================================
+   ENCABEZADO
+======================================== */
+
+.contact-form__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 1rem;
+
+  margin-bottom: 1rem;
+}
+
+.contact-form__header p {
+  margin-bottom: 0.3rem;
+
+  color: #c58cff;
+  font-size: 0.76rem;
+  font-weight: 750;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.contact-form__header h2 {
+  color: #ffffff;
+  font-size: clamp(1.5rem, 2vw, 1.9rem);
+  line-height: 1.2;
+}
+
+.contact-form__header > span {
+  color: rgba(255, 255, 255, 0.44);
+  font-size: 0.7rem;
+  white-space: nowrap;
+}
+
+/* ========================================
+   DISTRIBUCIÓN DE CAMPOS
+======================================== */
+
+.contact-form__grid {
+  min-height: 0;
+  flex: 1;
+
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-rows:
+    auto
+    auto
+    auto
+    auto
+    minmax(9rem, 1fr);
+  gap: 0.7rem 0.9rem;
+  align-content: stretch;
+}
+
+.contact-form__field {
+  min-width: 0;
+}
+
+.contact-form__field--full {
+  min-height: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  grid-column: 1 / -1;
+}
+
+.contact-form label,
+.contact-form legend {
+  display: block;
+
+  margin-bottom: 0.4rem;
+
+  color: rgba(255, 255, 255, 0.74);
+  font-size: 0.78rem;
+  font-weight: 650;
+  line-height: 1.35;
+}
+
+/* ========================================
+   INPUTS Y SELECT
+======================================== */
+
+.contact-form__control {
+  min-height: 2.85rem;
+
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+
+  padding-inline: 0.8rem;
+
+  color: rgba(255, 255, 255, 0.4);
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0.75rem;
+
+  background-color: rgba(255, 255, 255, 0.025);
+
+  transition:
+    border-color 0.25s ease,
+    background-color 0.25s ease,
+    box-shadow 0.25s ease,
+    color 0.25s ease;
+}
+
+.contact-form__control:focus-within {
+  color: #cfa0ff;
+
+  border-color: rgba(197, 140, 255, 0.55);
+  background-color: rgba(166, 60, 255, 0.04);
+
+  box-shadow: 0 0 0 3px rgba(166, 60, 255, 0.08);
+}
+
+.contact-form__control svg {
+  width: 19px;
+  height: 19px;
+
+  flex-shrink: 0;
+}
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+  width: 100%;
+
+  color: #ffffff;
+  font: inherit;
+
+  border: 0;
+  outline: 0;
+
+  background: transparent;
+}
+
+.contact-form input,
+.contact-form select {
+  min-height: 2.75rem;
+
+  font-size: 0.84rem;
+}
+
+.contact-form select {
+  appearance: none;
+  cursor: pointer;
+}
+
+.contact-form select option {
+  color: #ffffff;
+  background-color: #1b1b22;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: rgba(255, 255, 255, 0.34);
+}
+
+/* ========================================
+   TEXTAREA
+======================================== */
+
+.contact-form textarea {
+  min-height: 9rem;
+  max-height: none;
+  flex: 1;
+
+  padding: 0.85rem 0.9rem;
+
+  resize: vertical;
+
+  color: #ffffff;
+  font-size: 0.84rem;
+  line-height: 1.55;
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0.75rem;
+  outline: 0;
+
+  background-color: rgba(255, 255, 255, 0.025);
+
+  transition:
+    border-color 0.25s ease,
+    background-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.contact-form textarea:focus {
+  border-color: rgba(197, 140, 255, 0.55);
+  background-color: rgba(166, 60, 255, 0.04);
+
+  box-shadow: 0 0 0 3px rgba(166, 60, 255, 0.08);
+}
+
+/* ========================================
+   SERVICIOS
+======================================== */
+
+.contact-form__services {
+  grid-column: 1 / -1;
+
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+
+  border: 0;
+}
+
+.contact-form__service-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.contact-form__service {
+  position: relative;
+
+  width: auto;
+  min-width: 0;
+
+  display: inline-flex !important;
+  justify-content: center;
+  align-items: center;
+
+  margin: 0 !important;
+  padding: 0.55rem 0.85rem;
+
+  color: rgba(255, 255, 255, 0.62) !important;
+  cursor: pointer;
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 999px;
+
+  background-color: rgba(255, 255, 255, 0.025);
+
+  transition:
+    color 0.25s ease,
+    border-color 0.25s ease,
+    background-color 0.25s ease,
+    box-shadow 0.25s ease,
+    transform 0.25s ease;
+}
+
+.contact-form__service:hover {
+  color: #ffffff !important;
+
+  border-color: rgba(197, 140, 255, 0.34);
+  background-color: rgba(166, 60, 255, 0.06);
+
+  transform: translateY(-0.1rem);
+}
+
+.contact-form__service--selected {
+  color: #ffffff !important;
+
+  border-color: rgba(197, 140, 255, 0.58);
+  background-color: rgba(166, 60, 255, 0.14);
+
+  box-shadow: 0 0 0 2px rgba(166, 60, 255, 0.06);
+}
+
+.contact-form__service:focus-within {
+  border-color: rgba(197, 140, 255, 0.7);
+
+  box-shadow: 0 0 0 3px rgba(166, 60, 255, 0.1);
+}
+
+.contact-form__service input {
+  position: absolute;
+
+  width: 1px;
+  height: 1px;
+
+  overflow: hidden;
+
+  opacity: 0;
+  pointer-events: none;
+}
+
+.contact-form__service span {
+  overflow: hidden;
+
+  font-size: 0.73rem;
+  font-weight: 650;
+  line-height: 1.35;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* ========================================
+   ERRORES
+======================================== */
+
+.contact-form__error {
+  display: block;
+
+  margin-top: 0.3rem;
+
+  color: #ff8f9e;
+  font-size: 0.7rem;
+  line-height: 1.35;
+}
+
+.contact-form input[aria-invalid="true"],
+.contact-form select[aria-invalid="true"],
+.contact-form textarea[aria-invalid="true"] {
+  color: #ffd7dc;
+}
+
+.contact-form__control:has(
+  input[aria-invalid="true"],
+  select[aria-invalid="true"]
+) {
+  border-color: rgba(255, 113, 132, 0.55);
+}
+
+.contact-form textarea[aria-invalid="true"] {
+  border-color: rgba(255, 113, 132, 0.55);
+}
+
+/* ========================================
+   BOTÓN
+======================================== */
+
+.contact-form__submit {
+  position: relative;
+
+  width: min(100%, 300px);
+  min-height: 3.1rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+
+  margin: 1.4rem auto 0;
+  padding-inline: 3.2rem;
+
+  color: #ffffff;
+  font-size: 0.86rem;
+  font-weight: 750;
+  text-align: center;
+  cursor: pointer;
+
+  border: 1px solid rgba(197, 140, 255, 0.5);
+  border-radius: 0.8rem;
+
+  background: linear-gradient(110deg, #8e3ee7, #ad4be4, #ce4fbd);
+
+  box-shadow:
+    0 0.9rem 2rem rgba(166, 60, 255, 0.22),
+    0 0 1.5rem rgba(166, 60, 255, 0.08);
+
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    transform 0.3s ease;
+}
+
+.contact-form__submit:hover {
+  border-color: rgba(222, 174, 255, 0.75);
+
+  box-shadow:
+    0 1.1rem 2.5rem rgba(166, 60, 255, 0.3),
+    0 0 2rem rgba(166, 60, 255, 0.14);
+
+  transform: translateY(-0.15rem);
+}
+
+.contact-form__submit:focus-visible {
+  outline: 3px solid rgba(197, 140, 255, 0.38);
+  outline-offset: 3px;
+}
+
+.contact-form__submit svg {
+  position: absolute;
+  right: 1rem;
+
+  width: 20px;
+  height: 20px;
+
+  flex-shrink: 0;
+
+  transition: transform 0.3s ease;
+}
+
+.contact-form__submit:hover svg {
+  transform: translate(0.15rem, -0.15rem);
+}
+
+/* ========================================
+   ESCRITORIO MEDIANO
+======================================== */
+
+@media (max-width: 1100px) {
+  .contact-form {
+    padding: 1.5rem;
+  }
+
+  .contact-form__grid {
+    gap: 0.75rem;
+  }
+
+  .contact-form label,
+  .contact-form legend {
+    font-size: 0.76rem;
+  }
+
+  .contact-form input,
+  .contact-form select,
+  .contact-form textarea {
+    font-size: 0.82rem;
+  }
+}
+
+/* ========================================
+   TABLET
+======================================== */
+
+@media (max-width: 980px) {
+  .contact-form {
+    height: auto;
+  }
+
+  .contact-form__grid {
+    flex: initial;
+  }
+
+  .contact-form textarea {
+    min-height: 8rem;
+    flex: initial;
+  }
+}
+
+/* ========================================
+   MÓVIL
+======================================== */
+
+@media (max-width: 600px) {
+  .contact-form {
+    padding: 1.35rem;
+
+    border-radius: 1.3rem;
+  }
+
+  .contact-form__header {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.4rem;
+
+    margin-bottom: 1rem;
+  }
+
+  .contact-form__header h2 {
+    font-size: 1.5rem;
+  }
+
+  .contact-form__header > span {
+    font-size: 0.7rem;
+  }
+
+  .contact-form__grid {
+    flex: initial;
+
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    gap: 0.8rem;
+  }
+
+  .contact-form__field--full,
+  .contact-form__services {
+    grid-column: auto;
+  }
+
+  .contact-form__service-options {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .contact-form__service {
+    width: 100%;
+
+    border-radius: 0.7rem;
+  }
+
+  .contact-form__service span {
+    white-space: normal;
+  }
+
+  .contact-form textarea {
+    min-height: 7rem;
+    max-height: 10rem;
+    flex: initial;
+  }
+
+  .contact-form__submit {
+    width: min(100%, 280px);
+
+    margin-top: 1rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .contact-form__service-options {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-form__submit {
+    width: 100%;
+  }
+}
+
+/* ========================================
+   ACCESIBILIDAD
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .contact-form__control,
+  .contact-form textarea,
+  .contact-form__service,
+  .contact-form__submit,
+  .contact-form__submit svg {
+    transition-duration: 1ms !important;
+  }
+}
