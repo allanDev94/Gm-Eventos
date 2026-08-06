@@ -1,34 +1,68 @@
-import "./Hero.css";
+import { motion, useReducedMotion } from "motion/react";
 
 import Button from "../../components/Button/Button";
 import Container from "../../components/Container/Container";
 
+import {
+  heroBackgroundVariants,
+  heroContentVariants,
+  heroItemVariants,
+} from "./animations/heroAnimations";
+
+import "./Hero.css";
+
 function Hero() {
+  const shouldReduceMotion = useReducedMotion();
+
   return (
-    <section className="hero" id="inicio">
+    <section className="hero" id="inicio" aria-labelledby="hero-title">
+      <motion.img
+        className="hero__background"
+        src="/assets/img/hero01.JPG"
+        alt=""
+        aria-hidden="true"
+        loading="eager"
+        fetchPriority="high"
+        decoding="async"
+        variants={heroBackgroundVariants}
+        initial={shouldReduceMotion ? false : "hidden"}
+        animate="visible"
+      />
+
       <div className="hero__overlay" aria-hidden="true" />
 
       <Container>
-        <div className="hero__content">
-          <p className="hero__eyebrow">Producción de eventos</p>
+        <motion.div
+          className="hero__content"
+          variants={heroContentVariants}
+          initial={shouldReduceMotion ? false : "hidden"}
+          animate="visible"
+        >
+          <motion.p className="hero__eyebrow" variants={heroItemVariants}>
+            Producción de eventos
+          </motion.p>
 
-          <h1 className="hero__title">
+          <motion.h1
+            className="hero__title"
+            id="hero-title"
+            variants={heroItemVariants}
+          >
             Creamos momentos que se convierten en recuerdos
-          </h1>
+          </motion.h1>
 
-          <p className="hero__description">
+          <motion.p className="hero__description" variants={heroItemVariants}>
             Sonido, iluminación, DJ y producción para matrimonios, eventos
             corporativos, graduaciones y celebraciones.
-          </p>
+          </motion.p>
 
-          <div className="hero__actions">
+          <motion.div className="hero__actions" variants={heroItemVariants}>
             <Button to="/contacto">Cotizar evento</Button>
 
             <Button to="/servicios" variant="secondary">
               Ver servicios
             </Button>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </Container>
     </section>
   );
