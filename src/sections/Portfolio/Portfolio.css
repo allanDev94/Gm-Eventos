@@ -6,6 +6,10 @@
   background-color: #101014;
 }
 
+.portfolio--without-header {
+  padding-top: 3.5rem;
+}
+
 /* ========================================
    ENCABEZADO
 ======================================== */
@@ -93,6 +97,9 @@
   .portfolio__introduction {
     max-width: 600px;
   }
+  .portfolio--without-header {
+    padding-top: 3rem;
+  }
 }
 
 /* ========================================
@@ -120,5 +127,8 @@
 
   .portfolio__title {
     font-size: clamp(2rem, 10vw, 2.8rem);
+  }
+  .portfolio--without-header {
+    padding-top: 2.5rem;
   }
 }

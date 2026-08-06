@@ -11,6 +11,7 @@ function EventsPage() {
 
       <main>
         <PageHero
+          variant="compact"
           eyebrow="Eventos realizados"
           title="Experiencias creadas para momentos únicos"
           description="Conoce una selección de celebraciones, producciones y experiencias desarrolladas por GM Eventos."
