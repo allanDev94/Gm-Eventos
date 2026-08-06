@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 
-import "./Header.css";
-
 import Container from "../Container/Container";
+
+import "./Header.css";
 
 function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -16,12 +16,50 @@ function Header() {
   };
 
   useEffect(() => {
-    document.body.style.overflow = isMenuOpen ? "hidden" : "";
+    const previousOverflow = document.body.style.overflow;
+
+    if (isMenuOpen) {
+      document.body.style.overflow = "hidden";
+    }
 
     return () => {
-      document.body.style.overflow = "";
+      document.body.style.overflow = previousOverflow;
     };
   }, [isMenuOpen]);
+
+  useEffect(() => {
+    if (!isMenuOpen) {
+      return undefined;
+    }
+
+    const handleKeyDown = (event) => {
+      if (event.key === "Escape") {
+        closeMenu();
+      }
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [isMenuOpen]);
+
+  useEffect(() => {
+    const desktopMediaQuery = window.matchMedia("(min-width: 761px)");
+
+    const handleViewportChange = (event) => {
+      if (event.matches) {
+        closeMenu();
+      }
+    };
+
+    desktopMediaQuery.addEventListener("change", handleViewportChange);
+
+    return () => {
+      desktopMediaQuery.removeEventListener("change", handleViewportChange);
+    };
+  }, []);
 
   return (
     <header className="header">
@@ -85,7 +123,7 @@ function Header() {
             className="button button--primary header__cta"
             to="/contacto"
           >
-            Cotizar
+            Cotizar evento
           </NavLink>
 
           <button
