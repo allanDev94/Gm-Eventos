@@ -71,16 +71,17 @@ export const serviceCardVariants = {
     scale: 0.97,
   },
 
-  visible: {
+  visible: (delay = 0) => ({
     opacity: 1,
     y: 0,
     scale: 1,
 
     transition: {
       duration: 0.68,
+      delay,
       ease: smoothEase,
     },
-  },
+  }),
 };
 
 export const serviceCardHover = {

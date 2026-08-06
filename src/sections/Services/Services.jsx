@@ -35,7 +35,10 @@ function Services({ showHeader = true, limit }) {
 
   return (
     <>
-      <section className="services" id="servicios">
+      <section
+        className={`services ${!showHeader ? "services--without-header" : ""}`}
+        id="servicios"
+      >
         <Container>
           {showHeader && <ServicesHeader />}
 

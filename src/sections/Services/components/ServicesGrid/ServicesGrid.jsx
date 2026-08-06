@@ -1,34 +1,34 @@
-import { motion, useReducedMotion } from "motion/react";
-
 import ServiceCard from "../ServiceCard/ServiceCard";
-
-import { servicesGridVariants } from "../../animations/servicesAnimations";
 
 import "./ServicesGrid.css";
 
 function ServicesGrid({ services, fallbackImage, onOpen, isPreview = false }) {
-  const shouldReduceMotion = useReducedMotion();
+  const getAnimationDelay = (index) => {
+    const columnDelay = (index % 3) * 0.1;
+
+    if (isPreview) {
+      return columnDelay;
+    }
+
+    const isFirstRow = index < 3;
+
+    return isFirstRow ? 0.25 + columnDelay : columnDelay;
+  };
 
   return (
-    <motion.div
+    <div
       className={`services-grid ${isPreview ? "services-grid--preview" : ""}`}
-      variants={servicesGridVariants}
-      initial={shouldReduceMotion ? false : "hidden"}
-      whileInView={shouldReduceMotion ? undefined : "visible"}
-      viewport={{
-        once: true,
-        amount: 0.08,
-      }}
     >
-      {services.map((service) => (
+      {services.map((service, index) => (
         <ServiceCard
           key={service.id}
           service={service}
           fallbackImage={fallbackImage}
           onOpen={onOpen}
+          animationDelay={getAnimationDelay(index)}
         />
       ))}
-    </motion.div>
+    </div>
   );
 }
 

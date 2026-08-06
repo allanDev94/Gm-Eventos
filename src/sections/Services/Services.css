@@ -18,6 +18,12 @@
     #101014;
 }
 
+/* Reduce el espacio cuando existe un hero externo */
+
+.services--without-header {
+  padding-top: clamp(2.75rem, 4vw, 3.75rem);
+}
+
 /* ========================================
    CONTENEDOR
 ======================================== */
@@ -94,6 +100,10 @@
     padding-block: 6rem;
   }
 
+  .services--without-header {
+    padding-top: 3.25rem;
+  }
+
   .services__footer {
     margin-top: 2.75rem;
   }
@@ -106,6 +116,10 @@
 @media (max-width: 900px) {
   .services {
     padding-block: 5rem;
+  }
+
+  .services--without-header {
+    padding-top: 2.75rem;
   }
 
   .services::before {
@@ -125,6 +139,10 @@
 @media (max-width: 700px) {
   .services {
     padding-block: 4rem;
+  }
+
+  .services--without-header {
+    padding-top: 2rem;
   }
 
   .services::before {
@@ -155,23 +173,15 @@
     padding-block: 3.5rem;
   }
 
+  .services--without-header {
+    padding-top: 1.75rem;
+  }
+
   .services__footer {
     margin-top: 1.75rem;
   }
 
   .services__footer .button {
     width: 100%;
-  }
-}
-
-/* ========================================
-   ACCESIBILIDAD
-======================================== */
-
-@media (prefers-reduced-motion: reduce) {
-  .services,
-  .services::before,
-  .services::after {
-    scroll-behavior: auto;
   }
 }

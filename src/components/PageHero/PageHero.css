@@ -15,6 +15,10 @@
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
+/* ========================================
+   DECORACIÓN
+======================================== */
+
 .page-hero::before {
   content: "";
 
@@ -47,6 +51,10 @@
   pointer-events: none;
 }
 
+/* ========================================
+   CONTENIDO
+======================================== */
+
 .page-hero__content {
   position: relative;
   z-index: 1;
@@ -72,6 +80,7 @@
   font-size: clamp(2.7rem, 5.5vw, 5.3rem);
   line-height: 1;
   letter-spacing: -0.05em;
+
   overflow-wrap: break-word;
 }
 
@@ -84,7 +93,39 @@
   line-height: 1.75;
 }
 
-/* Tablet */
+/* ========================================
+   VARIANTE COMPACTA
+======================================== */
+
+.page-hero--compact {
+  padding-block: clamp(3.5rem, 5vw, 4.75rem) clamp(2.75rem, 3.5vw, 3.5rem);
+}
+
+.page-hero--compact .page-hero__content {
+  max-width: 1000px;
+}
+
+.page-hero--compact .page-hero__eyebrow {
+  margin-bottom: 0.85rem;
+}
+
+.page-hero--compact .page-hero__title {
+  max-width: 1000px;
+
+  font-size: clamp(2.7rem, 4.7vw, 4.65rem);
+  line-height: 0.98;
+}
+
+.page-hero--compact .page-hero__description {
+  max-width: 760px;
+  margin-top: 1.35rem;
+
+  line-height: 1.7;
+}
+
+/* ========================================
+   TABLET
+======================================== */
 
 @media (max-width: 900px) {
   .page-hero {
@@ -93,6 +134,7 @@
 
   .page-hero__title {
     max-width: 760px;
+
     font-size: clamp(2.5rem, 7vw, 4.2rem);
   }
 
@@ -100,9 +142,26 @@
     max-width: 620px;
     margin-top: 1.5rem;
   }
+
+  .page-hero--compact {
+    padding-block: 4.25rem 3rem;
+  }
+
+  .page-hero--compact .page-hero__title {
+    max-width: 800px;
+
+    font-size: clamp(2.5rem, 6.5vw, 3.9rem);
+  }
+
+  .page-hero--compact .page-hero__description {
+    max-width: 680px;
+    margin-top: 1.25rem;
+  }
 }
 
-/* Tablet pequeña y móvil */
+/* ========================================
+   TABLET PEQUEÑA
+======================================== */
 
 @media (max-width: 760px) {
   .page-hero {
@@ -127,6 +186,7 @@
 
   .page-hero__title {
     max-width: 620px;
+
     font-size: clamp(2.3rem, 8.5vw, 3.6rem);
     line-height: 1.02;
     letter-spacing: -0.045em;
@@ -134,11 +194,26 @@
 
   .page-hero__description {
     margin-top: 1.25rem;
+
     line-height: 1.65;
+  }
+
+  .page-hero--compact {
+    padding-block: 3.75rem 2.5rem;
+  }
+
+  .page-hero--compact .page-hero__title {
+    font-size: clamp(2.3rem, 8vw, 3.4rem);
+  }
+
+  .page-hero--compact .page-hero__description {
+    margin-top: 1.15rem;
   }
 }
 
-/* Móvil */
+/* ========================================
+   MÓVIL
+======================================== */
 
 @media (max-width: 480px) {
   .page-hero {
@@ -147,6 +222,7 @@
 
   .page-hero__eyebrow {
     margin-bottom: 0.8rem;
+
     font-size: 0.75rem;
     letter-spacing: 0.12em;
   }
@@ -159,15 +235,41 @@
 
   .page-hero__description {
     margin-top: 1rem;
+
     font-size: 1rem;
     line-height: 1.6;
   }
+
+  .page-hero--compact {
+    padding-block: 3.25rem 2.25rem;
+  }
+
+  .page-hero--compact .page-hero__title {
+    font-size: clamp(2.05rem, 9.5vw, 2.75rem);
+  }
+
+  .page-hero--compact .page-hero__description {
+    margin-top: 1rem;
+
+    font-size: 0.95rem;
+    line-height: 1.55;
+  }
 }
 
-/* Teléfonos pequeños */
+/* ========================================
+   TELÉFONOS PEQUEÑOS
+======================================== */
 
 @media (max-width: 360px) {
   .page-hero__title {
     font-size: 2rem;
+  }
+
+  .page-hero--compact {
+    padding-block: 3rem 2rem;
+  }
+
+  .page-hero--compact .page-hero__title {
+    font-size: 1.95rem;
   }
 }

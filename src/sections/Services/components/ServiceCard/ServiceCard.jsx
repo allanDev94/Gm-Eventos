@@ -8,7 +8,7 @@ import {
 
 import "./ServiceCard.css";
 
-function ServiceCard({ service, fallbackImage, onOpen }) {
+function ServiceCard({ service, fallbackImage, onOpen, animationDelay = 0 }) {
   const shouldReduceMotion = useReducedMotion();
 
   const handleOpen = () => {
@@ -40,7 +40,15 @@ function ServiceCard({ service, fallbackImage, onOpen }) {
       className={`services-card ${
         service.hasDetails ? "services-card--interactive" : ""
       }`}
+      custom={animationDelay}
       variants={serviceCardVariants}
+      initial={shouldReduceMotion ? false : "hidden"}
+      whileInView={shouldReduceMotion ? undefined : "visible"}
+      viewport={{
+        once: true,
+        amount: 0.22,
+        margin: "0px 0px -12% 0px",
+      }}
       whileHover={shouldReduceMotion ? undefined : serviceCardHover}
       whileTap={
         shouldReduceMotion || !service.hasDetails ? undefined : { scale: 0.99 }
