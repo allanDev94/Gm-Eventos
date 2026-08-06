@@ -1,0 +1,165 @@
+.services-header {
+  position: relative;
+
+  display: grid;
+  grid-template-columns:
+    minmax(0, 1.15fr)
+    minmax(300px, 0.85fr);
+  gap: clamp(2rem, 6vw, 6rem);
+  align-items: end;
+
+  margin-bottom: clamp(2rem, 4vw, 3.5rem);
+  padding-bottom: clamp(1.75rem, 3vw, 2.5rem);
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* ========================================
+   TÍTULO
+======================================== */
+
+.services-header__heading {
+  min-width: 0;
+}
+
+.services-header__eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+
+  margin-bottom: 0.8rem;
+
+  color: #c58cff;
+  font-size: 0.78rem;
+  font-weight: 750;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.services-header__eyebrow::before {
+  content: "";
+
+  width: 2.25rem;
+  height: 1px;
+
+  flex-shrink: 0;
+
+  background: linear-gradient(90deg, #a63cff, rgba(197, 140, 255, 0.2));
+}
+
+.services-header__title {
+  max-width: 760px;
+
+  color: #ffffff;
+  font-size: clamp(2.3rem, 5vw, 4.8rem);
+  line-height: 0.98;
+  letter-spacing: -0.055em;
+}
+
+.services-header__title span {
+  color: transparent;
+
+  background: linear-gradient(90deg, #d3a0ff, #ff78ae, #ffc171);
+
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
+/* ========================================
+   INTRODUCCIÓN
+======================================== */
+
+.services-header__introduction {
+  max-width: 520px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.4rem;
+
+  justify-self: end;
+}
+
+.services-header__introduction p {
+  color: rgba(255, 255, 255, 0.64);
+  font-size: 0.94rem;
+  line-height: 1.75;
+}
+
+.services-header__introduction .button {
+  min-width: 210px;
+}
+
+/* ========================================
+   TABLET
+======================================== */
+
+@media (max-width: 900px) {
+  .services-header {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    align-items: start;
+  }
+
+  .services-header__title {
+    max-width: 700px;
+  }
+
+  .services-header__introduction {
+    max-width: 680px;
+
+    justify-self: start;
+  }
+}
+
+/* ========================================
+   MÓVIL
+======================================== */
+
+@media (max-width: 600px) {
+  .services-header {
+    gap: 1.25rem;
+
+    margin-bottom: 2rem;
+    padding-bottom: 1.75rem;
+  }
+
+  .services-header__eyebrow {
+    font-size: 0.72rem;
+  }
+
+  .services-header__eyebrow::before {
+    width: 1.75rem;
+  }
+
+  .services-header__title {
+    font-size: clamp(2.2rem, 11vw, 3.4rem);
+    line-height: 1;
+  }
+
+  .services-header__introduction {
+    gap: 1.15rem;
+  }
+
+  .services-header__introduction p {
+    font-size: 0.88rem;
+    line-height: 1.7;
+  }
+
+  .services-header__introduction .button {
+    width: 100%;
+    min-width: 0;
+  }
+}
+
+/* ========================================
+   ACCESIBILIDAD
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .services-header *,
+  .services-header *::before,
+  .services-header *::after {
+    scroll-behavior: auto !important;
+  }
+}

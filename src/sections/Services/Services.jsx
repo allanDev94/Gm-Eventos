@@ -4,6 +4,8 @@ import Button from "../../components/Button/Button";
 import Container from "../../components/Container/Container";
 import ServiceModal from "../../components/ServiceModal/ServiceModal";
 
+import ServicesHeader from "./components/ServicesHeader/ServicesHeader";
+
 import { SERVICES_FALLBACK_IMAGE, services } from "./data/servicesData";
 
 import "./Services.css";
@@ -50,29 +52,7 @@ function Services({ showHeader = true, limit }) {
     <>
       <section className="services">
         <Container>
-          {showHeader && (
-            <header className="services__header">
-              <div className="services__heading">
-                <p className="services__eyebrow">Nuestros servicios</p>
-
-                <h2 className="services__title">
-                  Experiencias diseñadas para cada tipo de evento
-                </h2>
-              </div>
-
-              <div className="services__introduction">
-                <p>
-                  Combinamos música, sonido, iluminación y producción para crear
-                  celebraciones memorables. Cada propuesta se adapta al estilo,
-                  espacio y necesidades de nuestros clientes.
-                </p>
-
-                <Button to="/contacto" variant="secondary">
-                  Solicitar cotización
-                </Button>
-              </div>
-            </header>
-          )}
+          {showHeader && <ServicesHeader />}
 
           <div
             className={`services__grid ${
@@ -118,6 +98,7 @@ function Services({ showHeader = true, limit }) {
                 <div className="service-card__body">
                   <div className="service-card__content">
                     <h3>{service.title}</h3>
+
                     <p>{service.description}</p>
                   </div>
 
