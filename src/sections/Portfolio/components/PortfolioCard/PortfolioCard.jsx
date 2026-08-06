@@ -1,17 +1,30 @@
 import { useState } from "react";
 
+import { ArrowUpRight } from "lucide-react";
+
+import { motion, useReducedMotion } from "motion/react";
+
+import { portfolioCardHover } from "../../animations/portfolioAnimations";
+
 import "./PortfolioCard.css";
 
-function PortfolioCard({ event, isFeatured = false }) {
+function PortfolioCard({ event, isFeatured = false, onOpen }) {
   const [hasImageError, setHasImageError] = useState(false);
+
+  const shouldReduceMotion = useReducedMotion();
 
   const showImage = Boolean(event.image) && !hasImageError;
 
+  const openEvent = () => {
+    onOpen(event);
+  };
+
   return (
-    <article
+    <motion.article
       className={`portfolio-card ${
         isFeatured ? "portfolio-card--featured" : ""
       }`}
+      whileHover={shouldReduceMotion ? undefined : portfolioCardHover}
     >
       <div className="portfolio-card__media">
         {showImage ? (
@@ -47,9 +60,20 @@ function PortfolioCard({ event, isFeatured = false }) {
           <h3>{event.title}</h3>
 
           <p>{event.description}</p>
+
+          <button
+            className="portfolio-card__action"
+            type="button"
+            aria-label={`Ver detalles de ${event.title}`}
+            onClick={openEvent}
+          >
+            <span>Ver evento</span>
+
+            <ArrowUpRight size={19} strokeWidth={1.9} aria-hidden="true" />
+          </button>
         </div>
       </div>
-    </article>
+    </motion.article>
   );
 }
 

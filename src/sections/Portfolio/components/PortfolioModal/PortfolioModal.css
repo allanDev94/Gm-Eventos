@@ -1,0 +1,286 @@
+.portfolio-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1200;
+
+  display: grid;
+  place-items: center;
+
+  padding: 1.5rem;
+
+  overflow-y: auto;
+
+  background-color: rgba(5, 5, 8, 0.84);
+
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.portfolio-modal__panel {
+  position: relative;
+
+  width: min(72rem, 100%);
+  max-height: calc(100vh - 3rem);
+
+  display: grid;
+  grid-template-columns:
+    minmax(0, 1.2fr)
+    minmax(19rem, 0.8fr);
+
+  overflow-y: auto;
+
+  color: #ffffff;
+
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  border-radius: 1.4rem;
+
+  background-color: #121218;
+
+  box-shadow: 0 2rem 6rem rgba(0, 0, 0, 0.55);
+}
+
+/* ========================================
+   BOTÓN CERRAR
+======================================== */
+
+.portfolio-modal__close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 10;
+
+  width: 2.9rem;
+  height: 2.9rem;
+
+  display: grid;
+  place-items: center;
+
+  color: #ffffff;
+
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 50%;
+
+  background-color: rgba(10, 10, 14, 0.72);
+
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  cursor: pointer;
+
+  transition:
+    border-color 0.25s ease,
+    background-color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.portfolio-modal__close:hover {
+  border-color: rgba(197, 140, 255, 0.65);
+
+  background-color: rgba(197, 140, 255, 0.25);
+
+  transform: rotate(5deg);
+}
+
+.portfolio-modal__close:focus-visible {
+  outline: 3px solid rgba(197, 140, 255, 0.75);
+  outline-offset: 3px;
+}
+
+/* ========================================
+   GALERÍA
+======================================== */
+
+.portfolio-modal__gallery {
+  min-width: 0;
+
+  overflow: hidden;
+
+  border-radius: 1.35rem 0 0 1.35rem;
+
+  background-color: #0d0d12;
+}
+
+/* ========================================
+   INFORMACIÓN
+======================================== */
+
+.portfolio-modal__content {
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: clamp(2rem, 4vw, 3.4rem);
+}
+
+.portfolio-modal__eyebrow {
+  margin-bottom: 0.9rem;
+
+  color: #c58cff;
+  font-size: 0.76rem;
+  font-weight: 750;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.portfolio-modal__title {
+  padding-right: 2rem;
+
+  color: #ffffff;
+  font-size: clamp(2rem, 4vw, 3.35rem);
+  line-height: 1.03;
+  letter-spacing: -0.045em;
+
+  text-wrap: balance;
+}
+
+.portfolio-modal__description {
+  margin-top: 1.3rem;
+
+  color: rgba(255, 255, 255, 0.67);
+  line-height: 1.75;
+}
+
+/* ========================================
+   SERVICIOS
+======================================== */
+
+.portfolio-modal__services {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.portfolio-modal__services h3 {
+  margin-bottom: 1rem;
+
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.82rem;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.portfolio-modal__services ul {
+  display: grid;
+  gap: 0.75rem;
+
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+}
+
+.portfolio-modal__services li {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 0.65rem;
+  align-items: center;
+
+  color: rgba(255, 255, 255, 0.66);
+  font-size: 0.8rem;
+}
+
+.portfolio-modal__services svg {
+  color: #c58cff;
+}
+
+/* ========================================
+   LLAMADA A LA ACCIÓN
+======================================== */
+
+.portfolio-modal__cta {
+  margin-top: auto;
+  padding-top: 2rem;
+}
+
+.portfolio-modal__cta p {
+  margin-bottom: 1.25rem;
+
+  color: rgba(255, 255, 255, 0.56);
+  font-size: 0.76rem;
+  line-height: 1.65;
+}
+
+.portfolio-modal__cta .button {
+  width: 100%;
+}
+
+/* ========================================
+   TABLET
+======================================== */
+
+@media (max-width: 900px) {
+  .portfolio-modal {
+    place-items: start center;
+
+    padding: 1rem;
+  }
+
+  .portfolio-modal__panel {
+    max-height: none;
+
+    grid-template-columns: 1fr;
+
+    border-radius: 1.25rem;
+  }
+
+  .portfolio-modal__gallery {
+    border-radius: 1.2rem 1.2rem 0 0;
+  }
+
+  .portfolio-modal__content {
+    padding: 2rem;
+  }
+
+  .portfolio-modal__cta {
+    margin-top: 2rem;
+  }
+}
+
+/* ========================================
+   MÓVIL
+======================================== */
+
+@media (max-width: 600px) {
+  .portfolio-modal {
+    padding: 0;
+  }
+
+  .portfolio-modal__panel {
+    width: 100%;
+    min-height: 100vh;
+
+    border: none;
+    border-radius: 0;
+  }
+
+  .portfolio-modal__gallery {
+    border-radius: 0;
+  }
+
+  .portfolio-modal__content {
+    padding: 1.6rem 1.25rem 2rem;
+  }
+
+  .portfolio-modal__title {
+    padding-right: 0;
+
+    font-size: clamp(2rem, 10vw, 2.7rem);
+  }
+
+  .portfolio-modal__close {
+    top: 0.75rem;
+    right: 0.75rem;
+  }
+}
+
+/* ========================================
+   ACCESIBILIDAD
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .portfolio-modal__close {
+    transition-duration: 1ms !important;
+  }
+}

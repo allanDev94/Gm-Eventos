@@ -4,7 +4,7 @@ import PortfolioCard from "../PortfolioCard/PortfolioCard";
 
 import "./PortfolioGrid.css";
 
-function PortfolioGrid({ events, isPreview = false }) {
+function PortfolioGrid({ events, isPreview = false, onOpen }) {
   return (
     <RevealGroup
       className={`portfolio__grid ${
@@ -24,7 +24,11 @@ function PortfolioGrid({ events, isPreview = false }) {
             }`}
             key={event.id}
           >
-            <PortfolioCard event={event} isFeatured={isFeatured} />
+            <PortfolioCard
+              event={event}
+              isFeatured={isFeatured}
+              onOpen={onOpen}
+            />
           </RevealItem>
         );
       })}
