@@ -1,0 +1,258 @@
+.home-about {
+  position: relative;
+  overflow: hidden;
+
+  padding-block: 7rem;
+
+  background:
+    radial-gradient(
+      circle at 15% 20%,
+      rgba(166, 60, 255, 0.12),
+      transparent 32%
+    ),
+    #0d0d12;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.home-about::after {
+  content: "";
+
+  position: absolute;
+  right: -8rem;
+  bottom: -10rem;
+
+  width: 25rem;
+  height: 25rem;
+
+  border: 1px solid rgba(197, 140, 255, 0.08);
+  border-radius: 50%;
+
+  box-shadow:
+    0 0 0 5rem rgba(197, 140, 255, 0.025),
+    0 0 0 10rem rgba(197, 140, 255, 0.015);
+
+  pointer-events: none;
+}
+
+.home-about__layout {
+  position: relative;
+  z-index: 1;
+
+  display: grid;
+  grid-template-columns:
+    minmax(0, 0.85fr)
+    minmax(0, 1.15fr);
+
+  gap: clamp(3rem, 7vw, 7rem);
+  align-items: center;
+}
+
+/* ========================================
+   CONTENIDO
+======================================== */
+
+.home-about__content {
+  min-width: 0;
+}
+
+.home-about__eyebrow {
+  margin-bottom: 1rem;
+
+  color: #c58cff;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.home-about__title {
+  max-width: 680px;
+
+  color: #ffffff;
+  font-size: clamp(2.2rem, 4.5vw, 4rem);
+  line-height: 1.04;
+  letter-spacing: -0.04em;
+
+  text-wrap: balance;
+}
+
+.home-about__description {
+  max-width: 610px;
+
+  margin-top: 1.4rem;
+
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.75;
+}
+
+.home-about__content .button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+
+  margin-top: 2rem;
+}
+
+/* ========================================
+   VALORES
+======================================== */
+
+.home-about__values {
+  display: grid;
+  gap: 1rem;
+}
+
+.home-about__value {
+  min-width: 0;
+
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 1.15rem;
+  align-items: start;
+
+  padding: 1.5rem;
+
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 1rem;
+
+  background-color: rgba(255, 255, 255, 0.035);
+
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.14);
+
+  transition:
+    border-color 0.3s ease,
+    background-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.home-about__value:hover {
+  border-color: rgba(197, 140, 255, 0.38);
+
+  background-color: rgba(197, 140, 255, 0.065);
+
+  box-shadow:
+    0 1.4rem 3.5rem rgba(0, 0, 0, 0.2),
+    0 0 2rem rgba(197, 140, 255, 0.05);
+}
+
+.home-about__icon {
+  width: 3rem;
+  height: 3rem;
+
+  display: grid;
+  place-items: center;
+
+  color: #c58cff;
+
+  border: 1px solid rgba(197, 140, 255, 0.25);
+  border-radius: 0.8rem;
+
+  background-color: rgba(197, 140, 255, 0.09);
+}
+
+.home-about__value h3 {
+  margin-bottom: 0.45rem;
+
+  color: #ffffff;
+  font-size: 1rem;
+  line-height: 1.3;
+}
+
+.home-about__value p {
+  color: rgba(255, 255, 255, 0.58);
+  font-size: 0.82rem;
+  line-height: 1.65;
+}
+
+/* ========================================
+   TABLET
+======================================== */
+
+@media (max-width: 900px) {
+  .home-about {
+    padding-block: 5.5rem;
+  }
+
+  .home-about__layout {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .home-about__content {
+    max-width: 760px;
+  }
+
+  .home-about__values {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .home-about__value {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ========================================
+   TABLET PEQUEÑA
+======================================== */
+
+@media (max-width: 700px) {
+  .home-about__values {
+    grid-template-columns: 1fr;
+  }
+
+  .home-about__value {
+    grid-template-columns: auto minmax(0, 1fr);
+  }
+}
+
+/* ========================================
+   MÓVIL
+======================================== */
+
+@media (max-width: 480px) {
+  .home-about {
+    padding-block: 4.5rem;
+  }
+
+  .home-about__layout {
+    gap: 2.5rem;
+  }
+
+  .home-about__title {
+    font-size: clamp(2rem, 10vw, 2.8rem);
+  }
+
+  .home-about__description {
+    margin-top: 1.1rem;
+
+    line-height: 1.65;
+  }
+
+  .home-about__content .button {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .home-about__value {
+    gap: 0.9rem;
+
+    padding: 1.25rem;
+  }
+
+  .home-about__icon {
+    width: 2.7rem;
+    height: 2.7rem;
+  }
+}
+
+/* ========================================
+   ACCESIBILIDAD
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .home-about__value {
+    transition-duration: 1ms !important;
+  }
+}
