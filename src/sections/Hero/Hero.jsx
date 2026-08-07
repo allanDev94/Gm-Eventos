@@ -2,6 +2,7 @@ import { motion, useReducedMotion } from "motion/react";
 
 import Button from "../../components/Button/Button";
 import Container from "../../components/Container/Container";
+import GradientText from "../../components/GradientText/GradientText";
 
 import {
   heroBackgroundVariants,
@@ -47,7 +48,8 @@ function Hero() {
             id="hero-title"
             variants={heroItemVariants}
           >
-            Creamos momentos que se convierten en recuerdos
+            Creamos momentos que se convierten en{" "}
+            <GradientText>recuerdos</GradientText>
           </motion.h1>
 
           <motion.p className="hero__description" variants={heroItemVariants}>

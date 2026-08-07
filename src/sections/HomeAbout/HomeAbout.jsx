@@ -4,6 +4,7 @@ import { motion, useReducedMotion } from "motion/react";
 
 import Button from "../../components/Button/Button";
 import Container from "../../components/Container/Container";
+import GradientText from "../../components/GradientText/GradientText";
 
 import {
   homeAboutContentVariants,
@@ -35,7 +36,8 @@ function HomeAbout() {
             <p className="home-about__eyebrow">Sobre GM Eventos</p>
 
             <h2 className="home-about__title" id="home-about-title">
-              Producción cercana, profesional y adaptada a cada evento
+              Producción cercana, profesional y{" "}
+              <GradientText>adaptada a cada evento</GradientText>
             </h2>
 
             <p className="home-about__description">
