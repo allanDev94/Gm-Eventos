@@ -1,17 +1,26 @@
 .clients {
-  padding-block: 4rem;
+  position: relative;
+
+  padding-block: 4.5rem;
+
   background-color: #0b0b0f;
+
   border-top: 1px solid rgba(255, 255, 255, 0.08);
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
+/* ========================================
+   ENCABEZADO
+======================================== */
+
 .clients__header {
-  margin-bottom: 2rem;
+  margin-bottom: 2.25rem;
+
   text-align: center;
 }
 
 .clients__eyebrow {
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.55rem;
 
   color: #c58cff;
   font-size: 0.8rem;
@@ -21,9 +30,17 @@
 }
 
 .clients__title {
+  color: #ffffff;
   font-size: clamp(1.5rem, 3vw, 2.25rem);
   line-height: 1.2;
+  letter-spacing: -0.025em;
+
+  text-wrap: balance;
 }
+
+/* ========================================
+   CUADRÍCULA
+======================================== */
 
 .clients__list {
   display: grid;
@@ -33,43 +50,104 @@
 
 .clients__item {
   min-width: 0;
-  min-height: 90px;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  padding: 0.6rem;
 
-  padding: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 1rem;
 
-  color: rgba(255, 255, 255, 0.55);
-  font-size: 0.9rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-align: center;
-  text-transform: uppercase;
-
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 0.75rem;
   background-color: rgba(255, 255, 255, 0.025);
 
   transition:
-    color 0.25s ease,
-    border-color 0.25s ease,
-    background-color 0.25s ease;
+    border-color 0.3s ease,
+    background-color 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .clients__item:hover {
-  color: #ffffff;
-  border-color: rgba(197, 140, 255, 0.45);
-  background-color: rgba(197, 140, 255, 0.08);
+  border-color: rgba(197, 140, 255, 0.42);
+
+  background-color: rgba(197, 140, 255, 0.06);
+
+  box-shadow:
+    0 1rem 2.5rem rgba(0, 0, 0, 0.2),
+    0 0 2rem rgba(197, 140, 255, 0.06);
 }
 
-@media (max-width: 900px) {
+/* ========================================
+   MARCO UNIFORME DEL LOGO
+======================================== */
+
+.clients__logo-frame {
+  width: 100%;
+  height: 7rem;
+
+  display: grid;
+  place-items: center;
+
+  overflow: hidden;
+
+  padding: 1.1rem 1.25rem;
+
+  border-radius: 0.7rem;
+
+  background-color: rgba(245, 245, 247, 0.96);
+}
+
+/* ========================================
+   LOGOS
+======================================== */
+
+.clients__logo {
+  width: 100%;
+  height: 100%;
+  max-width: 10rem;
+  max-height: 4.5rem;
+
+  display: block;
+
+  object-fit: contain;
+  object-position: center;
+
+  opacity: 0.92;
+
+  filter: none;
+
+  transform: scale(var(--client-logo-scale, 1));
+
+  transition:
+    opacity 0.3s ease,
+    filter 0.3s ease;
+}
+
+.clients__item:hover .clients__logo {
+  opacity: 1;
+
+  filter: saturate(1.08);
+}
+
+/* ========================================
+   RESPALDO SIN IMAGEN
+======================================== */
+
+.clients__fallback {
+  color: #24242b;
+  font-size: 0.82rem;
+  font-weight: 750;
+  letter-spacing: 0.08em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+/* ========================================
+   TABLET
+======================================== */
+
+@media (max-width: 1000px) {
   .clients__list {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 1rem;
   }
 
   .clients__item {
@@ -77,9 +155,17 @@
   }
 }
 
+/* ========================================
+   MÓVIL
+======================================== */
+
 @media (max-width: 600px) {
   .clients {
-    padding-block: 3.5rem;
+    padding-block: 3.75rem;
+  }
+
+  .clients__header {
+    margin-bottom: 1.75rem;
   }
 
   .clients__list {
@@ -88,11 +174,43 @@
 
   .clients__item {
     flex-basis: calc((100% - 0.75rem) / 2);
+
+    padding: 0.45rem;
+  }
+
+  .clients__logo-frame {
+    height: 6.5rem;
+
+    padding: 1rem;
+  }
+
+  .clients__logo {
+    max-width: 8rem;
+    max-height: 4rem;
   }
 }
 
-@media (max-width: 420px) {
+/* ========================================
+   TELÉFONOS PEQUEÑOS
+======================================== */
+
+@media (max-width: 360px) {
   .clients__item {
     flex-basis: 100%;
+  }
+
+  .clients__logo-frame {
+    height: 6rem;
+  }
+}
+
+/* ========================================
+   ACCESIBILIDAD
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .clients__item,
+  .clients__logo {
+    transition-duration: 1ms !important;
   }
 }
