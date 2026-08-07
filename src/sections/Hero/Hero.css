@@ -1,22 +1,46 @@
 .hero {
   position: relative;
+  isolation: isolate;
 
   min-height: calc(100vh - 80px);
   min-height: calc(100svh - 80px);
 
   display: flex;
   align-items: center;
+
   overflow: hidden;
 
-  background-image: url("/assets/img/hero/hero01.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  background-color: #0a0a0e;
 }
+
+/* ========================================
+   IMAGEN DE FONDO
+======================================== */
+
+.hero__background {
+  position: absolute;
+  inset: 0;
+  z-index: -3;
+
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+  object-position: center;
+
+  transform-origin: center;
+}
+
+/* ========================================
+   CAPAS DE CONTRASTE
+======================================== */
 
 .hero__overlay {
   position: absolute;
   inset: 0;
+  z-index: -2;
 
   background:
     linear-gradient(
@@ -34,9 +58,33 @@
   pointer-events: none;
 }
 
+.hero::after {
+  content: "";
+
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+
+  height: 9rem;
+
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(10, 10, 14, 0.35) 55%,
+    #101014 100%
+  );
+
+  pointer-events: none;
+}
+
+/* ========================================
+   CONTENIDO
+======================================== */
+
 .hero .container {
   position: relative;
-  z-index: 1;
 
   min-height: inherit;
 
@@ -47,6 +95,7 @@
 .hero__content {
   width: 100%;
   max-width: 680px;
+
   padding-block: 5.5rem;
 }
 
@@ -67,16 +116,23 @@
   font-size: clamp(2.7rem, 6vw, 5.5rem);
   line-height: 0.98;
   letter-spacing: -0.04em;
+
+  text-wrap: balance;
 }
 
 .hero__description {
   max-width: 600px;
+
   margin-top: 1.5rem;
 
   color: rgba(255, 255, 255, 0.78);
   font-size: clamp(1rem, 2vw, 1.2rem);
   line-height: 1.65;
 }
+
+/* ========================================
+   BOTONES
+======================================== */
 
 .hero__actions {
   display: flex;
@@ -86,9 +142,13 @@
   margin-top: 2rem;
 }
 
+/* ========================================
+   TABLET
+======================================== */
+
 @media (max-width: 900px) {
-  .hero {
-    background-position: 58% center;
+  .hero__background {
+    object-position: 58% center;
   }
 
   .hero__title {
@@ -96,12 +156,18 @@
   }
 }
 
+/* ========================================
+   TABLET PEQUEÑA
+======================================== */
+
 @media (max-width: 768px) {
   .hero {
     min-height: calc(100vh - 72px);
     min-height: calc(100svh - 72px);
+  }
 
-    background-position: 60% center;
+  .hero__background {
+    object-position: 60% center;
   }
 
   .hero__overlay {
@@ -119,24 +185,31 @@
       );
   }
 
+  .hero::after {
+    height: 7rem;
+  }
+
   .hero .container {
     align-items: flex-end;
   }
 
   .hero__content {
     max-width: 620px;
+
     padding-top: 7rem;
     padding-bottom: 3.5rem;
   }
 
   .hero__title {
     max-width: 560px;
+
     font-size: clamp(2.35rem, 9vw, 3.7rem);
     line-height: 1;
   }
 
   .hero__description {
     max-width: 540px;
+
     margin-top: 1.25rem;
   }
 
@@ -145,9 +218,13 @@
   }
 }
 
+/* ========================================
+   MÓVIL
+======================================== */
+
 @media (max-width: 480px) {
-  .hero {
-    background-position: 62% center;
+  .hero__background {
+    object-position: 62% center;
   }
 
   .hero__content {
@@ -157,6 +234,7 @@
 
   .hero__eyebrow {
     margin-bottom: 0.8rem;
+
     font-size: 0.75rem;
     letter-spacing: 0.12em;
   }
@@ -169,6 +247,7 @@
 
   .hero__description {
     margin-top: 1rem;
+
     font-size: 1rem;
     line-height: 1.55;
   }
@@ -176,6 +255,7 @@
   .hero__actions {
     flex-direction: column;
     gap: 0.75rem;
+
     margin-top: 1.5rem;
   }
 
@@ -184,6 +264,10 @@
   }
 }
 
+/* ========================================
+   TELÉFONOS PEQUEÑOS
+======================================== */
+
 @media (max-width: 360px) {
   .hero__title {
     font-size: 2rem;
@@ -191,5 +275,15 @@
 
   .hero__content {
     padding-bottom: 2rem;
+  }
+}
+
+/* ========================================
+   ACCESIBILIDAD
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__background {
+    transform: none !important;
   }
 }

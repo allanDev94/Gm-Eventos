@@ -1,0 +1,29 @@
+.gradient-text {
+  display: inline;
+
+  color: #d99cff;
+
+  background: linear-gradient(
+    95deg,
+    #c58cff 0%,
+    #dc78dd 34%,
+    #f36fae 66%,
+    #ffb36b 100%
+  );
+
+  background-clip: text;
+  -webkit-background-clip: text;
+
+  -webkit-text-fill-color: transparent;
+
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+@media (forced-colors: active) {
+  .gradient-text {
+    color: inherit;
+    background: none;
+    -webkit-text-fill-color: currentColor;
+  }
+}

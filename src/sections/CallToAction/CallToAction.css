@@ -1,76 +1,185 @@
 .call-to-action {
   position: relative;
+  isolation: isolate;
+
   overflow: hidden;
+
   padding-block: 7rem;
+
   background-color: #0b0b0f;
 }
 
-.call-to-action::before {
-  content: "";
-  position: absolute;
-  top: -220px;
-  right: -180px;
+/* ========================================
+   FONDO AMBIENTAL
+======================================== */
 
-  width: 520px;
-  height: 520px;
+.call-to-action__ambient {
+  position: absolute;
+  top: -14rem;
+  right: -11rem;
+  z-index: -1;
+
+  width: 34rem;
+  height: 34rem;
 
   border-radius: 50%;
-  background-color: rgba(166, 60, 255, 0.18);
-  filter: blur(110px);
+
+  background-color: rgba(166, 60, 255, 0.16);
+
+  filter: blur(115px);
 
   pointer-events: none;
 }
 
+.call-to-action::after {
+  content: "";
+
+  position: absolute;
+  bottom: -18rem;
+  left: -15rem;
+  z-index: -1;
+
+  width: 32rem;
+  height: 32rem;
+
+  border-radius: 50%;
+
+  background-color: rgba(255, 86, 130, 0.07);
+
+  filter: blur(120px);
+
+  pointer-events: none;
+}
+
+/* ========================================
+   PANEL PRINCIPAL
+======================================== */
+
 .call-to-action__content {
   position: relative;
+  isolation: isolate;
 
   display: grid;
-  grid-template-columns: minmax(0, 1.25fr) minmax(260px, 0.75fr);
-  gap: 4rem;
+  grid-template-columns:
+    minmax(0, 1.25fr)
+    minmax(260px, 0.75fr);
+
+  gap: clamp(3rem, 6vw, 5rem);
   align-items: end;
 
-  padding: 4rem;
+  overflow: hidden;
 
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: clamp(2.5rem, 5vw, 4.5rem);
+
+  border: 1px solid rgba(255, 255, 255, 0.11);
   border-radius: 1.75rem;
 
   background:
     linear-gradient(
       135deg,
-      rgba(197, 140, 255, 0.12),
-      rgba(255, 255, 255, 0.025)
+      rgba(197, 140, 255, 0.13),
+      rgba(255, 255, 255, 0.025) 55%,
+      rgba(255, 86, 130, 0.035)
     ),
     #101014;
+
+  box-shadow:
+    0 2rem 5rem rgba(0, 0, 0, 0.3),
+    inset 0 1px rgba(255, 255, 255, 0.04);
+}
+
+.call-to-action__content::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+
+  background: linear-gradient(
+    115deg,
+    rgba(255, 255, 255, 0.035),
+    transparent 38%
+  );
+
+  pointer-events: none;
+}
+
+/* ========================================
+   DECORACIÓN
+======================================== */
+
+.call-to-action__decoration {
+  position: absolute;
+  right: -8rem;
+  bottom: -11rem;
+  z-index: -1;
+
+  width: 24rem;
+  height: 24rem;
+
+  border: 1px solid rgba(197, 140, 255, 0.1);
+  border-radius: 50%;
+
+  box-shadow:
+    0 0 0 4rem rgba(197, 140, 255, 0.025),
+    0 0 0 8rem rgba(197, 140, 255, 0.015);
+
+  pointer-events: none;
+}
+
+/* ========================================
+   TEXTO
+======================================== */
+
+.call-to-action__text {
+  min-width: 0;
 }
 
 .call-to-action__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+
   margin-bottom: 1rem;
 
   color: #c58cff;
   font-size: 0.85rem;
   font-weight: 700;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.13em;
   text-transform: uppercase;
 }
 
+.call-to-action__eyebrow svg {
+  flex-shrink: 0;
+}
+
 .call-to-action__title {
-  max-width: 760px;
+  max-width: 780px;
 
   color: #ffffff;
   font-size: clamp(2.2rem, 4.5vw, 4.3rem);
   line-height: 1.03;
   letter-spacing: -0.045em;
+
+  text-wrap: balance;
 }
 
 .call-to-action__description {
   max-width: 650px;
+
   margin-top: 1.5rem;
 
   color: rgba(255, 255, 255, 0.65);
   line-height: 1.75;
 }
 
+/* ========================================
+   ACCIONES
+======================================== */
+
 .call-to-action__actions {
+  min-width: 0;
+
   display: flex;
   flex-direction: column;
   gap: 0.85rem;
@@ -78,7 +187,33 @@
 
 .call-to-action__actions .button {
   width: 100%;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
 }
+
+.call-to-action__actions .button svg {
+  transition: transform 0.3s ease;
+}
+
+.call-to-action__actions .button:hover svg {
+  transform: translate(0.18rem, -0.18rem);
+}
+
+.call-to-action__note {
+  margin-top: 0.35rem;
+
+  color: rgba(255, 255, 255, 0.42);
+  font-size: 0.72rem;
+  line-height: 1.5;
+  text-align: center;
+}
+
+/* ========================================
+   TABLET
+======================================== */
 
 @media (max-width: 850px) {
   .call-to-action {
@@ -87,16 +222,21 @@
 
   .call-to-action__content {
     grid-template-columns: 1fr;
-    gap: 2.5rem;
+    gap: 2.75rem;
+
     padding: 3rem;
   }
 
   .call-to-action__actions {
-    width: 80%;
-    max-width: 520px;
+    width: min(100%, 32rem);
+
     margin-inline: auto;
   }
 }
+
+/* ========================================
+   MÓVIL
+======================================== */
 
 @media (max-width: 520px) {
   .call-to-action {
@@ -104,11 +244,58 @@
   }
 
   .call-to-action__content {
-    padding: 2rem 1.5rem;
+    gap: 2.25rem;
+
+    padding: 2rem 1.4rem;
+
     border-radius: 1.25rem;
+  }
+
+  .call-to-action__eyebrow {
+    font-size: 0.74rem;
+    letter-spacing: 0.11em;
   }
 
   .call-to-action__title {
     font-size: clamp(2rem, 10vw, 3rem);
+  }
+
+  .call-to-action__description {
+    margin-top: 1.15rem;
+
+    line-height: 1.65;
+  }
+
+  .call-to-action__actions {
+    width: 100%;
+  }
+
+  .call-to-action__decoration {
+    right: -13rem;
+    bottom: -12rem;
+  }
+}
+
+/* ========================================
+   TELÉFONOS PEQUEÑOS
+======================================== */
+
+@media (max-width: 360px) {
+  .call-to-action__content {
+    padding-inline: 1.15rem;
+  }
+
+  .call-to-action__title {
+    font-size: 1.9rem;
+  }
+}
+
+/* ========================================
+   ACCESIBILIDAD
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .call-to-action__actions .button svg {
+    transition-duration: 1ms !important;
   }
 }
