@@ -50,7 +50,10 @@
 
   display: block;
 
-  object-fit: cover;
+  object-fit: contain;
+  object-position: center;
+
+  background-color: #18181f;
 }
 
 /* ========================================
@@ -59,27 +62,34 @@
 
 .service-gallery__counter {
   position: absolute;
+
   bottom: 1rem;
   left: 1rem;
+
   z-index: 4;
 
   display: flex;
   align-items: center;
+
   gap: 0.35rem;
 
   padding: 0.55rem 0.75rem;
 
   color: rgba(255, 255, 255, 0.7);
+
   font-size: 0.68rem;
   font-weight: 700;
+
   letter-spacing: 0.08em;
 
   border: 1px solid rgba(255, 255, 255, 0.14);
+
   border-radius: 999px;
 
   background-color: rgba(10, 10, 14, 0.7);
 
   backdrop-filter: blur(12px);
+
   -webkit-backdrop-filter: blur(12px);
 }
 
@@ -93,11 +103,14 @@
 
 .service-gallery__controls {
   position: absolute;
+
   right: 1rem;
   bottom: 1rem;
+
   z-index: 4;
 
   display: flex;
+
   gap: 0.5rem;
 }
 
@@ -111,14 +124,17 @@
   padding: 0;
 
   color: #ffffff;
+
   cursor: pointer;
 
   border: 1px solid rgba(255, 255, 255, 0.16);
+
   border-radius: 50%;
 
   background-color: rgba(10, 10, 14, 0.7);
 
   backdrop-filter: blur(12px);
+
   -webkit-backdrop-filter: blur(12px);
 
   transition:
@@ -133,6 +149,7 @@
   color: #d5a4ff;
 
   border-color: rgba(197, 140, 255, 0.56);
+
   background-color: rgba(166, 60, 255, 0.18);
 
   transform: translateY(-0.15rem);
@@ -140,11 +157,13 @@
 
 .service-gallery__controls button:disabled {
   cursor: not-allowed;
+
   opacity: 0.34;
 }
 
 .service-gallery__controls button:focus-visible {
   outline: 2px solid #c58cff;
+
   outline-offset: 3px;
 }
 
@@ -165,6 +184,7 @@
   overflow: hidden;
 
   width: 100%;
+
   aspect-ratio: 4 / 3;
 
   display: block;
@@ -172,9 +192,11 @@
   padding: 0;
 
   cursor: pointer;
+
   opacity: 0.52;
 
   border: 2px solid transparent;
+
   border-radius: 0.75rem;
 
   background-color: #18181f;
@@ -193,11 +215,13 @@
 
 .service-gallery__thumbnail--active {
   border-color: #c58cff;
+
   opacity: 1;
 }
 
 .service-gallery__thumbnail:focus-visible {
   outline: 2px solid #c58cff;
+
   outline-offset: 3px;
 }
 

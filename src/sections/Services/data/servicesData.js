@@ -1,8 +1,9 @@
-export const SERVICES_FALLBACK_IMAGE = "/assets/img/events/01.JPG";
+export const SERVICES_FALLBACK_IMAGE = "/assets/img/hero01.JPG";
 
 export const services = [
   {
     id: "01",
+
     title: "Matrimonios",
 
     description:
@@ -15,6 +16,7 @@ export const services = [
     ],
 
     image: "/assets/img/services/matrimonios/01.JPG",
+
     imageAlt: "Matrimonio producido por GM Eventos",
 
     hasDetails: true,
@@ -45,11 +47,13 @@ export const services = [
       "/assets/img/services/matrimonios/02.JPG",
       "/assets/img/services/matrimonios/03.JPG",
       "/assets/img/services/matrimonios/04.JPG",
+      "/assets/img/services/matrimonios/05.JPG",
     ],
   },
 
   {
     id: "02",
+
     title: "Fiestas y celebraciones",
 
     description:
@@ -62,6 +66,7 @@ export const services = [
     ],
 
     image: "/assets/img/services/fiestas/fiesta-00.JPG",
+
     imageAlt: "Fiesta privada producida por GM Eventos",
 
     hasDetails: true,
@@ -89,15 +94,18 @@ export const services = [
     ],
 
     images: [
+      "/assets/img/services/fiestas/fiesta-00.JPG",
       "/assets/img/services/fiestas/fiesta-01.png",
       "/assets/img/services/fiestas/fiesta-02.png",
       "/assets/img/services/fiestas/fiesta-03.png",
       "/assets/img/services/fiestas/fiesta-04.png",
+      "/assets/img/services/fiestas/fiesta-05.png",
     ],
   },
 
   {
     id: "03",
+
     title: "Eventos corporativos",
 
     description:
@@ -105,7 +113,8 @@ export const services = [
 
     features: ["Amplificación", "Micrófonos", "Apoyo técnico"],
 
-    image: "/assets/img/services/corporativos/01.jpg",
+    image: "/assets/img/events/corporativos/04.jpg",
+
     imageAlt: "Evento corporativo producido por GM Eventos",
 
     hasDetails: true,
@@ -133,15 +142,17 @@ export const services = [
     ],
 
     images: [
-      "/assets/img/services/corporativos/01.jpg",
-      "/assets/img/services/corporativos/02.jpg",
-      "/assets/img/services/corporativos/03.jpg",
-      "/assets/img/services/corporativos/04.jpg",
+      "/assets/img/events/corporativos/01.jpg",
+      "/assets/img/events/corporativos/02.jpg",
+      "/assets/img/events/corporativos/03.jpg",
+      "/assets/img/events/corporativos/04.jpg",
+      "/assets/img/events/corporativos/05.jpg",
     ],
   },
 
   {
     id: "04",
+
     title: "Graduaciones y galas",
 
     description:
@@ -149,7 +160,8 @@ export const services = [
 
     features: ["DJ y animación", "Sonido profesional", "Iluminación"],
 
-    image: "/assets/img/services/graduaciones/01.jpg",
+    image: "/assets/img/events/graduaciones/02.png",
+
     imageAlt: "Graduación y gala producida por GM Eventos",
 
     hasDetails: true,
@@ -177,15 +189,16 @@ export const services = [
     ],
 
     images: [
-      "/assets/img/services/graduaciones/01.jpg",
-      "/assets/img/services/graduaciones/02.jpg",
-      "/assets/img/services/graduaciones/03.jpg",
-      "/assets/img/services/graduaciones/04.jpg",
+      "/assets/img/events/graduaciones/02.png",
+      "/assets/img/events/graduaciones/03.png",
+      "/assets/img/events/graduaciones/04.png",
+      "/assets/img/events/graduaciones/06.png",
     ],
   },
 
   {
     id: "05",
+
     title: "Eventos comerciales",
 
     description:
@@ -193,8 +206,9 @@ export const services = [
 
     features: ["DJ", "Producción técnica", "Iluminación"],
 
-    image: "/assets/img/services/comerciales/01.jpg",
-    imageAlt: "Evento comercial producido por GM Eventos",
+    image: SERVICES_FALLBACK_IMAGE,
+
+    imageAlt: "Producción de eventos realizada por GM Eventos",
 
     hasDetails: true,
 
@@ -220,16 +234,12 @@ export const services = [
       "Activaciones personalizadas",
     ],
 
-    images: [
-      "/assets/img/services/comerciales/01.jpg",
-      "/assets/img/services/comerciales/02.jpg",
-      "/assets/img/services/comerciales/03.jpg",
-      "/assets/img/services/comerciales/04.jpg",
-    ],
+    images: [SERVICES_FALLBACK_IMAGE],
   },
 
   {
     id: "06",
+
     title: "Producción personalizada",
 
     description:
@@ -241,7 +251,8 @@ export const services = [
       "Coordinación técnica",
     ],
 
-    image: "/assets/img/services/personalizada/01.jpg",
+    image: SERVICES_FALLBACK_IMAGE,
+
     imageAlt: "Producción personalizada realizada por GM Eventos",
 
     hasDetails: true,
@@ -270,11 +281,6 @@ export const services = [
       "Servicios adicionales",
     ],
 
-    images: [
-      "/assets/img/services/personalizada/01.jpg",
-      "/assets/img/services/personalizada/02.jpg",
-      "/assets/img/services/personalizada/03.jpg",
-      "/assets/img/services/personalizada/04.jpg",
-    ],
+    images: [SERVICES_FALLBACK_IMAGE],
   },
 ];

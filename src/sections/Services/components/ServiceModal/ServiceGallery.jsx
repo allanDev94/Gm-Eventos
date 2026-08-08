@@ -1,15 +1,16 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
-import { A11y, Keyboard } from "swiper/modules";
+import { A11y } from "swiper/modules";
+
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import "swiper/css";
 
 import "./ServiceGallery.css";
 
-const FALLBACK_IMAGE = "/assets/img/events/01.JPG";
+const FALLBACK_IMAGE = "/assets/img/hero01.JPG";
 
 function ServiceGallery({ service }) {
   const swiperRef = useRef(null);
@@ -18,10 +19,19 @@ function ServiceGallery({ service }) {
 
   const images = service.images?.length > 0 ? service.images : [FALLBACK_IMAGE];
 
+  /* ========================================
+     ERROR DE IMAGEN
+  ======================================== */
+
   const handleImageError = (event) => {
     event.currentTarget.onerror = null;
+
     event.currentTarget.src = FALLBACK_IMAGE;
   };
+
+  /* ========================================
+     NAVEGACIÓN
+  ======================================== */
 
   const showPreviousImage = () => {
     swiperRef.current?.slidePrev();
@@ -35,18 +45,56 @@ function ServiceGallery({ service }) {
     swiperRef.current?.slideTo(index);
   };
 
+  /* ========================================
+     FLECHAS DEL TECLADO
+  ======================================== */
+
+  useEffect(() => {
+    if (images.length <= 1) {
+      return undefined;
+    }
+
+    const handleKeyDown = (keyboardEvent) => {
+      const target = keyboardEvent.target;
+
+      const isEditableElement =
+        target instanceof HTMLElement &&
+        (target.matches("input, textarea, select") || target.isContentEditable);
+
+      if (isEditableElement) {
+        return;
+      }
+
+      if (keyboardEvent.key === "ArrowLeft") {
+        keyboardEvent.preventDefault();
+
+        swiperRef.current?.slidePrev();
+
+        return;
+      }
+
+      if (keyboardEvent.key === "ArrowRight") {
+        keyboardEvent.preventDefault();
+
+        swiperRef.current?.slideNext();
+      }
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [images.length]);
+
   return (
     <div className="service-gallery">
       <div className="service-gallery__stage">
         <Swiper
           className="service-gallery__main"
-          modules={[A11y, Keyboard]}
+          modules={[A11y]}
           slidesPerView={1}
           speed={650}
-          keyboard={{
-            enabled: true,
-            onlyInViewport: true,
-          }}
           grabCursor={images.length > 1}
           allowTouchMove={images.length > 1}
           onSwiper={(swiper) => {
@@ -135,7 +183,9 @@ function ServiceGallery({ service }) {
                 type="button"
                 aria-label={`Ver fotografía ${index + 1}`}
                 aria-pressed={activeImageIndex === index}
-                onClick={() => showImage(index)}
+                onClick={() => {
+                  showImage(index);
+                }}
               >
                 <img
                   src={image}

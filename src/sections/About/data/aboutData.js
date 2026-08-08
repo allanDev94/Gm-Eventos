@@ -9,7 +9,11 @@ import {
   Wrench,
 } from "lucide-react";
 
-export const FALLBACK_IMAGE = "/assets/img/events/01.JPG";
+export const FALLBACK_IMAGE = "/assets/img/hero01.JPG";
+
+/* ========================================
+   PROCESO
+======================================== */
 
 export const processSteps = [
   {
@@ -45,6 +49,10 @@ export const processSteps = [
       "Nos encargamos de la ejecución y el apoyo técnico para que puedas disfrutar cada momento.",
   },
 ];
+
+/* ========================================
+   VALORES
+======================================== */
 
 export const values = [
   {
@@ -89,6 +97,22 @@ export const values = [
   },
 ];
 
+/* ========================================
+   HISTORIA / QUIÉNES SOMOS
+======================================== */
+
+export const storyImages = {
+  main: {
+    image: "/assets/img/about/story/02.JPG",
+    alt: "Producción de un evento realizada por GM Eventos",
+  },
+
+  detail: {
+    image: "/assets/img/about/story/04.jpg",
+    alt: "Detalle de una celebración producida por GM Eventos",
+  },
+};
+
 export const storyHighlights = [
   {
     id: "closeness",
@@ -111,20 +135,24 @@ export const storyHighlights = [
   },
 ];
 
+/* ========================================
+   COMPROMISO
+======================================== */
+
 export const commitmentPhotos = [
   {
     id: "01",
-    image: "/assets/img/about/commitment/01.jpg",
+    image: "/assets/img/about/commitment/01.png",
     alt: "Preparación y montaje técnico realizado por GM Eventos",
   },
   {
     id: "02",
-    image: "/assets/img/about/commitment/02.jpg",
+    image: "/assets/img/about/commitment/02.png",
     alt: "Equipo de GM Eventos trabajando durante una celebración",
   },
   {
     id: "03",
-    image: "/assets/img/about/commitment/03.jpg",
+    image: "/assets/img/about/commitment/03.png",
     alt: "Invitados disfrutando de un evento producido por GM Eventos",
   },
 ];
@@ -149,6 +177,10 @@ export const commitmentPoints = [
     description: "Cuidamos los detalles de cada celebración.",
   },
 ];
+
+/* ========================================
+   CTA
+======================================== */
 
 export const ctaBenefits = [
   {

@@ -4,8 +4,12 @@
 
 .about__story {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(470px, 0.96fr);
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(470px, 0.96fr);
+
   gap: clamp(3.5rem, 6vw, 6rem);
+
   align-items: start;
 }
 
@@ -17,44 +21,59 @@
   max-width: 760px;
 
   color: #ffffff;
+
   font-size: clamp(2.3rem, 4.5vw, 4.2rem);
+
   line-height: 1.05;
+
   letter-spacing: -0.04em;
 }
 
 .about__lead {
   max-width: 720px;
+
   margin-top: 2rem;
 
   color: #ffffff;
+
   font-size: clamp(1.2rem, 2vw, 1.55rem);
+
   line-height: 1.5;
 }
 
 .about__description {
   max-width: 720px;
+
   margin-top: 1.35rem;
 
   color: rgba(255, 255, 255, 0.66);
+
   font-size: 1rem;
+
   line-height: 1.8;
 }
 
-/* Columna visual derecha */
+/* ========================================
+   COLUMNA VISUAL
+======================================== */
 
 .about__story-visual-column {
   min-width: 0;
 
   display: grid;
+
   gap: 1rem;
 
   margin-top: 3.6rem;
 }
 
-/* Galería editorial */
+/* ========================================
+   GALERÍA
+======================================== */
 
 .about__story-gallery {
   position: relative;
+
   isolation: isolate;
 
   min-width: 0;
@@ -65,8 +84,10 @@
   content: "";
 
   position: absolute;
+
   top: 5%;
   right: 4%;
+
   z-index: -1;
 
   width: 65%;
@@ -75,22 +96,30 @@
   border-radius: 50%;
 
   background-color: rgba(166, 60, 255, 0.15);
+
   filter: blur(4.5rem);
 
   pointer-events: none;
 }
 
+/* ========================================
+   IMAGEN PRINCIPAL
+======================================== */
+
 .about__story-main-media {
   position: absolute;
+
   inset: 0 11% 0 0;
+
   overflow: hidden;
 
   margin: 0;
 
   border: 1px solid rgba(197, 140, 255, 0.19);
+
   border-radius: 1.5rem;
 
-  background-color: #18181f;
+  background-color: #08080b;
 
   box-shadow:
     0 1.8rem 4.5rem rgba(0, 0, 0, 0.3),
@@ -112,22 +141,40 @@
   transform: translateY(-0.25rem);
 }
 
-.about__story-main-media img {
-  width: 100%;
-  height: 100%;
+/* Imagen centrada y menos ampliada */
 
-  object-fit: cover;
+.about__story-main-media img {
+  position: absolute;
+
+  inset: 4%;
+
+  width: 92%;
+  height: 92%;
+
+  display: block;
+
+  object-fit: contain;
+  object-position: center;
+
+  border-radius: 1.1rem;
 
   transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .about__story-main-media:hover img {
-  transform: scale(1.045);
+  transform: scale(1.015);
 }
+
+/* ========================================
+   OVERLAY PRINCIPAL
+======================================== */
 
 .about__story-main-overlay {
   position: absolute;
+
   inset: 0;
+
+  z-index: 1;
 
   background:
     linear-gradient(
@@ -141,23 +188,33 @@
   pointer-events: none;
 }
 
+/* ========================================
+   TEXTO SOBRE IMAGEN
+======================================== */
+
 .about__story-main-media figcaption {
   position: absolute;
+
   right: 39%;
   bottom: 1.35rem;
   left: 1.35rem;
+
   z-index: 2;
 
   display: flex;
   flex-direction: column;
+
   gap: 0.35rem;
 }
 
 .about__story-main-media figcaption span {
   color: #d3a0ff;
+
   font-size: 0.7rem;
   font-weight: 800;
+
   letter-spacing: 0.11em;
+
   text-transform: uppercase;
 }
 
@@ -165,24 +222,33 @@
   max-width: 310px;
 
   color: #ffffff;
+
   font-size: clamp(0.95rem, 1.35vw, 1.2rem);
+
   line-height: 1.35;
 }
 
-/* Fotografía secundaria */
+/* ========================================
+   FOTOGRAFÍA SECUNDARIA
+======================================== */
 
 .about__story-detail-media {
   position: absolute;
+
   right: 0;
   bottom: 1.15rem;
+
   z-index: 3;
+
   overflow: hidden;
 
   width: 41%;
   height: 53%;
+
   margin: 0;
 
   border: 0.4rem solid #101014;
+
   border-radius: 1.3rem;
 
   background-color: #18181f;
@@ -206,7 +272,10 @@
   width: 100%;
   height: 100%;
 
+  display: block;
+
   object-fit: cover;
+  object-position: center;
 
   transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -215,15 +284,20 @@
   transform: scale(1.07);
 }
 
-/* Puntos decorativos */
+/* ========================================
+   PUNTOS DECORATIVOS
+======================================== */
 
 .about__story-decoration {
   position: absolute;
+
   top: 1.2rem;
   right: 1.2rem;
+
   z-index: 4;
 
   display: flex;
+
   gap: 0.4rem;
 }
 
@@ -244,14 +318,19 @@
   background-color: #c58cff;
 }
 
-/* Tarjetas bajo la galería */
+/* ========================================
+   TARJETAS
+======================================== */
 
 .about__story-highlights {
   display: grid;
+
   grid-template-columns: repeat(3, minmax(0, 1fr));
+
   gap: 0.75rem;
 
   width: 100%;
+
   margin: 0;
   padding: 0;
 
@@ -265,6 +344,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+
   gap: 0.75rem;
 
   padding: 1rem 0.85rem;
@@ -272,6 +352,7 @@
   text-align: center;
 
   border: 1px solid rgba(255, 255, 255, 0.1);
+
   border-radius: 1rem;
 
   background:
@@ -295,6 +376,7 @@
 
 .about__story-highlights li:hover {
   border-color: rgba(197, 140, 255, 0.42);
+
   background-color: rgba(166, 60, 255, 0.065);
 
   box-shadow:
@@ -304,14 +386,18 @@
   transform: translateY(-0.3rem);
 }
 
-/* Ícono centrado */
+/* ========================================
+   ÍCONOS
+======================================== */
 
 .about__story-highlight-icon {
   width: 2.75rem;
   height: 2.75rem;
 
   display: grid;
+
   place-items: center;
+
   flex-shrink: 0;
 
   margin-inline: auto;
@@ -319,6 +405,7 @@
   color: #d3a0ff;
 
   border: 1px solid rgba(197, 140, 255, 0.3);
+
   border-radius: 0.85rem;
 
   background: linear-gradient(
@@ -340,6 +427,7 @@
   color: #ffffff;
 
   border-color: rgba(197, 140, 255, 0.65);
+
   background-color: rgba(166, 60, 255, 0.22);
 
   transform: translateY(-0.15rem) rotate(-4deg) scale(1.05);
@@ -351,18 +439,23 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+
   gap: 0.3rem;
 }
 
 .about__story-highlights strong {
   color: #ffffff;
+
   font-size: 0.8rem;
+
   line-height: 1.35;
 }
 
 .about__story-highlights li div span {
   color: rgba(255, 255, 255, 0.53);
+
   font-size: 0.67rem;
+
   line-height: 1.5;
 }
 
@@ -373,6 +466,7 @@
 @media (max-width: 1180px) {
   .about__story {
     grid-template-columns: 1fr;
+
     gap: 4rem;
   }
 
@@ -382,6 +476,7 @@
 
   .about__story-visual-column {
     width: min(100%, 850px);
+
     margin-top: 0;
   }
 
@@ -402,6 +497,13 @@
   .about__story-gallery {
     min-height: 480px;
   }
+
+  .about__story-main-media img {
+    inset: 3%;
+
+    width: 94%;
+    height: 94%;
+  }
 }
 
 /* ========================================
@@ -421,6 +523,13 @@
     inset: 0 5% 0 0;
   }
 
+  .about__story-main-media img {
+    inset: 2.5%;
+
+    width: 95%;
+    height: 95%;
+  }
+
   .about__story-detail-media {
     width: 45%;
     height: 48%;
@@ -438,6 +547,7 @@
 
   .about__story-highlights li {
     min-height: auto;
+
     padding: 1.15rem;
   }
 }
@@ -459,6 +569,13 @@
     inset: 0 0 17% 0;
   }
 
+  .about__story-main-media img {
+    inset: 2%;
+
+    width: 96%;
+    height: 96%;
+  }
+
   .about__story-detail-media {
     right: 0.75rem;
     bottom: 0;
@@ -474,6 +591,7 @@
 
   .about__story-main-media figcaption strong {
     max-width: 230px;
+
     font-size: 0.92rem;
   }
 }
