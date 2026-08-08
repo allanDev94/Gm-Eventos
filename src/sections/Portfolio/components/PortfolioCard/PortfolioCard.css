@@ -34,6 +34,7 @@
   padding: 0;
 
   border: none;
+
   border-radius: 1.25rem;
 
   background: transparent;
@@ -47,6 +48,7 @@
 
 .portfolio-card__trigger:focus-visible {
   outline: 3px solid rgba(197, 140, 255, 0.85);
+
   outline-offset: 5px;
 }
 
@@ -59,11 +61,12 @@
   overflow: hidden;
 
   width: 100%;
+
   height: clamp(360px, 34vw, 430px);
 
   border-radius: 1.25rem;
 
-  background-color: #18181f;
+  background-color: #111117;
 }
 
 .portfolio-card--featured .portfolio-card__media {
@@ -79,17 +82,20 @@
 
   display: block;
 
-  object-fit: cover;
+  object-fit: contain;
+  object-position: center;
+
+  background-color: #111117;
 
   transition:
-    filter 0.55s ease,
-    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    filter 0.45s ease,
+    transform 0.45s ease;
 }
 
 .portfolio-card:hover .portfolio-card__media img {
-  filter: brightness(1.06) saturate(1.04);
+  filter: brightness(1.05) saturate(1.03);
 
-  transform: scale(1.045);
+  transform: scale(1.01);
 }
 
 /* ========================================
@@ -128,6 +134,7 @@
   height: 180px;
 
   border: 1px solid rgba(255, 255, 255, 0.08);
+
   border-radius: 50%;
 }
 
@@ -141,8 +148,11 @@
   z-index: 1;
 
   color: rgba(255, 255, 255, 0.16);
+
   font-size: clamp(4rem, 8vw, 7rem);
+
   font-weight: 900;
+
   letter-spacing: -0.08em;
 }
 
@@ -156,8 +166,8 @@
 
   background: linear-gradient(
     180deg,
-    rgba(10, 10, 14, 0.08) 35%,
-    rgba(10, 10, 14, 0.85) 100%
+    rgba(10, 10, 14, 0.02) 45%,
+    rgba(10, 10, 14, 0.55) 100%
   );
 
   pointer-events: none;
@@ -169,21 +179,27 @@
 
 .portfolio-card__category {
   position: absolute;
+
   top: 1.5rem;
   left: 1.5rem;
 
   padding: 0.5rem 0.9rem;
 
   color: #ffffff;
+
   font-size: 0.75rem;
+
   font-weight: 700;
+
   letter-spacing: 0.08em;
+
   text-transform: uppercase;
 
   border: 1px solid rgba(255, 255, 255, 0.2);
+
   border-radius: 999px;
 
-  background-color: rgba(10, 10, 14, 0.45);
+  background-color: rgba(10, 10, 14, 0.55);
 
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
@@ -207,7 +223,9 @@
   margin-bottom: 0.65rem;
 
   color: #ffffff;
+
   font-size: clamp(1.4rem, 2.5vw, 2rem);
+
   line-height: 1.2;
 
   transition: color 0.25s ease;
@@ -221,22 +239,26 @@
   max-width: 580px;
 
   color: rgba(255, 255, 255, 0.62);
+
   line-height: 1.7;
 }
 
 /* ========================================
-   INDICADOR VER EVENTO
+   VER EVENTO
 ======================================== */
 
 .portfolio-card__action {
   display: inline-flex;
   align-items: center;
+
   gap: 0.55rem;
 
   margin-top: 1.15rem;
 
   color: #d3a4ff;
+
   font-size: 0.78rem;
+
   font-weight: 700;
 
   transition: color 0.25s ease;
@@ -269,7 +291,7 @@
 }
 
 /* ========================================
-   MÓVIL Y TABLET PEQUEÑA
+   TABLET PEQUEÑA
 ======================================== */
 
 @media (max-width: 700px) {

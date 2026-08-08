@@ -1,12 +1,12 @@
 import { ChevronLeft, ChevronRight, Images } from "lucide-react";
 
-import { useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
-import { A11y, Keyboard } from "swiper/modules";
-import { Swiper, SwiperSlide } from "swiper/react";
-
-import "swiper/css";
 import "./PortfolioGallery.css";
+
+/* ========================================
+   IMAGEN
+======================================== */
 
 function GalleryImage({ image }) {
   const [hasError, setHasError] = useState(false);
@@ -29,7 +29,7 @@ function GalleryImage({ image }) {
       style={{
         objectPosition: image.position || "center",
       }}
-      loading="lazy"
+      loading="eager"
       decoding="async"
       onError={() => {
         setHasError(true);
@@ -38,8 +38,12 @@ function GalleryImage({ image }) {
   );
 }
 
+/* ========================================
+   GALERÍA
+======================================== */
+
 function PortfolioGallery({ event }) {
-  const swiperRef = useRef(null);
+  const touchStartXRef = useRef(null);
 
   const [activeIndex, setActiveIndex] = useState(0);
 
@@ -62,7 +66,63 @@ function PortfolioGallery({ event }) {
     return [];
   }, [event]);
 
-  if (gallery.length === 0) {
+  const galleryLength = gallery.length;
+
+  /* ========================================
+     NAVEGACIÓN
+  ======================================== */
+
+  const showPreviousImage = useCallback(() => {
+    setActiveIndex((currentIndex) => Math.max(currentIndex - 1, 0));
+  }, []);
+
+  const showNextImage = useCallback(() => {
+    setActiveIndex((currentIndex) =>
+      Math.min(currentIndex + 1, galleryLength - 1),
+    );
+  }, [galleryLength]);
+
+  const showImage = (index) => {
+    setActiveIndex(index);
+  };
+
+  /* ========================================
+     FLECHAS DEL TECLADO
+  ======================================== */
+
+  useEffect(() => {
+    if (galleryLength <= 1) {
+      return undefined;
+    }
+
+    const handleKeyDown = (keyboardEvent) => {
+      if (keyboardEvent.key === "ArrowLeft") {
+        keyboardEvent.preventDefault();
+
+        showPreviousImage();
+
+        return;
+      }
+
+      if (keyboardEvent.key === "ArrowRight") {
+        keyboardEvent.preventDefault();
+
+        showNextImage();
+      }
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [galleryLength, showNextImage, showPreviousImage]);
+
+  /* ========================================
+     SIN IMÁGENES
+  ======================================== */
+
+  if (galleryLength === 0) {
     return (
       <div className="portfolio-gallery">
         <div className="portfolio-gallery__stage">
@@ -76,107 +136,117 @@ function PortfolioGallery({ event }) {
     );
   }
 
-  if (gallery.length === 1) {
-    return (
-      <div className="portfolio-gallery">
-        <div className="portfolio-gallery__stage">
-          <GalleryImage key={gallery[0].id} image={gallery[0]} />
-        </div>
-      </div>
-    );
-  }
+  const currentImage = gallery[activeIndex] || gallery[0];
 
-  const showPreviousImage = () => {
-    swiperRef.current?.slidePrev();
+  const isFirstImage = activeIndex === 0;
+
+  const isLastImage = activeIndex === galleryLength - 1;
+
+  /* ========================================
+     DESLIZAR EN CELULAR
+  ======================================== */
+
+  const handleTouchStart = (touchEvent) => {
+    touchStartXRef.current = touchEvent.touches[0]?.clientX ?? null;
   };
 
-  const showNextImage = () => {
-    swiperRef.current?.slideNext();
-  };
+  const handleTouchEnd = (touchEvent) => {
+    if (touchStartXRef.current === null) {
+      return;
+    }
 
-  const showImage = (index) => {
-    swiperRef.current?.slideTo(index);
+    const endX = touchEvent.changedTouches[0]?.clientX;
+
+    if (typeof endX !== "number") {
+      touchStartXRef.current = null;
+
+      return;
+    }
+
+    const difference = touchStartXRef.current - endX;
+
+    const swipeDistance = 50;
+
+    if (difference > swipeDistance && !isLastImage) {
+      showNextImage();
+    }
+
+    if (difference < -swipeDistance && !isFirstImage) {
+      showPreviousImage();
+    }
+
+    touchStartXRef.current = null;
   };
 
   return (
     <div className="portfolio-gallery">
-      <div className="portfolio-gallery__stage">
-        <Swiper
-          className="portfolio-gallery__swiper"
-          modules={[A11y, Keyboard]}
-          keyboard={{
-            enabled: true,
-          }}
-          slidesPerView={1}
-          spaceBetween={0}
-          onSwiper={(swiper) => {
-            swiperRef.current = swiper;
-          }}
-          onSlideChange={(swiper) => {
-            setActiveIndex(swiper.activeIndex);
-          }}
-        >
-          {gallery.map((image) => (
-            <SwiperSlide key={image.id}>
-              <GalleryImage key={image.id} image={image} />
-            </SwiperSlide>
-          ))}
-        </Swiper>
-
-        <div className="portfolio-gallery__navigation">
-          <button
-            type="button"
-            aria-label="Mostrar imagen anterior"
-            onClick={showPreviousImage}
-            disabled={activeIndex === 0}
-          >
-            <ChevronLeft size={22} strokeWidth={1.8} aria-hidden="true" />
-          </button>
-
-          <button
-            type="button"
-            aria-label="Mostrar imagen siguiente"
-            onClick={showNextImage}
-            disabled={activeIndex === gallery.length - 1}
-          >
-            <ChevronRight size={22} strokeWidth={1.8} aria-hidden="true" />
-          </button>
-        </div>
-
-        <span className="portfolio-gallery__counter" aria-live="polite">
-          {activeIndex + 1} / {gallery.length}
-        </span>
-      </div>
-
       <div
-        className="portfolio-gallery__thumbnails"
-        aria-label="Miniaturas de la galería"
+        className="portfolio-gallery__stage"
+        onTouchStart={handleTouchStart}
+        onTouchEnd={handleTouchEnd}
       >
-        {gallery.map((image, index) => (
-          <button
-            className={`portfolio-gallery__thumbnail ${
-              activeIndex === index
-                ? "portfolio-gallery__thumbnail--active"
-                : ""
-            }`}
-            type="button"
-            key={image.id}
-            aria-label={`Mostrar imagen ${index + 1}`}
-            aria-current={activeIndex === index ? "true" : undefined}
-            onClick={() => {
-              showImage(index);
-            }}
-          >
-            <img
-              src={image.src}
-              alt=""
-              aria-hidden="true"
-              loading="lazy"
-              decoding="async"
-            />
-          </button>
-        ))}
+        <GalleryImage key={currentImage.id} image={currentImage} />
+
+        {galleryLength > 1 && (
+          <>
+            <div className="portfolio-gallery__navigation">
+              <button
+                type="button"
+                aria-label="Mostrar imagen anterior"
+                disabled={isFirstImage}
+                onClick={showPreviousImage}
+              >
+                <ChevronLeft size={22} strokeWidth={1.8} aria-hidden="true" />
+              </button>
+
+              <button
+                type="button"
+                aria-label="Mostrar imagen siguiente"
+                disabled={isLastImage}
+                onClick={showNextImage}
+              >
+                <ChevronRight size={22} strokeWidth={1.8} aria-hidden="true" />
+              </button>
+            </div>
+
+            <span className="portfolio-gallery__counter" aria-live="polite">
+              {activeIndex + 1} / {galleryLength}
+            </span>
+          </>
+        )}
       </div>
+
+      {galleryLength > 1 && (
+        <div
+          className="portfolio-gallery__thumbnails"
+          aria-label="Miniaturas de la galería"
+        >
+          {gallery.map((image, index) => (
+            <button
+              className={`portfolio-gallery__thumbnail ${
+                activeIndex === index
+                  ? "portfolio-gallery__thumbnail--active"
+                  : ""
+              }`}
+              type="button"
+              key={image.id}
+              aria-label={`Mostrar imagen ${index + 1}`}
+              aria-current={activeIndex === index ? "true" : undefined}
+              onClick={() => {
+                showImage(index);
+              }}
+            >
+              <img
+                src={image.src}
+                alt=""
+                aria-hidden="true"
+                loading="lazy"
+                decoding="async"
+              />
+            </button>
+          ))}
+        </div>
+      )}
     </div>
   );
 }
