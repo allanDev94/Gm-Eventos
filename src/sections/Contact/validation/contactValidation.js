@@ -1,43 +1,195 @@
+import { availableServices, eventTypes } from "../data/contactData";
+
+export const CONTACT_LIMITS = {
+  name: 80,
+  email: 120,
+  phone: 20,
+  location: 100,
+  message: 800,
+};
+
+export function getLocalDate() {
+  const date = new Date();
+
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, "0");
+  const day = String(date.getDate()).padStart(2, "0");
+
+  return `${year}-${month}-${day}`;
+}
+
+function isValidEmail(email) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
+function isValidEventType(eventType) {
+  return eventTypes.some(
+    (option) => option.value && option.value === eventType,
+  );
+}
+
+function areValidServices(services) {
+  const validServiceIds = new Set(
+    availableServices.map((service) => service.id),
+  );
+
+  return services.every((serviceId) => validServiceIds.has(serviceId));
+}
+
+export function validateContactField(fieldName, formData) {
+  const value = formData[fieldName];
+
+  switch (fieldName) {
+    case "name": {
+      const cleanName = value.trim();
+
+      if (!cleanName) {
+        return "Ingresa tu nombre.";
+      }
+
+      if (cleanName.length < 3) {
+        return "El nombre debe tener al menos 3 caracteres.";
+      }
+
+      if (cleanName.length > CONTACT_LIMITS.name) {
+        return `El nombre no puede superar ${CONTACT_LIMITS.name} caracteres.`;
+      }
+
+      return "";
+    }
+
+    case "email": {
+      const cleanEmail = value.trim();
+
+      if (!cleanEmail) {
+        return "Ingresa tu correo.";
+      }
+
+      if (cleanEmail.length > CONTACT_LIMITS.email) {
+        return "El correo ingresado es demasiado largo.";
+      }
+
+      if (!isValidEmail(cleanEmail)) {
+        return "Ingresa un correo válido.";
+      }
+
+      return "";
+    }
+
+    case "phone": {
+      const cleanPhone = value.replace(/\D/g, "");
+
+      if (!value.trim()) {
+        return "Ingresa tu teléfono.";
+      }
+
+      if (cleanPhone.length < 8 || cleanPhone.length > 15) {
+        return "Ingresa un teléfono válido.";
+      }
+
+      return "";
+    }
+
+    case "eventType": {
+      if (!value) {
+        return "Selecciona el tipo de evento.";
+      }
+
+      if (!isValidEventType(value)) {
+        return "Selecciona un tipo de evento válido.";
+      }
+
+      return "";
+    }
+
+    case "eventDate": {
+      if (!value) {
+        return "";
+      }
+
+      if (!/^\d{4}-\d{2}-\d{2}$/.test(value)) {
+        return "Ingresa una fecha válida.";
+      }
+
+      if (value < getLocalDate()) {
+        return "La fecha del evento no puede ser anterior a hoy.";
+      }
+
+      return "";
+    }
+
+    case "location": {
+      const cleanLocation = value.trim();
+
+      if (!cleanLocation) {
+        return "Indica la comuna o ubicación.";
+      }
+
+      if (cleanLocation.length < 2) {
+        return "Ingresa una ubicación válida.";
+      }
+
+      if (cleanLocation.length > CONTACT_LIMITS.location) {
+        return `La ubicación no puede superar ${CONTACT_LIMITS.location} caracteres.`;
+      }
+
+      return "";
+    }
+
+    case "services": {
+      if (!Array.isArray(value) || value.length === 0) {
+        return "Selecciona al menos un servicio.";
+      }
+
+      if (!areValidServices(value)) {
+        return "Selecciona servicios válidos.";
+      }
+
+      return "";
+    }
+
+    case "message": {
+      const cleanMessage = value.trim();
+
+      if (!cleanMessage) {
+        return "Cuéntanos brevemente sobre tu evento.";
+      }
+
+      if (cleanMessage.length < 10) {
+        return "Escribe al menos 10 caracteres.";
+      }
+
+      if (cleanMessage.length > CONTACT_LIMITS.message) {
+        return `El mensaje no puede superar ${CONTACT_LIMITS.message} caracteres.`;
+      }
+
+      return "";
+    }
+
+    default:
+      return "";
+  }
+}
+
 export function validateContactForm(formData) {
-  const errors = {};
+  const fields = [
+    "name",
+    "email",
+    "phone",
+    "eventType",
+    "eventDate",
+    "location",
+    "services",
+    "message",
+  ];
 
-  const cleanPhone = formData.phone.replace(/\D/g, "");
+  return fields.reduce((errors, fieldName) => {
+    const error = validateContactField(fieldName, formData);
 
-  if (!formData.name.trim()) {
-    errors.name = "Ingresa tu nombre.";
-  } else if (formData.name.trim().length < 3) {
-    errors.name = "El nombre debe tener al menos 3 caracteres.";
-  }
+    if (error) {
+      errors[fieldName] = error;
+    }
 
-  if (!formData.email.trim()) {
-    errors.email = "Ingresa tu correo.";
-  } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-    errors.email = "Ingresa un correo válido.";
-  }
-
-  if (!formData.phone.trim()) {
-    errors.phone = "Ingresa tu teléfono.";
-  } else if (cleanPhone.length < 8 || cleanPhone.length > 12) {
-    errors.phone = "Ingresa un teléfono válido.";
-  }
-
-  if (!formData.eventType) {
-    errors.eventType = "Selecciona el tipo de evento.";
-  }
-
-  if (!formData.location.trim()) {
-    errors.location = "Indica la comuna o ubicación.";
-  }
-
-  if (formData.services.length === 0) {
-    errors.services = "Selecciona al menos un servicio.";
-  }
-
-  if (!formData.message.trim()) {
-    errors.message = "Cuéntanos brevemente sobre tu evento.";
-  } else if (formData.message.trim().length < 10) {
-    errors.message = "Escribe al menos 10 caracteres.";
-  }
-
-  return errors;
+    return errors;
+  }, {});
 }

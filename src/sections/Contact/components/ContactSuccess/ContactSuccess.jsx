@@ -10,11 +10,11 @@ function ContactSuccess({ onReset }) {
       </span>
 
       <div>
-        <h3>Solicitud preparada correctamente</h3>
+        <h3>Tu solicitud está lista</h3>
 
         <p>
-          Recibimos los datos de tu evento. El envío real será conectado
-          posteriormente con el correo o servicio que utilizará GM Eventos.
+          Abrimos WhatsApp con los datos de tu cotización. Revisa el mensaje y
+          presiona Enviar para comunicarte con GM Eventos.
         </p>
       </div>
 
