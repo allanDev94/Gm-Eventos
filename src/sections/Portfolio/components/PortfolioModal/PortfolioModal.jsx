@@ -28,7 +28,7 @@ const focusableSelector = [
 
 function PortfolioModal({ event, onClose }) {
   const dialogRef = useRef(null);
-  const closeButtonRef = useRef(null);
+
   const previousFocusRef = useRef(null);
 
   const shouldReduceMotion = useReducedMotion();
@@ -44,13 +44,14 @@ function PortfolioModal({ event, onClose }) {
 
     document.body.style.overflow = "hidden";
 
-    const focusTimer = window.setTimeout(() => {
-      closeButtonRef.current?.focus();
-    }, 0);
+    dialogRef.current?.focus({
+      preventScroll: true,
+    });
 
     const handleKeyDown = (keyboardEvent) => {
       if (keyboardEvent.key === "Escape") {
         onClose();
+
         return;
       }
 
@@ -64,7 +65,11 @@ function PortfolioModal({ event, onClose }) {
 
       if (focusableElements.length === 0) {
         keyboardEvent.preventDefault();
-        dialogRef.current.focus();
+
+        dialogRef.current.focus({
+          preventScroll: true,
+        });
+
         return;
       }
 
@@ -72,13 +77,22 @@ function PortfolioModal({ event, onClose }) {
 
       const lastElement = focusableElements[focusableElements.length - 1];
 
-      if (keyboardEvent.shiftKey && document.activeElement === firstElement) {
+      const activeElement = document.activeElement;
+
+      if (
+        keyboardEvent.shiftKey &&
+        (activeElement === firstElement || activeElement === dialogRef.current)
+      ) {
         keyboardEvent.preventDefault();
+
         lastElement.focus();
+
+        return;
       }
 
-      if (!keyboardEvent.shiftKey && document.activeElement === lastElement) {
+      if (!keyboardEvent.shiftKey && activeElement === lastElement) {
         keyboardEvent.preventDefault();
+
         firstElement.focus();
       }
     };
@@ -86,8 +100,6 @@ function PortfolioModal({ event, onClose }) {
     document.addEventListener("keydown", handleKeyDown);
 
     return () => {
-      window.clearTimeout(focusTimer);
-
       document.removeEventListener("keydown", handleKeyDown);
 
       document.body.style.overflow = previousOverflow;
@@ -130,7 +142,6 @@ function PortfolioModal({ event, onClose }) {
           >
             <button
               className="portfolio-modal__close"
-              ref={closeButtonRef}
               type="button"
               aria-label="Cerrar detalles del evento"
               onClick={onClose}
