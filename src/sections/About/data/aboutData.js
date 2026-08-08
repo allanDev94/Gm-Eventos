@@ -142,17 +142,17 @@ export const storyHighlights = [
 export const commitmentPhotos = [
   {
     id: "01",
-    image: "/assets/img/about/commitment/01.png",
+    image: "/assets/img/about/commitment/01.jpg",
     alt: "Preparación y montaje técnico realizado por GM Eventos",
   },
   {
     id: "02",
-    image: "/assets/img/about/commitment/02.png",
+    image: "/assets/img/about/commitment/02.jpg",
     alt: "Equipo de GM Eventos trabajando durante una celebración",
   },
   {
     id: "03",
-    image: "/assets/img/about/commitment/03.png",
+    image: "/assets/img/about/commitment/03.jpg",
     alt: "Invitados disfrutando de un evento producido por GM Eventos",
   },
 ];

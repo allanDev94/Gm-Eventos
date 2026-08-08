@@ -12,21 +12,21 @@
 
   padding: clamp(1.5rem, 2.5vw, 2.2rem);
 
-  border: 1px solid rgba(197, 140, 255, 0.2);
+  border: 1px solid rgba(var(--color-primary-rgb), 0.2);
   border-radius: 1.6rem;
 
   background:
     radial-gradient(
       circle at 15% 15%,
-      rgba(166, 60, 255, 0.18),
+      rgba(var(--color-primary-strong-rgb), 0.18),
       transparent 34%
     ),
     linear-gradient(
       145deg,
-      rgba(197, 140, 255, 0.08),
+      rgba(var(--color-primary-rgb), 0.08),
       rgba(255, 255, 255, 0.018)
     ),
-    #15151b;
+    var(--color-surface);
 
   box-shadow:
     0 1.8rem 4rem rgba(0, 0, 0, 0.22),
@@ -65,7 +65,7 @@
 .contact-intro__eyebrow {
   margin-bottom: 0.7rem;
 
-  color: #c58cff;
+  color: var(--color-primary);
   font-size: 0.82rem;
   font-weight: 750;
   letter-spacing: 0.14em;
@@ -75,7 +75,7 @@
 .contact-intro h1 {
   max-width: 570px;
 
-  color: #ffffff;
+  color: var(--color-text);
   font-size: clamp(2.1rem, 3.2vw, 3.5rem);
   line-height: 1.02;
   letter-spacing: -0.05em;
@@ -133,8 +133,8 @@
 }
 
 .contact-intro__highlights li:hover {
-  border-color: rgba(197, 140, 255, 0.34);
-  background-color: rgba(166, 60, 255, 0.055);
+  border-color: rgba(var(--color-primary-rgb), 0.34);
+  background-color: rgba(var(--color-primary-strong-rgb), 0.055);
 
   transform: translateX(0.2rem);
 }
@@ -146,12 +146,12 @@
   display: grid;
   place-items: center;
 
-  color: #d4a1ff;
+  color: var(--color-primary-soft);
 
-  border: 1px solid rgba(197, 140, 255, 0.22);
+  border: 1px solid rgba(var(--color-primary-rgb), 0.22);
   border-radius: 0.72rem;
 
-  background-color: rgba(166, 60, 255, 0.08);
+  background-color: rgba(var(--color-primary-strong-rgb), 0.08);
 }
 
 .contact-intro__highlight-icon svg {
@@ -162,7 +162,7 @@
 .contact-intro__highlights strong {
   display: block;
 
-  color: #ffffff;
+  color: var(--color-text);
   font-size: 0.86rem;
   line-height: 1.35;
 }
@@ -188,7 +188,7 @@
   margin-top: auto;
   padding-top: 0.9rem;
 
-  color: #d4a1ff;
+  color: var(--color-primary-soft);
 
   border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
@@ -207,7 +207,7 @@
 }
 
 .contact-intro__response strong {
-  color: #ffffff;
+  color: var(--color-text);
   font-size: 0.8rem;
   line-height: 1.35;
 }

@@ -7,7 +7,7 @@
   display: flex;
   flex-direction: column;
 
-  background-color: #0d0d12;
+  background-color: var(--color-background-alt);
 }
 
 /* ========================================
@@ -30,7 +30,7 @@
 
   isolation: isolate;
 
-  background-color: #0d0d12;
+  background-color: var(--color-background-alt);
 
   touch-action: pan-y;
 }
@@ -57,7 +57,7 @@
   user-select: none;
   -webkit-user-select: none;
 
-  background-color: #0d0d12;
+  background-color: var(--color-background-alt);
 }
 
 /* ========================================
@@ -84,7 +84,7 @@
   background:
     radial-gradient(
       circle at 25% 25%,
-      rgba(197, 140, 255, 0.25),
+      rgba(var(--color-primary-rgb), 0.25),
       transparent 35%
     ),
     radial-gradient(
@@ -92,7 +92,7 @@
       rgba(255, 86, 130, 0.14),
       transparent 35%
     ),
-    #15151b;
+    var(--color-surface);
 }
 
 .portfolio-gallery__placeholder-logo {
@@ -141,7 +141,7 @@
 
   padding: 0;
 
-  color: #ffffff;
+  color: var(--color-text);
 
   border: 1px solid rgba(255, 255, 255, 0.18);
 
@@ -176,9 +176,9 @@
 }
 
 .portfolio-gallery__navigation button:hover:not(:disabled) {
-  border-color: rgba(197, 140, 255, 0.65);
+  border-color: rgba(var(--color-primary-rgb), 0.65);
 
-  background-color: rgba(197, 140, 255, 0.25);
+  background-color: rgba(var(--color-primary-rgb), 0.25);
 
   transform: translateY(-1px);
 }
@@ -195,7 +195,7 @@
 
 .portfolio-gallery__navigation button:focus-visible,
 .portfolio-gallery__thumbnail:focus-visible {
-  outline: 3px solid rgba(197, 140, 255, 0.7);
+  outline: 3px solid rgba(var(--color-primary-rgb), 0.7);
 
   outline-offset: 3px;
 }
@@ -214,7 +214,7 @@
 
   padding: 0.55rem 0.8rem;
 
-  color: #ffffff;
+  color: var(--color-text);
 
   font-size: 0.75rem;
   font-weight: 700;
@@ -248,7 +248,7 @@
 
   border-top: 1px solid rgba(255, 255, 255, 0.08);
 
-  background-color: #0d0d12;
+  background-color: var(--color-background-alt);
 }
 
 .portfolio-gallery__thumbnail {
@@ -293,7 +293,7 @@
 .portfolio-gallery__thumbnail--active {
   opacity: 1;
 
-  border-color: #c58cff;
+  border-color: var(--color-primary);
 }
 
 .portfolio-gallery__thumbnail img {

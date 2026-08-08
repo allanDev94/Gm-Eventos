@@ -120,7 +120,7 @@ export const events = [
     details:
       "Preparamos una experiencia dinámica para ceremonias, cenas, galas y celebraciones de cierre de etapa.",
 
-    image: "/assets/img/events/graduaciones/02.png",
+    image: "/assets/img/events/graduaciones/02.jpg",
 
     imageAlt: "Producción de graduación realizada por GM Eventos",
 
@@ -136,25 +136,25 @@ export const events = [
     gallery: [
       {
         id: "graduacion-02",
-        src: "/assets/img/events/graduaciones/02.png",
+        src: "/assets/img/events/graduaciones/02.jpg",
         alt: "Producción de graduación realizada por GM Eventos",
         position: "center",
       },
       {
         id: "graduacion-03",
-        src: "/assets/img/events/graduaciones/03.png",
+        src: "/assets/img/events/graduaciones/03.jpg",
         alt: "Ambientación para graduación realizada por GM Eventos",
         position: "center",
       },
       {
         id: "graduacion-04",
-        src: "/assets/img/events/graduaciones/04.png",
+        src: "/assets/img/events/graduaciones/04.jpg",
         alt: "Iluminación para gala realizada por GM Eventos",
         position: "center",
       },
       {
         id: "graduacion-06",
-        src: "/assets/img/events/graduaciones/06.png",
+        src: "/assets/img/events/graduaciones/06.jpg",
         alt: "Celebración de graduación producida por GM Eventos",
         position: "center",
       },

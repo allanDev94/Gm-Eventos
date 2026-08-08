@@ -16,7 +16,7 @@
 .portfolio-card:hover {
   box-shadow:
     0 1.5rem 3.5rem rgba(0, 0, 0, 0.22),
-    0 0 2.5rem rgba(197, 140, 255, 0.07);
+    0 0 2.5rem rgba(var(--color-primary-rgb), 0.07);
 }
 
 /* ========================================
@@ -47,7 +47,7 @@
 }
 
 .portfolio-card__trigger:focus-visible {
-  outline: 3px solid rgba(197, 140, 255, 0.85);
+  outline: 3px solid rgba(var(--color-primary-rgb), 0.85);
 
   outline-offset: 5px;
 }
@@ -113,7 +113,7 @@
   background:
     radial-gradient(
       circle at 25% 25%,
-      rgba(197, 140, 255, 0.28),
+      rgba(var(--color-primary-rgb), 0.28),
       transparent 35%
     ),
     radial-gradient(
@@ -121,7 +121,7 @@
       rgba(255, 86, 130, 0.16),
       transparent 35%
     ),
-    #15151b;
+    var(--color-surface);
 }
 
 .portfolio-card__placeholder::before,
@@ -185,7 +185,7 @@
 
   padding: 0.5rem 0.9rem;
 
-  color: #ffffff;
+  color: var(--color-text);
 
   font-size: 0.75rem;
 
@@ -222,7 +222,7 @@
 .portfolio-card__information h3 {
   margin-bottom: 0.65rem;
 
-  color: #ffffff;
+  color: var(--color-text);
 
   font-size: clamp(1.4rem, 2.5vw, 2rem);
 
@@ -269,7 +269,7 @@
 }
 
 .portfolio-card:hover .portfolio-card__action {
-  color: #ffffff;
+  color: var(--color-text);
 }
 
 .portfolio-card:hover .portfolio-card__action svg {

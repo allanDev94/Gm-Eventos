@@ -67,7 +67,7 @@ function Footer() {
 
               <div className="footer__links">
                 <a
-                  href="https://www.instagram.com/"
+                  href="https://www.instagram.com/gmeventos.cl/"
                   target="_blank"
                   rel="noreferrer"
                 >
