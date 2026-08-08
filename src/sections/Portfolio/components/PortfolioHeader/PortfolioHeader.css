@@ -28,7 +28,7 @@
 
   margin-bottom: 1.5rem;
 
-  color: #c58cff;
+  color: var(--color-primary);
   font-size: 0.82rem;
   font-weight: 700;
   letter-spacing: 0.15em;
@@ -43,13 +43,13 @@
 
   flex-shrink: 0;
 
-  background: linear-gradient(90deg, #a63cff, #c58cff);
+  background: linear-gradient(90deg, var(--color-primary-strong), var(--color-primary));
 }
 
 .portfolio-header__title {
   max-width: 980px;
 
-  color: #ffffff;
+  color: var(--color-text);
   font-size: clamp(2.2rem, 4.5vw, 4rem);
   line-height: 0.98;
   letter-spacing: -0.055em;

@@ -12,7 +12,7 @@
 
   border-radius: 1.1rem;
 
-  background-color: #18181f;
+  background-color: var(--color-surface-elevated);
 }
 
 .service-gallery__main {
@@ -30,7 +30,7 @@
   width: 100%;
   aspect-ratio: 4 / 3;
 
-  background-color: #18181f;
+  background-color: var(--color-surface-elevated);
 }
 
 .service-gallery__image::after {
@@ -53,7 +53,7 @@
   object-fit: contain;
   object-position: center;
 
-  background-color: #18181f;
+  background-color: var(--color-surface-elevated);
 }
 
 /* ========================================
@@ -94,7 +94,7 @@
 }
 
 .service-gallery__counter span:first-child {
-  color: #ffffff;
+  color: var(--color-text);
 }
 
 /* ========================================
@@ -123,7 +123,7 @@
 
   padding: 0;
 
-  color: #ffffff;
+  color: var(--color-text);
 
   cursor: pointer;
 
@@ -148,9 +148,9 @@
 .service-gallery__controls button:hover:not(:disabled) {
   color: #d5a4ff;
 
-  border-color: rgba(197, 140, 255, 0.56);
+  border-color: rgba(var(--color-primary-rgb), 0.56);
 
-  background-color: rgba(166, 60, 255, 0.18);
+  background-color: rgba(var(--color-primary-strong-rgb), 0.18);
 
   transform: translateY(-0.15rem);
 }
@@ -162,7 +162,7 @@
 }
 
 .service-gallery__controls button:focus-visible {
-  outline: 2px solid #c58cff;
+  outline: 2px solid var(--color-primary);
 
   outline-offset: 3px;
 }
@@ -199,7 +199,7 @@
 
   border-radius: 0.75rem;
 
-  background-color: #18181f;
+  background-color: var(--color-surface-elevated);
 
   transition:
     opacity 0.25s ease,
@@ -214,13 +214,13 @@
 }
 
 .service-gallery__thumbnail--active {
-  border-color: #c58cff;
+  border-color: var(--color-primary);
 
   opacity: 1;
 }
 
 .service-gallery__thumbnail:focus-visible {
-  outline: 2px solid #c58cff;
+  outline: 2px solid var(--color-primary);
 
   outline-offset: 3px;
 }

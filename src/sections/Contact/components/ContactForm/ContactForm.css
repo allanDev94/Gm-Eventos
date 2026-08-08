@@ -10,7 +10,7 @@
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 1.6rem;
 
-  background-color: #15151b;
+  background-color: var(--color-surface);
 
   box-shadow:
     0 1.8rem 4rem rgba(0, 0, 0, 0.24),
@@ -33,7 +33,7 @@
 .contact-form__header p {
   margin-bottom: 0.3rem;
 
-  color: #c58cff;
+  color: var(--color-primary);
   font-size: 0.76rem;
   font-weight: 750;
   letter-spacing: 0.1em;
@@ -41,7 +41,7 @@
 }
 
 .contact-form__header h2 {
-  color: #ffffff;
+  color: var(--color-text);
   font-size: clamp(1.5rem, 2vw, 1.9rem);
   line-height: 1.2;
 }
@@ -127,10 +127,10 @@
 .contact-form__control:focus-within {
   color: #cfa0ff;
 
-  border-color: rgba(197, 140, 255, 0.55);
-  background-color: rgba(166, 60, 255, 0.04);
+  border-color: rgba(var(--color-primary-rgb), 0.55);
+  background-color: rgba(var(--color-primary-strong-rgb), 0.04);
 
-  box-shadow: 0 0 0 3px rgba(166, 60, 255, 0.08);
+  box-shadow: 0 0 0 3px rgba(var(--color-primary-strong-rgb), 0.08);
 }
 
 .contact-form__control svg {
@@ -145,7 +145,7 @@
 .contact-form textarea {
   width: 100%;
 
-  color: #ffffff;
+  color: var(--color-text);
   font: inherit;
 
   border: 0;
@@ -167,7 +167,7 @@
 }
 
 .contact-form select option {
-  color: #ffffff;
+  color: var(--color-text);
   background-color: #1b1b22;
 }
 
@@ -189,7 +189,7 @@
 
   resize: vertical;
 
-  color: #ffffff;
+  color: var(--color-text);
   font-size: 0.84rem;
   line-height: 1.55;
 
@@ -206,10 +206,10 @@
 }
 
 .contact-form textarea:focus {
-  border-color: rgba(197, 140, 255, 0.55);
-  background-color: rgba(166, 60, 255, 0.04);
+  border-color: rgba(var(--color-primary-rgb), 0.55);
+  background-color: rgba(var(--color-primary-strong-rgb), 0.04);
 
-  box-shadow: 0 0 0 3px rgba(166, 60, 255, 0.08);
+  box-shadow: 0 0 0 3px rgba(var(--color-primary-strong-rgb), 0.08);
 }
 
 /* ========================================
@@ -262,27 +262,27 @@
 }
 
 .contact-form__service:hover {
-  color: #ffffff !important;
+  color: var(--color-text) !important;
 
-  border-color: rgba(197, 140, 255, 0.34);
-  background-color: rgba(166, 60, 255, 0.06);
+  border-color: rgba(var(--color-primary-rgb), 0.34);
+  background-color: rgba(var(--color-primary-strong-rgb), 0.06);
 
   transform: translateY(-0.1rem);
 }
 
 .contact-form__service--selected {
-  color: #ffffff !important;
+  color: var(--color-text) !important;
 
-  border-color: rgba(197, 140, 255, 0.58);
-  background-color: rgba(166, 60, 255, 0.14);
+  border-color: rgba(var(--color-primary-rgb), 0.58);
+  background-color: rgba(var(--color-primary-strong-rgb), 0.14);
 
-  box-shadow: 0 0 0 2px rgba(166, 60, 255, 0.06);
+  box-shadow: 0 0 0 2px rgba(var(--color-primary-strong-rgb), 0.06);
 }
 
 .contact-form__service:focus-within {
-  border-color: rgba(197, 140, 255, 0.7);
+  border-color: rgba(var(--color-primary-rgb), 0.7);
 
-  box-shadow: 0 0 0 3px rgba(166, 60, 255, 0.1);
+  box-shadow: 0 0 0 3px rgba(var(--color-primary-strong-rgb), 0.1);
 }
 
 .contact-form__service input {
@@ -397,20 +397,20 @@
   margin: 1.4rem auto 0;
   padding-inline: 3.2rem;
 
-  color: #ffffff;
+  color: var(--color-text);
   font-size: 0.86rem;
   font-weight: 750;
   text-align: center;
   cursor: pointer;
 
-  border: 1px solid rgba(197, 140, 255, 0.5);
+  border: 1px solid rgba(var(--color-primary-rgb), 0.5);
   border-radius: 0.8rem;
 
   background: linear-gradient(110deg, #8e3ee7, #ad4be4, #ce4fbd);
 
   box-shadow:
-    0 0.9rem 2rem rgba(166, 60, 255, 0.22),
-    0 0 1.5rem rgba(166, 60, 255, 0.08);
+    0 0.9rem 2rem rgba(var(--color-primary-strong-rgb), 0.22),
+    0 0 1.5rem rgba(var(--color-primary-strong-rgb), 0.08);
 
   transition:
     border-color 0.3s ease,
@@ -422,14 +422,14 @@
   border-color: rgba(222, 174, 255, 0.75);
 
   box-shadow:
-    0 1.1rem 2.5rem rgba(166, 60, 255, 0.3),
-    0 0 2rem rgba(166, 60, 255, 0.14);
+    0 1.1rem 2.5rem rgba(var(--color-primary-strong-rgb), 0.3),
+    0 0 2rem rgba(var(--color-primary-strong-rgb), 0.14);
 
   transform: translateY(-0.15rem);
 }
 
 .contact-form__submit:focus-visible {
-  outline: 3px solid rgba(197, 140, 255, 0.38);
+  outline: 3px solid rgba(var(--color-primary-rgb), 0.38);
   outline-offset: 3px;
 }
 

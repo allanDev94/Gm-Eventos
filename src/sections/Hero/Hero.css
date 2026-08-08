@@ -51,7 +51,7 @@
     ),
     linear-gradient(
       180deg,
-      rgba(166, 60, 255, 0.08) 0%,
+      rgba(var(--color-primary-strong-rgb), 0.08) 0%,
       rgba(10, 10, 14, 0.58) 100%
     );
 
@@ -73,7 +73,7 @@
     180deg,
     transparent 0%,
     rgba(10, 10, 14, 0.35) 55%,
-    #101014 100%
+    var(--color-background) 100%
   );
 
   pointer-events: none;
@@ -102,7 +102,7 @@
 .hero__eyebrow {
   margin-bottom: 1rem;
 
-  color: #c58cff;
+  color: var(--color-primary);
   font-size: 0.9rem;
   font-weight: 700;
   letter-spacing: 0.14em;
@@ -112,7 +112,7 @@
 .hero__title {
   max-width: 650px;
 
-  color: #ffffff;
+  color: var(--color-text);
   font-size: clamp(2.7rem, 6vw, 5.5rem);
   line-height: 0.98;
   letter-spacing: -0.04em;

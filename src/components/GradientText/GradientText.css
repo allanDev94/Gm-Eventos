@@ -5,7 +5,7 @@
 
   background: linear-gradient(
     95deg,
-    #c58cff 0%,
+    var(--color-primary) 0%,
     #dc78dd 34%,
     #f36fae 66%,
     #ffb36b 100%

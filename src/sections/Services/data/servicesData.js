@@ -95,11 +95,11 @@ export const services = [
 
     images: [
       "/assets/img/services/fiestas/fiesta-00.JPG",
-      "/assets/img/services/fiestas/fiesta-01.png",
-      "/assets/img/services/fiestas/fiesta-02.png",
-      "/assets/img/services/fiestas/fiesta-03.png",
-      "/assets/img/services/fiestas/fiesta-04.png",
-      "/assets/img/services/fiestas/fiesta-05.png",
+      "/assets/img/services/fiestas/fiesta-01.jpg",
+      "/assets/img/services/fiestas/fiesta-02.jpg",
+      "/assets/img/services/fiestas/fiesta-03.jpg",
+      "/assets/img/services/fiestas/fiesta-04.jpg",
+      "/assets/img/services/fiestas/fiesta-05.jpg",
     ],
   },
 
@@ -160,7 +160,7 @@ export const services = [
 
     features: ["DJ y animación", "Sonido profesional", "Iluminación"],
 
-    image: "/assets/img/events/graduaciones/02.png",
+    image: "/assets/img/events/graduaciones/02.jpg",
 
     imageAlt: "Graduación y gala producida por GM Eventos",
 
@@ -189,10 +189,10 @@ export const services = [
     ],
 
     images: [
-      "/assets/img/events/graduaciones/02.png",
-      "/assets/img/events/graduaciones/03.png",
-      "/assets/img/events/graduaciones/04.png",
-      "/assets/img/events/graduaciones/06.png",
+      "/assets/img/events/graduaciones/02.jpg",
+      "/assets/img/events/graduaciones/03.jpg",
+      "/assets/img/events/graduaciones/04.jpg",
+      "/assets/img/events/graduaciones/06.jpg",
     ],
   },
 

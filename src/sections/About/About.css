@@ -7,10 +7,10 @@
   background:
     radial-gradient(
       circle at 100% 18%,
-      rgba(166, 60, 255, 0.09),
+      rgba(var(--color-primary-strong-rgb), 0.09),
       transparent 28%
     ),
-    #101014;
+    var(--color-background);
 }
 
 .about--without-header {
@@ -29,7 +29,7 @@
 .about__eyebrow {
   margin-bottom: 1rem;
 
-  color: #c58cff;
+  color: var(--color-primary);
   font-size: 0.85rem;
   font-weight: 700;
   letter-spacing: 0.14em;
@@ -37,7 +37,7 @@
 }
 
 .about__title {
-  color: #ffffff;
+  color: var(--color-text);
   font-size: clamp(2.5rem, 5vw, 4.8rem);
   line-height: 1.03;
   letter-spacing: -0.045em;

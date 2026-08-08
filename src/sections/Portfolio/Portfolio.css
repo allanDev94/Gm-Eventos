@@ -3,7 +3,7 @@
 
   padding-block: 7rem;
 
-  background-color: #101014;
+  background-color: var(--color-background);
 }
 
 .portfolio--without-header {
@@ -34,7 +34,7 @@
 .portfolio__eyebrow {
   margin-bottom: 1rem;
 
-  color: #c58cff;
+  color: var(--color-primary);
   font-size: 0.85rem;
   font-weight: 700;
   letter-spacing: 0.14em;
@@ -44,7 +44,7 @@
 .portfolio__title {
   max-width: 760px;
 
-  color: #ffffff;
+  color: var(--color-text);
   font-size: clamp(2.25rem, 5vw, 4.5rem);
   line-height: 1.02;
   letter-spacing: -0.04em;

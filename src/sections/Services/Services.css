@@ -7,7 +7,7 @@
   background:
     radial-gradient(
       circle at 100% 0%,
-      rgba(166, 60, 255, 0.1),
+      rgba(var(--color-primary-strong-rgb), 0.1),
       transparent 30%
     ),
     radial-gradient(
@@ -15,7 +15,7 @@
       rgba(255, 76, 145, 0.05),
       transparent 28%
     ),
-    #101014;
+    var(--color-background);
 }
 
 /* Reduce el espacio cuando existe un hero externo */
@@ -69,7 +69,7 @@
   width: 18rem;
   height: 18rem;
 
-  border: 1px solid rgba(197, 140, 255, 0.035);
+  border: 1px solid rgba(var(--color-primary-rgb), 0.035);
   border-radius: 50%;
 
   pointer-events: none;

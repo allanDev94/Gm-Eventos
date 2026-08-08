@@ -9,7 +9,7 @@
   display: flex;
   align-items: flex-end;
 
-  color: #ffffff;
+  color: var(--color-text);
 
   border: 1px solid rgba(255, 255, 255, 0.11);
   border-radius: 1.4rem;
@@ -30,15 +30,15 @@
 }
 
 .services-card--interactive:hover {
-  border-color: rgba(197, 140, 255, 0.42);
+  border-color: rgba(var(--color-primary-rgb), 0.42);
 
   box-shadow:
     0 1.8rem 4rem rgba(0, 0, 0, 0.34),
-    0 0 2.5rem rgba(166, 60, 255, 0.1);
+    0 0 2.5rem rgba(var(--color-primary-strong-rgb), 0.1);
 }
 
 .services-card--interactive:focus-visible {
-  outline: 3px solid rgba(197, 140, 255, 0.65);
+  outline: 3px solid rgba(var(--color-primary-rgb), 0.65);
   outline-offset: 4px;
 }
 
@@ -90,7 +90,7 @@
       rgba(8, 8, 12, 0.91) 75%,
       rgba(8, 8, 12, 0.99) 100%
     ),
-    linear-gradient(130deg, rgba(166, 60, 255, 0.09), transparent 48%);
+    linear-gradient(130deg, rgba(var(--color-primary-strong-rgb), 0.09), transparent 48%);
 }
 
 /* ========================================
@@ -110,7 +110,7 @@
 .services-card__content h3 {
   max-width: 95%;
 
-  color: #ffffff;
+  color: var(--color-text);
   font-size: clamp(1.55rem, 2.3vw, 2.05rem);
   line-height: 1.05;
   letter-spacing: -0.035em;
@@ -171,7 +171,7 @@
 }
 
 .services-card__features svg {
-  color: #c58cff;
+  color: var(--color-primary);
   flex-shrink: 0;
 }
 
@@ -188,7 +188,7 @@
   margin-top: 0.1rem;
   padding: 0.85rem 0.15rem 0;
 
-  color: #ffffff;
+  color: var(--color-text);
   font-size: 0.78rem;
   font-weight: 750;
 
@@ -214,7 +214,7 @@
 }
 
 .services-card--interactive:hover .services-card__details svg {
-  color: #ffffff;
+  color: var(--color-text);
 
   transform: translate(0.2rem, -0.2rem);
 }

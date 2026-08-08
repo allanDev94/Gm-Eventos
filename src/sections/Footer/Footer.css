@@ -25,7 +25,7 @@
 .footer__logo {
   display: inline-block;
 
-  color: #ffffff;
+  color: var(--color-text);
   font-size: clamp(1.7rem, 3vw, 2.3rem);
   font-weight: 800;
   letter-spacing: -0.04em;
@@ -86,13 +86,13 @@
 }
 
 .footer__column a:hover {
-  color: #c58cff;
+  color: var(--color-primary);
   transform: translateX(0.25rem);
 }
 
 .footer__column a:focus-visible {
-  color: #c58cff;
-  outline: 2px solid #c58cff;
+  color: var(--color-primary);
+  outline: 2px solid var(--color-primary);
   outline-offset: 0.35rem;
   border-radius: 0.2rem;
 }
@@ -139,12 +139,12 @@
 }
 
 .footer__back-to-top:hover {
-  color: #c58cff;
+  color: var(--color-primary);
 }
 
 .footer__back-to-top:focus-visible {
-  color: #c58cff;
-  outline: 2px solid #c58cff;
+  color: var(--color-primary);
+  outline: 2px solid var(--color-primary);
   outline-offset: 0.4rem;
   border-radius: 0.2rem;
 }

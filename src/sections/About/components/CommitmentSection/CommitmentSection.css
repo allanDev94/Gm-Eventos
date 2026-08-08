@@ -22,14 +22,14 @@
   min-height: 540px;
   height: 100%;
 
-  border: 1px solid rgba(197, 140, 255, 0.2);
+  border: 1px solid rgba(var(--color-primary-rgb), 0.2);
   border-radius: 1.6rem;
 
-  background-color: #18181f;
+  background-color: var(--color-surface-elevated);
 
   box-shadow:
     0 1.8rem 4.5rem rgba(0, 0, 0, 0.28),
-    0 0 3rem rgba(166, 60, 255, 0.06);
+    0 0 3rem rgba(var(--color-primary-strong-rgb), 0.06);
 
   transition:
     border-color 0.35s ease,
@@ -38,11 +38,11 @@
 }
 
 .about__commitment-media:hover {
-  border-color: rgba(197, 140, 255, 0.42);
+  border-color: rgba(var(--color-primary-rgb), 0.42);
 
   box-shadow:
     0 2rem 5rem rgba(0, 0, 0, 0.34),
-    0 0 3.5rem rgba(166, 60, 255, 0.11);
+    0 0 3.5rem rgba(var(--color-primary-strong-rgb), 0.11);
 
   transform: translateY(-0.3rem);
 }
@@ -141,7 +141,7 @@
 
   border-radius: 999px;
 
-  background-color: #c58cff;
+  background-color: var(--color-primary);
 }
 
 /* Controles */
@@ -166,7 +166,7 @@
 
   padding: 0;
 
-  color: #ffffff;
+  color: var(--color-text);
   cursor: pointer;
 
   border: 1px solid rgba(255, 255, 255, 0.2);
@@ -187,14 +187,14 @@
 .about__commitment-controls button:hover {
   color: #1a1021;
 
-  border-color: #d4a1ff;
-  background-color: #d4a1ff;
+  border-color: var(--color-primary-soft);
+  background-color: var(--color-primary-soft);
 
   transform: translateY(-0.15rem);
 }
 
 .about__commitment-controls button:focus-visible {
-  outline: 3px solid rgba(197, 140, 255, 0.42);
+  outline: 3px solid rgba(var(--color-primary-rgb), 0.42);
   outline-offset: 3px;
 }
 
@@ -221,7 +221,7 @@
 }
 
 .about__commitment-counter strong {
-  color: #ffffff;
+  color: var(--color-text);
 }
 
 /* Contenido */
@@ -243,7 +243,7 @@
 
   width: 2px;
 
-  background: linear-gradient(180deg, #c58cff, rgba(197, 140, 255, 0.05));
+  background: linear-gradient(180deg, var(--color-primary), rgba(var(--color-primary-rgb), 0.05));
 }
 
 .about__commitment-content::after {
@@ -259,7 +259,7 @@
 
   border-radius: 50%;
 
-  background-color: rgba(166, 60, 255, 0.08);
+  background-color: rgba(var(--color-primary-strong-rgb), 0.08);
   filter: blur(4rem);
 
   pointer-events: none;
@@ -268,7 +268,7 @@
 .about__commitment-content h2 {
   max-width: 700px;
 
-  color: #ffffff;
+  color: var(--color-text);
   font-size: clamp(2.3rem, 4vw, 4rem);
   line-height: 1.05;
   letter-spacing: -0.04em;
@@ -314,8 +314,8 @@
 }
 
 .about__commitment-values li:hover {
-  border-color: rgba(197, 140, 255, 0.36);
-  background-color: rgba(166, 60, 255, 0.055);
+  border-color: rgba(var(--color-primary-rgb), 0.36);
+  background-color: rgba(var(--color-primary-strong-rgb), 0.055);
 
   transform: translateY(-0.25rem);
 }
@@ -327,12 +327,12 @@
   display: grid;
   place-items: center;
 
-  color: #d4a1ff;
+  color: var(--color-primary-soft);
 
-  border: 1px solid rgba(197, 140, 255, 0.25);
+  border: 1px solid rgba(var(--color-primary-rgb), 0.25);
   border-radius: 0.8rem;
 
-  background-color: rgba(166, 60, 255, 0.09);
+  background-color: rgba(var(--color-primary-strong-rgb), 0.09);
 }
 
 .about__commitment-values li div {
@@ -342,7 +342,7 @@
 }
 
 .about__commitment-values strong {
-  color: #ffffff;
+  color: var(--color-text);
   font-size: 0.83rem;
 }
 

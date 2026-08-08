@@ -1,8 +1,34 @@
 :root {
+  /* ========================================
+     PALETA GLOBAL - GM EVENTOS
+  ======================================== */
+
+  --color-primary: #c58cff;
+  --color-primary-rgb: 197, 140, 255;
+
+  --color-primary-strong: #a63cff;
+  --color-primary-strong-rgb: 166, 60, 255;
+
+  --color-primary-soft: #d4a1ff;
+
+  --color-text: #ffffff;
+
+  --color-background: #101014;
+  --color-background-deep: #0b0b0f;
+  --color-background-alt: #0d0d12;
+
+  --color-surface: #15151b;
+  --color-surface-elevated: #18181f;
+
+  /* ========================================
+     CONFIGURACIÓN GLOBAL
+  ======================================== */
+
   font-family: Arial, Helvetica, sans-serif;
 
-  color: #ffffff;
-  background-color: #101014;
+  color: var(--color-text);
+  background-color: var(--color-background);
+
   color-scheme: dark;
 
   font-synthesis: none;
@@ -14,7 +40,8 @@
 
 html {
   font-size: 16px;
-  background-color: #101014;
+
+  background-color: var(--color-background);
 }
 
 body {
@@ -22,8 +49,8 @@ body {
   min-height: 100vh;
   min-height: 100dvh;
 
-  color: #ffffff;
-  background-color: #101014;
+  color: var(--color-text);
+  background-color: var(--color-background);
 
   line-height: 1.5;
 

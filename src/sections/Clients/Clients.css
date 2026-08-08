@@ -3,7 +3,7 @@
 
   padding-block: 4.5rem;
 
-  background-color: #0b0b0f;
+  background-color: var(--color-background-deep);
 
   border-top: 1px solid rgba(255, 255, 255, 0.08);
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
@@ -22,7 +22,7 @@
 .clients__eyebrow {
   margin-bottom: 0.55rem;
 
-  color: #c58cff;
+  color: var(--color-primary);
   font-size: 0.8rem;
   font-weight: 700;
   letter-spacing: 0.14em;
@@ -30,7 +30,7 @@
 }
 
 .clients__title {
-  color: #ffffff;
+  color: var(--color-text);
   font-size: clamp(1.5rem, 3vw, 2.25rem);
   line-height: 1.2;
   letter-spacing: -0.025em;
@@ -65,13 +65,13 @@
 }
 
 .clients__item:hover {
-  border-color: rgba(197, 140, 255, 0.42);
+  border-color: rgba(var(--color-primary-rgb), 0.42);
 
-  background-color: rgba(197, 140, 255, 0.06);
+  background-color: rgba(var(--color-primary-rgb), 0.06);
 
   box-shadow:
     0 1rem 2.5rem rgba(0, 0, 0, 0.2),
-    0 0 2rem rgba(197, 140, 255, 0.06);
+    0 0 2rem rgba(var(--color-primary-rgb), 0.06);
 }
 
 /* ========================================

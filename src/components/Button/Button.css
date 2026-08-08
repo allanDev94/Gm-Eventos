@@ -24,8 +24,8 @@
 }
 
 .button--primary {
-  color: #ffffff;
-  background-color: #a63cff;
+  color: var(--color-text);
+  background-color: var(--color-primary-strong);
 }
 
 .button--primary:hover {
@@ -33,12 +33,12 @@
 }
 
 .button--secondary {
-  color: #ffffff;
+  color: var(--color-text);
   background-color: transparent;
   border-color: rgba(255, 255, 255, 0.6);
 }
 
 .button--secondary:hover {
   background-color: rgba(255, 255, 255, 0.1);
-  border-color: #ffffff;
+  border-color: var(--color-text);
 }

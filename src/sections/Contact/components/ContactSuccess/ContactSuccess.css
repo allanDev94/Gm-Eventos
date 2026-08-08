@@ -21,7 +21,7 @@
       rgba(112, 230, 165, 0.12),
       transparent 35%
     ),
-    #15151b;
+    var(--color-surface);
 }
 
 .contact-success__icon {
@@ -40,7 +40,7 @@
 }
 
 .contact-success h3 {
-  color: #ffffff;
+  color: var(--color-text);
   font-size: 1.6rem;
 }
 
@@ -59,7 +59,7 @@
 
   padding: 0.85rem 1rem;
 
-  color: #ffffff;
+  color: var(--color-text);
   cursor: pointer;
 
   border: 1px solid rgba(255, 255, 255, 0.14);
