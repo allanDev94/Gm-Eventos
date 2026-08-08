@@ -1,6 +1,10 @@
 import { motion, useReducedMotion } from "motion/react";
 
-import { FALLBACK_IMAGE, storyHighlights } from "../../data/aboutData";
+import {
+  FALLBACK_IMAGE,
+  storyHighlights,
+  storyImages,
+} from "../../data/aboutData";
 
 import {
   storyContentVariants,
@@ -19,6 +23,7 @@ function StorySection() {
 
   const handleImageError = (event) => {
     event.currentTarget.onerror = null;
+
     event.currentTarget.src = FALLBACK_IMAGE;
   };
 
@@ -76,8 +81,8 @@ function StorySection() {
         >
           <figure className="about__story-main-media">
             <img
-              src="/assets/img/about/story/main.jpg"
-              alt="Equipo de GM Eventos trabajando en la producción de una celebración"
+              src={storyImages.main.image}
+              alt={storyImages.main.alt}
               loading="lazy"
               decoding="async"
               onError={handleImageError}
@@ -97,8 +102,8 @@ function StorySection() {
             variants={storyDetailVariants}
           >
             <img
-              src="/assets/img/about/story/detail.jpg"
-              alt="Detalle del montaje técnico realizado por GM Eventos"
+              src={storyImages.detail.image}
+              alt={storyImages.detail.alt}
               loading="lazy"
               decoding="async"
               onError={handleImageError}
@@ -130,6 +135,7 @@ function StorySection() {
 
                 <div>
                   <strong>{highlight.title}</strong>
+
                   <span>{highlight.description}</span>
                 </div>
               </motion.li>
