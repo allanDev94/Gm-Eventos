@@ -10,7 +10,7 @@
 
   overflow: hidden;
 
-  background-color: #0a0a0e;
+  background-color: var(--color-hero-background);
 }
 
 /* ========================================
@@ -45,14 +45,14 @@
   background:
     linear-gradient(
       90deg,
-      rgba(10, 10, 14, 0.96) 0%,
-      rgba(10, 10, 14, 0.78) 45%,
-      rgba(10, 10, 14, 0.25) 100%
+      rgba(var(--color-hero-background-rgb), 0.96) 0%,
+      rgba(var(--color-hero-background-rgb), 0.78) 45%,
+      rgba(var(--color-hero-background-rgb), 0.25) 100%
     ),
     linear-gradient(
       180deg,
       rgba(var(--color-primary-strong-rgb), 0.08) 0%,
-      rgba(10, 10, 14, 0.58) 100%
+      rgba(var(--color-hero-background-rgb), 0.58) 100%
     );
 
   pointer-events: none;
@@ -72,7 +72,7 @@
   background: linear-gradient(
     180deg,
     transparent 0%,
-    rgba(10, 10, 14, 0.35) 55%,
+    rgba(var(--color-hero-background-rgb), 0.35) 55%,
     var(--color-background) 100%
   );
 
@@ -125,7 +125,7 @@
 
   margin-top: 1.5rem;
 
-  color: rgba(255, 255, 255, 0.78);
+  color: var(--color-text-78);
   font-size: clamp(1rem, 2vw, 1.2rem);
   line-height: 1.65;
 }
@@ -174,14 +174,14 @@
     background:
       linear-gradient(
         180deg,
-        rgba(10, 10, 14, 0.35) 0%,
-        rgba(10, 10, 14, 0.7) 45%,
-        rgba(10, 10, 14, 0.98) 100%
+        rgba(var(--color-hero-background-rgb), 0.35) 0%,
+        rgba(var(--color-hero-background-rgb), 0.7) 45%,
+        rgba(var(--color-hero-background-rgb), 0.98) 100%
       ),
       linear-gradient(
         90deg,
-        rgba(10, 10, 14, 0.45) 0%,
-        rgba(10, 10, 14, 0.08) 100%
+        rgba(var(--color-hero-background-rgb), 0.45) 0%,
+        rgba(var(--color-hero-background-rgb), 0.08) 100%
       );
   }
 

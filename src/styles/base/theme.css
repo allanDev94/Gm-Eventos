@@ -1,0 +1,305 @@
+:root {
+  /* ========================================
+     GM EVENTOS — TEMA GLOBAL
+     Todos los colores del sitio viven aquí
+  ======================================== */
+
+  /* ========================================
+     IDENTIDAD PRINCIPAL
+  ======================================== */
+
+  --color-primary: #ff006e;
+  --color-primary-rgb: 255, 0, 110;
+
+  --color-primary-strong: #8338ec;
+  --color-primary-strong-rgb: 131, 56, 236;
+
+  --color-primary-soft: #3a86ff;
+  --color-primary-soft-rgb: 58, 134, 255;
+
+  --color-accent-orange: #fb5607;
+  --color-accent-orange-rgb: 251, 86, 7;
+
+  --color-accent-yellow: #ffbe0b;
+  --color-accent-yellow-rgb: 255, 190, 11;
+
+  /* ========================================
+     COLORES COMPLEMENTARIOS
+  ======================================== */
+
+  --color-pink: #ff6aae;
+  --color-pink-rgb: 255, 106, 174;
+
+  --color-pink-soft: #ff5682;
+  --color-pink-soft-rgb: 255, 86, 130;
+
+  --color-pink-hot: #ff4c91;
+  --color-pink-hot-rgb: 255, 76, 145;
+
+  --color-coral: #ff8875;
+  --color-coral-rgb: 255, 136, 117;
+
+  --color-process-violet-rgb: 197, 140, 255;
+  --color-process-gold-rgb: 255, 200, 97;
+
+  --color-green: #70e6a5;
+  --color-green-rgb: 112, 230, 165;
+
+  --color-error: #ff7184;
+  --color-error-rgb: 255, 113, 132;
+
+  /* ========================================
+     TEXTO
+  ======================================== */
+
+  --color-text: #ffffff;
+  --color-text-rgb: 255, 255, 255;
+
+  --color-text-secondary: rgba(var(--color-text-rgb), 0.72);
+  --color-text-muted: rgba(var(--color-text-rgb), 0.58);
+  --color-text-subtle: rgba(var(--color-text-rgb), 0.38);
+
+  --color-text-90: rgba(var(--color-text-rgb), 0.9);
+  --color-text-78: rgba(var(--color-text-rgb), 0.78);
+  --color-text-75: rgba(var(--color-text-rgb), 0.75);
+  --color-text-68: rgba(var(--color-text-rgb), 0.68);
+  --color-text-66: rgba(var(--color-text-rgb), 0.66);
+  --color-text-65: rgba(var(--color-text-rgb), 0.65);
+  --color-text-62: rgba(var(--color-text-rgb), 0.62);
+  --color-text-52: rgba(var(--color-text-rgb), 0.52);
+  --color-text-48: rgba(var(--color-text-rgb), 0.48);
+  --color-text-42: rgba(var(--color-text-rgb), 0.42);
+  --color-text-38: rgba(var(--color-text-rgb), 0.38);
+
+  /* ========================================
+     FONDOS GENERALES
+  ======================================== */
+
+  --color-background: #10051c;
+  --color-background-deep: #07020d;
+  --color-background-alt: #1a0928;
+
+  --color-surface: #21102f;
+  --color-surface-elevated: #2d1640;
+
+  --color-surface-dark: #120a1d;
+  --color-surface-deep: #08040e;
+
+  /* ========================================
+     TONOS OSCUROS / OVERLAYS
+  ======================================== */
+
+  --color-ink: #0a0a0e;
+  --color-ink-rgb: 10, 10, 14;
+
+  --color-ink-deep: #08080c;
+  --color-ink-deep-rgb: 8, 8, 12;
+
+  --color-ink-deeper: #07070a;
+  --color-ink-deeper-rgb: 7, 7, 10;
+
+  --color-ink-neutral: #07070b;
+  --color-ink-neutral-rgb: 7, 7, 11;
+
+  --color-ink-purple: #0c0912;
+  --color-ink-purple-rgb: 12, 9, 18;
+
+  --color-ink-soft: #0f0d14;
+  --color-ink-soft-rgb: 15, 13, 20;
+
+  --color-modal-control: #0b0b0f;
+  --color-modal-control-rgb: 11, 11, 15;
+
+  --color-header-overlay: #060409;
+  --color-header-overlay-rgb: 6, 4, 9;
+
+  --color-portfolio-backdrop: #050508;
+  --color-portfolio-backdrop-rgb: 5, 5, 8;
+
+  --color-service-backdrop: #040407;
+  --color-service-backdrop-rgb: 4, 4, 7;
+
+  /* ========================================
+     FONDOS ESPECÍFICOS DE COMPONENTES
+  ======================================== */
+
+  --color-hero-background: #0a0a0e;
+  --color-hero-background-rgb: 10, 10, 14;
+
+  --color-story-media-background: #08080b;
+  --color-story-border: #17121d;
+  --color-story-surface: #15151a;
+
+  --color-service-card-background: #17171d;
+
+  --color-form-control-background: #1b1b22;
+
+  --color-modal-background: #121218;
+
+  --color-commitment-control-text: #1a1021;
+
+  --color-client-logo-muted: #24242b;
+
+  --color-client-logo-background: #f5f5f7;
+  --color-client-logo-background-rgb: 245, 245, 247;
+
+  /* ========================================
+     ACENTOS ESPECÍFICOS
+  ======================================== */
+
+  --color-focus-soft: #cfa0ff;
+
+  --color-button-focus: #ba68ff;
+  --color-button-focus-rgb: 186, 104, 255;
+
+  --color-button-hover-border: #deaeff;
+  --color-button-hover-border-rgb: 222, 174, 255;
+
+  --color-portfolio-accent: #d3a4ff;
+
+  --color-service-accent: #d2a1ff;
+  --color-service-detail-accent: #d9adff;
+
+  --color-gradient-text-fallback: #d99cff;
+
+  --color-button-primary-hover: #922be8;
+
+  /* ========================================
+     GRADIENTE CONTACTO - INTRO
+  ======================================== */
+
+  --color-contact-gradient-start: #d4a2ff;
+  --color-contact-gradient-middle: #ff78ae;
+  --color-contact-gradient-end: #ffc471;
+
+  /* ========================================
+     GRADIENTE CONTACTO - BOTÓN
+  ======================================== */
+
+  --color-contact-button-start: #8e3ee7;
+  --color-contact-button-middle: #ad4be4;
+  --color-contact-button-end: #ce4fbd;
+
+  /* ========================================
+     ACENTOS LILA ADICIONALES
+  ======================================== */
+
+  --color-lilac: #d3a0ff;
+  --color-lilac-soft: #d5a4ff;
+  --color-lilac-light: #d6a6ff;
+  --color-lilac-pale: #d9b4ff;
+
+  /* ========================================
+     ESTADOS FORMULARIO
+  ======================================== */
+
+  --color-form-error: #ff8f9e;
+  --color-form-error-light: #ffd7dc;
+  --color-form-error-soft: #ff9ba8;
+
+  /* ========================================
+     SUPERFICIES ADICIONALES
+  ======================================== */
+
+  --color-portfolio-card-background: #111117;
+
+  /* ========================================
+     GRADIENTES ADICIONALES
+  ======================================== */
+
+  --color-services-gradient-end: #ffc171;
+
+  --color-event-gradient-middle: #ff7caf;
+  --color-event-gradient-end: #ffc878;
+
+  --color-gradient-purple: #dc78dd;
+  --color-gradient-pink: #f36fae;
+  --color-gradient-orange: #ffb36b;
+
+  /* ========================================
+     NEGRO Y BLANCO
+  ======================================== */
+
+  --color-black: #000000;
+  --color-black-rgb: 0, 0, 0;
+
+  --color-white: #ffffff;
+  --color-white-rgb: 255, 255, 255;
+
+  /* ========================================
+     BORDES
+  ======================================== */
+
+  --border-ultra-subtle: rgba(var(--color-white-rgb), 0.025);
+  --border-subtle: rgba(var(--color-white-rgb), 0.05);
+  --border-default: rgba(var(--color-white-rgb), 0.08);
+  --border-medium: rgba(var(--color-white-rgb), 0.1);
+  --border-strong: rgba(var(--color-white-rgb), 0.14);
+  --border-highlight: rgba(var(--color-white-rgb), 0.18);
+
+  /* ========================================
+     SUPERFICIES TRANSPARENTES
+  ======================================== */
+
+  --surface-white-025: rgba(var(--color-white-rgb), 0.025);
+  --surface-white-035: rgba(var(--color-white-rgb), 0.035);
+  --surface-white-04: rgba(var(--color-white-rgb), 0.04);
+  --surface-white-05: rgba(var(--color-white-rgb), 0.05);
+  --surface-white-06: rgba(var(--color-white-rgb), 0.06);
+  --surface-white-07: rgba(var(--color-white-rgb), 0.07);
+  --surface-white-08: rgba(var(--color-white-rgb), 0.08);
+  --surface-white-09: rgba(var(--color-white-rgb), 0.09);
+  --surface-white-10: rgba(var(--color-white-rgb), 0.1);
+  --surface-white-12: rgba(var(--color-white-rgb), 0.12);
+  --surface-white-14: rgba(var(--color-white-rgb), 0.14);
+  --surface-white-16: rgba(var(--color-white-rgb), 0.16);
+  --surface-white-18: rgba(var(--color-white-rgb), 0.18);
+  --surface-white-20: rgba(var(--color-white-rgb), 0.2);
+
+  /* ========================================
+     SOMBRAS
+  ======================================== */
+
+  --shadow-light: rgba(var(--color-black-rgb), 0.14);
+  --shadow-soft: rgba(var(--color-black-rgb), 0.2);
+  --shadow-medium: rgba(var(--color-black-rgb), 0.34);
+  --shadow-dark: rgba(var(--color-black-rgb), 0.4);
+  --shadow-strong: rgba(var(--color-black-rgb), 0.55);
+  --shadow-heavy: rgba(var(--color-black-rgb), 0.7);
+
+  /* ========================================
+     TRANSPARENCIAS COLOR PRINCIPAL
+  ======================================== */
+
+  --primary-05: rgba(var(--color-primary-rgb), 0.05);
+  --primary-08: rgba(var(--color-primary-rgb), 0.08);
+  --primary-10: rgba(var(--color-primary-rgb), 0.1);
+  --primary-12: rgba(var(--color-primary-rgb), 0.12);
+  --primary-20: rgba(var(--color-primary-rgb), 0.2);
+  --primary-25: rgba(var(--color-primary-rgb), 0.25);
+  --primary-35: rgba(var(--color-primary-rgb), 0.35);
+  --primary-42: rgba(var(--color-primary-rgb), 0.42);
+  --primary-50: rgba(var(--color-primary-rgb), 0.5);
+  --primary-65: rgba(var(--color-primary-rgb), 0.65);
+
+  /* ========================================
+     GLOWS
+  ======================================== */
+
+  --glow-primary: rgba(var(--color-primary-rgb), 0.22);
+  --glow-primary-soft: rgba(var(--color-primary-rgb), 0.12);
+
+  --glow-secondary: rgba(var(--color-primary-strong-rgb), 0.2);
+
+  --glow-tertiary: rgba(var(--color-primary-soft-rgb), 0.18);
+
+  --glow-orange: rgba(var(--color-accent-orange-rgb), 0.16);
+  --glow-yellow: rgba(var(--color-accent-yellow-rgb), 0.14);
+
+  /* ========================================
+     ESTADOS
+  ======================================== */
+
+  --color-success: var(--color-green);
+  --color-success-rgb: var(--color-green-rgb);
+}

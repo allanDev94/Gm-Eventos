@@ -2,7 +2,7 @@
   margin-top: 8rem;
   padding-top: 6rem;
 
-  border-top: 1px solid rgba(255, 255, 255, 0.09);
+  border-top: 1px solid rgba(var(--color-white-rgb), 0.09);
 }
 
 .about__process-grid {
@@ -13,7 +13,7 @@
 
 .about__step {
   --step-accent: var(--color-primary);
-  --step-rgb: 197, 140, 255;
+  --step-rgb: var(--color-process-violet-rgb);
 
   position: relative;
   isolation: isolate;
@@ -42,14 +42,14 @@
     linear-gradient(
       180deg,
       rgba(var(--step-rgb), 0.13),
-      rgba(255, 255, 255, 0.025) 54%,
-      rgba(7, 7, 11, 0.18) 100%
+      var(--surface-white-025) 54%,
+      rgba(var(--color-ink-neutral-rgb), 0.18) 100%
     ),
     var(--color-surface);
 
   box-shadow:
-    0 1.2rem 3rem rgba(0, 0, 0, 0.17),
-    inset 0 1px rgba(255, 255, 255, 0.04);
+    0 1.2rem 3rem rgba(var(--color-black-rgb), 0.17),
+    inset 0 1px var(--surface-white-04);
 
   transition:
     border-color 0.35s ease,
@@ -59,22 +59,22 @@
 
 .about__step--violet {
   --step-accent: var(--color-primary);
-  --step-rgb: 197, 140, 255;
+  --step-rgb: var(--color-process-violet-rgb);
 }
 
 .about__step--pink {
-  --step-accent: #ff6aae;
-  --step-rgb: 255, 106, 174;
+  --step-accent: var(--color-primary);
+  --step-rgb: var(--color-pink-rgb);
 }
 
 .about__step--coral {
-  --step-accent: #ff8875;
-  --step-rgb: 255, 136, 117;
+  --step-accent: var(--color-accent-orange);
+  --step-rgb: var(--color-coral-rgb);
 }
 
 .about__step--gold {
-  --step-accent: #ffc861;
-  --step-rgb: 255, 200, 97;
+  --step-accent: var(--color-accent-yellow);
+  --step-rgb: var(--color-process-gold-rgb);
 }
 
 .about__step::before {
@@ -122,7 +122,7 @@
   border-color: rgba(var(--step-rgb), 0.6);
 
   box-shadow:
-    0 1.8rem 4rem rgba(0, 0, 0, 0.28),
+    0 1.8rem 4rem rgba(var(--color-black-rgb), 0.28),
     0 0 2.8rem rgba(var(--step-rgb), 0.09);
 
   transform: translateY(-0.5rem);
@@ -187,7 +187,7 @@
   );
 
   box-shadow:
-    inset 0 1px rgba(255, 255, 255, 0.06),
+    inset 0 1px var(--surface-white-06),
     0 0 2.4rem rgba(var(--step-rgb), 0.1);
 
   transition:
@@ -205,7 +205,7 @@
 
   object-fit: contain;
 
-  filter: drop-shadow(0 1rem 1.4rem rgba(0, 0, 0, 0.28));
+  filter: drop-shadow(0 1rem 1.4rem rgba(var(--color-black-rgb), 0.28));
 
   transition:
     filter 0.35s ease,
@@ -216,14 +216,14 @@
   border-color: rgba(var(--step-rgb), 0.45);
 
   box-shadow:
-    inset 0 1px rgba(255, 255, 255, 0.1),
+    inset 0 1px var(--surface-white-10),
     0 0 3rem rgba(var(--step-rgb), 0.2);
 
   transform: scale(1.05);
 }
 
 .about__step:hover .about__step-image {
-  filter: drop-shadow(0 1.2rem 1.7rem rgba(0, 0, 0, 0.34));
+  filter: drop-shadow(0 1.2rem 1.7rem var(--shadow-medium));
 
   transform: translateY(-0.45rem) scale(1.06) rotate(-1deg);
 }
@@ -246,7 +246,7 @@
   max-width: 290px;
   margin: 0.85rem auto 0;
 
-  color: rgba(255, 255, 255, 0.66);
+  color: var(--color-text-66);
   font-size: 0.86rem;
   line-height: 1.68;
 }

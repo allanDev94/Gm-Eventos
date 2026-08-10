@@ -11,7 +11,7 @@
   margin-bottom: clamp(2rem, 4vw, 3.5rem);
   padding-bottom: clamp(1.75rem, 3vw, 2.5rem);
 
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid var(--border-default);
 }
 
 /* ========================================
@@ -44,7 +44,11 @@
 
   flex-shrink: 0;
 
-  background: linear-gradient(90deg, var(--color-primary-strong), rgba(var(--color-primary-rgb), 0.2));
+  background: linear-gradient(
+    90deg,
+    var(--color-primary-strong),
+    rgba(var(--color-primary-rgb), 0.2)
+  );
 }
 
 .services-header__title {
@@ -59,7 +63,12 @@
 .services-header__title span {
   color: transparent;
 
-  background: linear-gradient(90deg, #d3a0ff, #ff78ae, #ffc171);
+  background: linear-gradient(
+    90deg,
+    var(--color-lilac),
+    var(--color-contact-gradient-middle),
+    var(--color-services-gradient-end)
+  );
 
   background-clip: text;
   -webkit-background-clip: text;
@@ -81,7 +90,7 @@
 }
 
 .services-header__introduction p {
-  color: rgba(255, 255, 255, 0.64);
+  color: rgba(var(--color-white-rgb), 0.64);
   font-size: 0.94rem;
   line-height: 1.75;
 }

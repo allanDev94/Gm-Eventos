@@ -44,7 +44,7 @@
 
   border-radius: 50%;
 
-  background-color: rgba(255, 86, 130, 0.07);
+  background-color: rgba(var(--color-pink-soft-rgb), 0.07);
 
   filter: blur(120px);
 
@@ -71,21 +71,21 @@
 
   padding: clamp(2.5rem, 5vw, 4.5rem);
 
-  border: 1px solid rgba(255, 255, 255, 0.11);
+  border: 1px solid rgba(var(--color-white-rgb), 0.11);
   border-radius: 1.75rem;
 
   background:
     linear-gradient(
       135deg,
       rgba(var(--color-primary-rgb), 0.13),
-      rgba(255, 255, 255, 0.025) 55%,
-      rgba(255, 86, 130, 0.035)
+      var(--surface-white-025) 55%,
+      rgba(var(--color-pink-soft-rgb), 0.035)
     ),
     var(--color-background);
 
   box-shadow:
-    0 2rem 5rem rgba(0, 0, 0, 0.3),
-    inset 0 1px rgba(255, 255, 255, 0.04);
+    0 2rem 5rem rgba(var(--color-black-rgb), 0.3),
+    inset 0 1px var(--surface-white-04);
 }
 
 .call-to-action__content::before {
@@ -97,7 +97,7 @@
 
   background: linear-gradient(
     115deg,
-    rgba(255, 255, 255, 0.035),
+    var(--surface-white-035),
     transparent 38%
   );
 
@@ -169,7 +169,7 @@
 
   margin-top: 1.5rem;
 
-  color: rgba(255, 255, 255, 0.65);
+  color: var(--color-text-65);
   line-height: 1.75;
 }
 
@@ -205,7 +205,7 @@
 .call-to-action__note {
   margin-top: 0.35rem;
 
-  color: rgba(255, 255, 255, 0.42);
+  color: var(--color-text-42);
   font-size: 0.72rem;
   line-height: 1.5;
   text-align: center;

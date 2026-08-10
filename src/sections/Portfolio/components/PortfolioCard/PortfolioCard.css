@@ -15,7 +15,7 @@
 
 .portfolio-card:hover {
   box-shadow:
-    0 1.5rem 3.5rem rgba(0, 0, 0, 0.22),
+    0 1.5rem 3.5rem rgba(var(--color-black-rgb), 0.22),
     0 0 2.5rem rgba(var(--color-primary-rgb), 0.07);
 }
 
@@ -66,7 +66,7 @@
 
   border-radius: 1.25rem;
 
-  background-color: #111117;
+  background-color: var(--color-portfolio-card-background);
 }
 
 .portfolio-card--featured .portfolio-card__media {
@@ -85,7 +85,7 @@
   object-fit: contain;
   object-position: center;
 
-  background-color: #111117;
+  background-color: var(--color-portfolio-card-background);
 
   transition:
     filter 0.45s ease,
@@ -118,7 +118,7 @@
     ),
     radial-gradient(
       circle at 80% 75%,
-      rgba(255, 86, 130, 0.16),
+      rgba(var(--color-pink-soft-rgb), 0.16),
       transparent 35%
     ),
     var(--color-surface);
@@ -133,7 +133,7 @@
   width: 180px;
   height: 180px;
 
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--border-default);
 
   border-radius: 50%;
 }
@@ -147,7 +147,7 @@
   position: relative;
   z-index: 1;
 
-  color: rgba(255, 255, 255, 0.16);
+  color: var(--surface-white-16);
 
   font-size: clamp(4rem, 8vw, 7rem);
 
@@ -166,8 +166,8 @@
 
   background: linear-gradient(
     180deg,
-    rgba(10, 10, 14, 0.02) 45%,
-    rgba(10, 10, 14, 0.55) 100%
+    rgba(var(--color-ink-rgb), 0.02) 45%,
+    rgba(var(--color-ink-rgb), 0.55) 100%
   );
 
   pointer-events: none;
@@ -195,11 +195,11 @@
 
   text-transform: uppercase;
 
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid var(--surface-white-20);
 
   border-radius: 999px;
 
-  background-color: rgba(10, 10, 14, 0.55);
+  background-color: rgba(var(--color-ink-rgb), 0.55);
 
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
@@ -232,13 +232,13 @@
 }
 
 .portfolio-card:hover .portfolio-card__information h3 {
-  color: #d9b4ff;
+  color: var(--color-lilac-pale);
 }
 
 .portfolio-card__information p {
   max-width: 580px;
 
-  color: rgba(255, 255, 255, 0.62);
+  color: var(--color-text-62);
 
   line-height: 1.7;
 }
@@ -255,7 +255,7 @@
 
   margin-top: 1.15rem;
 
-  color: #d3a4ff;
+  color: var(--color-portfolio-accent);
 
   font-size: 0.78rem;
 

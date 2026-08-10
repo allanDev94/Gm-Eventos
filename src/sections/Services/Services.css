@@ -12,7 +12,7 @@
     ),
     radial-gradient(
       circle at 0% 70%,
-      rgba(255, 76, 145, 0.05),
+      rgba(var(--color-pink-hot-rgb), 0.05),
       transparent 28%
     ),
     var(--color-background);
@@ -49,12 +49,12 @@
   width: 30rem;
   height: 30rem;
 
-  border: 1px solid rgba(255, 255, 255, 0.025);
+  border: 1px solid var(--border-ultra-subtle);
   border-radius: 50%;
 
   box-shadow:
-    0 0 0 5rem rgba(255, 255, 255, 0.006),
-    0 0 0 10rem rgba(255, 255, 255, 0.003);
+    0 0 0 5rem rgba(var(--color-white-rgb), 0.006),
+    0 0 0 10rem rgba(var(--color-white-rgb), 0.003);
 
   pointer-events: none;
 }

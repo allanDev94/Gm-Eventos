@@ -5,8 +5,8 @@
 
   background-color: var(--color-background-deep);
 
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 1px solid var(--border-default);
+  border-bottom: 1px solid var(--border-default);
 }
 
 /* ========================================
@@ -53,10 +53,10 @@
 
   padding: 0.6rem;
 
-  border: 1px solid rgba(255, 255, 255, 0.09);
+  border: 1px solid rgba(var(--color-white-rgb), 0.09);
   border-radius: 1rem;
 
-  background-color: rgba(255, 255, 255, 0.025);
+  background-color: var(--surface-white-025);
 
   transition:
     border-color 0.3s ease,
@@ -70,7 +70,7 @@
   background-color: rgba(var(--color-primary-rgb), 0.06);
 
   box-shadow:
-    0 1rem 2.5rem rgba(0, 0, 0, 0.2),
+    0 1rem 2.5rem var(--shadow-soft),
     0 0 2rem rgba(var(--color-primary-rgb), 0.06);
 }
 
@@ -91,7 +91,7 @@
 
   border-radius: 0.7rem;
 
-  background-color: rgba(245, 245, 247, 0.96);
+  background-color: rgba(var(--color-client-logo-background-rgb), 0.96);
 }
 
 /* ========================================
@@ -131,7 +131,7 @@
 ======================================== */
 
 .clients__fallback {
-  color: #24242b;
+  color: var(--color-client-logo-muted);
   font-size: 0.82rem;
   font-weight: 750;
   letter-spacing: 0.08em;

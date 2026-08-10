@@ -51,7 +51,7 @@
 }
 
 .portfolio__introduction {
-  color: rgba(255, 255, 255, 0.68);
+  color: var(--color-text-68);
   line-height: 1.75;
 }
 
@@ -97,6 +97,7 @@
   .portfolio__introduction {
     max-width: 600px;
   }
+
   .portfolio--without-header {
     padding-top: 3rem;
   }
@@ -128,6 +129,7 @@
   .portfolio__title {
     font-size: clamp(2rem, 10vw, 2.8rem);
   }
+
   .portfolio--without-header {
     padding-top: 2.5rem;
   }

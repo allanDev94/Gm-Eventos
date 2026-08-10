@@ -19,7 +19,7 @@
 .about__section-heading > p {
   max-width: 540px;
 
-  color: rgba(255, 255, 255, 0.62);
+  color: var(--color-text-62);
   line-height: 1.75;
 }
 

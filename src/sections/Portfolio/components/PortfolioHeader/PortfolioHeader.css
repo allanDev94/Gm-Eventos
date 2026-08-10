@@ -10,7 +10,7 @@
   margin-bottom: 4rem;
   padding-bottom: 3.75rem;
 
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid var(--border-medium);
 }
 
 /* ========================================
@@ -43,7 +43,11 @@
 
   flex-shrink: 0;
 
-  background: linear-gradient(90deg, var(--color-primary-strong), var(--color-primary));
+  background: linear-gradient(
+    90deg,
+    var(--color-primary-strong),
+    var(--color-primary)
+  );
 }
 
 .portfolio-header__title {
@@ -70,7 +74,7 @@
 .portfolio-header__introduction p {
   max-width: 590px;
 
-  color: rgba(255, 255, 255, 0.63);
+  color: rgba(var(--color-white-rgb), 0.63);
   font-size: clamp(1rem, 1.35vw, 1.15rem);
   line-height: 1.8;
 }

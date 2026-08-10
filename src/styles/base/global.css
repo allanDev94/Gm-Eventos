@@ -1,29 +1,6 @@
+@import "./theme.css";
+
 :root {
-  /* ========================================
-     PALETA GLOBAL - GM EVENTOS
-  ======================================== */
-
-  --color-primary: #c58cff;
-  --color-primary-rgb: 197, 140, 255;
-
-  --color-primary-strong: #a63cff;
-  --color-primary-strong-rgb: 166, 60, 255;
-
-  --color-primary-soft: #d4a1ff;
-
-  --color-text: #ffffff;
-
-  --color-background: #101014;
-  --color-background-deep: #0b0b0f;
-  --color-background-alt: #0d0d12;
-
-  --color-surface: #15151b;
-  --color-surface-elevated: #18181f;
-
-  /* ========================================
-     CONFIGURACIÓN GLOBAL
-  ======================================== */
-
   font-family: Arial, Helvetica, sans-serif;
 
   color: var(--color-text);
@@ -46,6 +23,7 @@ html {
 
 body {
   min-width: 320px;
+
   min-height: 100vh;
   min-height: 100dvh;
 
@@ -67,7 +45,9 @@ body {
   min-height: 70vh;
 }
 
-/* Notebook y escritorio pequeño */
+/* ========================================
+   NOTEBOOK Y ESCRITORIO PEQUEÑO
+======================================== */
 
 @media (min-width: 1024px) {
   html {
@@ -75,7 +55,9 @@ body {
   }
 }
 
-/* Monitores grandes */
+/* ========================================
+   MONITORES GRANDES
+======================================== */
 
 @media (min-width: 1400px) {
   html {
@@ -83,7 +65,9 @@ body {
   }
 }
 
-/* Tablet y móvil */
+/* ========================================
+   TABLET Y MÓVIL
+======================================== */
 
 @media (max-width: 760px) {
   .page-content {

@@ -1,14 +1,14 @@
 .gradient-text {
   display: inline;
 
-  color: #d99cff;
+  color: var(--color-gradient-text-fallback);
 
   background: linear-gradient(
     95deg,
     var(--color-primary) 0%,
-    #dc78dd 34%,
-    #f36fae 66%,
-    #ffb36b 100%
+    var(--color-gradient-purple) 34%,
+    var(--color-gradient-pink) 66%,
+    var(--color-gradient-orange) 100%
   );
 
   background-clip: text;

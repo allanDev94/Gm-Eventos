@@ -19,7 +19,7 @@
 }
 
 .button:focus-visible {
-  outline: 3px solid rgba(186, 104, 255, 0.4);
+  outline: 3px solid rgba(var(--color-button-focus-rgb), 0.4);
   outline-offset: 3px;
 }
 
@@ -29,16 +29,16 @@
 }
 
 .button--primary:hover {
-  background-color: #922be8;
+  background-color: var(--color-button-primary-hover);
 }
 
 .button--secondary {
   color: var(--color-text);
   background-color: transparent;
-  border-color: rgba(255, 255, 255, 0.6);
+  border-color: rgba(var(--color-white-rgb), 0.6);
 }
 
 .button--secondary:hover {
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: var(--surface-white-10);
   border-color: var(--color-text);
 }

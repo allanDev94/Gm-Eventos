@@ -11,14 +11,14 @@
 
   color: var(--color-text);
 
-  border: 1px solid rgba(255, 255, 255, 0.11);
+  border: 1px solid rgba(var(--color-white-rgb), 0.11);
   border-radius: 1.4rem;
 
-  background-color: #17171d;
+  background-color: var(--color-service-card-background);
 
   box-shadow:
-    0 1.4rem 3rem rgba(0, 0, 0, 0.22),
-    inset 0 1px rgba(255, 255, 255, 0.04);
+    0 1.4rem 3rem rgba(var(--color-black-rgb), 0.22),
+    inset 0 1px var(--surface-white-04);
 
   transition:
     border-color 0.35s ease,
@@ -33,7 +33,7 @@
   border-color: rgba(var(--color-primary-rgb), 0.42);
 
   box-shadow:
-    0 1.8rem 4rem rgba(0, 0, 0, 0.34),
+    0 1.8rem 4rem var(--shadow-medium),
     0 0 2.5rem rgba(var(--color-primary-strong-rgb), 0.1);
 }
 
@@ -84,13 +84,17 @@
   background:
     linear-gradient(
       180deg,
-      rgba(8, 8, 12, 0.05) 0%,
-      rgba(8, 8, 12, 0.1) 25%,
-      rgba(8, 8, 12, 0.5) 52%,
-      rgba(8, 8, 12, 0.91) 75%,
-      rgba(8, 8, 12, 0.99) 100%
+      rgba(var(--color-ink-deep-rgb), 0.05) 0%,
+      rgba(var(--color-ink-deep-rgb), 0.1) 25%,
+      rgba(var(--color-ink-deep-rgb), 0.5) 52%,
+      rgba(var(--color-ink-deep-rgb), 0.91) 75%,
+      rgba(var(--color-ink-deep-rgb), 0.99) 100%
     ),
-    linear-gradient(130deg, rgba(var(--color-primary-strong-rgb), 0.09), transparent 48%);
+    linear-gradient(
+      130deg,
+      rgba(var(--color-primary-strong-rgb), 0.09),
+      transparent 48%
+    );
 }
 
 /* ========================================
@@ -120,13 +124,14 @@
 
 .services-card__content > p {
   max-width: 95%;
+
   margin-top: 0.65rem;
 
-  color: rgba(255, 255, 255, 0.75);
+  color: var(--color-text-75);
   font-size: 0.82rem;
   line-height: 1.55;
 
-  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.7);
+  text-shadow: 0 2px 12px var(--shadow-heavy);
 }
 
 /* ========================================
@@ -136,13 +141,13 @@
 .services-card__services {
   padding-top: 0.9rem;
 
-  border-top: 1px solid rgba(255, 255, 255, 0.11);
+  border-top: 1px solid rgba(var(--color-white-rgb), 0.11);
 }
 
 .services-card__includes-label {
   margin-bottom: 0.6rem;
 
-  color: #d2a1ff;
+  color: var(--color-service-accent);
   font-size: 0.68rem;
   font-weight: 750;
   letter-spacing: 0.11em;
@@ -165,13 +170,14 @@
   gap: 0.48rem;
   align-items: center;
 
-  color: rgba(255, 255, 255, 0.72);
+  color: var(--color-text-secondary);
   font-size: 0.75rem;
   line-height: 1.35;
 }
 
 .services-card__features svg {
   color: var(--color-primary);
+
   flex-shrink: 0;
 }
 
@@ -192,7 +198,7 @@
   font-size: 0.78rem;
   font-weight: 750;
 
-  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  border-top: 1px solid var(--surface-white-12);
 
   transition:
     color 0.25s ease,
@@ -200,7 +206,7 @@
 }
 
 .services-card__details svg {
-  color: #d5a4ff;
+  color: var(--color-lilac-soft);
 
   transition:
     color 0.25s ease,
@@ -208,7 +214,7 @@
 }
 
 .services-card--interactive:hover .services-card__details {
-  color: #d9adff;
+  color: var(--color-service-detail-accent);
 
   padding-inline: 0.3rem;
 }

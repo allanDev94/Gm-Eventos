@@ -12,13 +12,13 @@
 
   text-align: center;
 
-  border: 1px solid rgba(112, 230, 165, 0.24);
+  border: 1px solid rgba(var(--color-success-rgb), 0.24);
   border-radius: 1.6rem;
 
   background:
     radial-gradient(
       circle at 50% 25%,
-      rgba(112, 230, 165, 0.12),
+      rgba(var(--color-success-rgb), 0.12),
       transparent 35%
     ),
     var(--color-surface);
@@ -31,12 +31,12 @@
   display: grid;
   place-items: center;
 
-  color: #70e6a5;
+  color: var(--color-success);
 
-  border: 1px solid rgba(112, 230, 165, 0.3);
+  border: 1px solid rgba(var(--color-success-rgb), 0.3);
   border-radius: 50%;
 
-  background-color: rgba(112, 230, 165, 0.08);
+  background-color: rgba(var(--color-success-rgb), 0.08);
 }
 
 .contact-success h3 {
@@ -48,7 +48,7 @@
   max-width: 480px;
   margin-top: 0.75rem;
 
-  color: rgba(255, 255, 255, 0.58);
+  color: var(--color-text-muted);
   line-height: 1.7;
 }
 
@@ -62,8 +62,8 @@
   color: var(--color-text);
   cursor: pointer;
 
-  border: 1px solid rgba(255, 255, 255, 0.14);
+  border: 1px solid var(--border-strong);
   border-radius: 0.8rem;
 
-  background-color: rgba(255, 255, 255, 0.045);
+  background-color: rgba(var(--color-white-rgb), 0.045);
 }

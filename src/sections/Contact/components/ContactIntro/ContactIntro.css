@@ -24,13 +24,13 @@
     linear-gradient(
       145deg,
       rgba(var(--color-primary-rgb), 0.08),
-      rgba(255, 255, 255, 0.018)
+      rgba(var(--color-white-rgb), 0.018)
     ),
     var(--color-surface);
 
   box-shadow:
-    0 1.8rem 4rem rgba(0, 0, 0, 0.22),
-    inset 0 1px rgba(255, 255, 255, 0.05);
+    0 1.8rem 4rem rgba(var(--color-black-rgb), 0.22),
+    inset 0 1px var(--border-subtle);
 }
 
 .contact-intro::before {
@@ -44,12 +44,12 @@
   width: 18rem;
   height: 18rem;
 
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-subtle);
   border-radius: 50%;
 
   box-shadow:
-    0 0 0 3rem rgba(255, 255, 255, 0.012),
-    0 0 0 6rem rgba(255, 255, 255, 0.008);
+    0 0 0 3rem rgba(var(--color-white-rgb), 0.012),
+    0 0 0 6rem rgba(var(--color-white-rgb), 0.008);
 
   pointer-events: none;
 }
@@ -84,7 +84,12 @@
 .contact-intro h1 span {
   color: transparent;
 
-  background: linear-gradient(90deg, #d4a2ff, #ff78ae, #ffc471);
+  background: linear-gradient(
+    90deg,
+    var(--color-contact-gradient-start),
+    var(--color-contact-gradient-middle),
+    var(--color-contact-gradient-end)
+  );
 
   background-clip: text;
   -webkit-background-clip: text;
@@ -94,7 +99,7 @@
   max-width: 570px;
   margin-top: 0.9rem;
 
-  color: rgba(255, 255, 255, 0.66);
+  color: var(--color-text-66);
   font-size: 0.95rem;
   line-height: 1.7;
 }
@@ -121,10 +126,10 @@
 
   padding: 0.7rem 0.8rem;
 
-  border: 1px solid rgba(255, 255, 255, 0.075);
+  border: 1px solid rgba(var(--color-white-rgb), 0.075);
   border-radius: 0.85rem;
 
-  background-color: rgba(255, 255, 255, 0.025);
+  background-color: var(--surface-white-025);
 
   transition:
     border-color 0.3s ease,
@@ -170,7 +175,7 @@
 .contact-intro__highlights p {
   margin-top: 0.18rem;
 
-  color: rgba(255, 255, 255, 0.52);
+  color: var(--color-text-52);
   font-size: 0.74rem;
   line-height: 1.5;
 }
@@ -190,7 +195,7 @@
 
   color: var(--color-primary-soft);
 
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 1px solid var(--border-default);
 }
 
 .contact-intro__response > svg {
@@ -213,7 +218,7 @@
 }
 
 .contact-intro__response span {
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(var(--color-white-rgb), 0.5);
   font-size: 0.72rem;
   line-height: 1.5;
 }
