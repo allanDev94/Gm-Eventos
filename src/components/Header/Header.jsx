@@ -65,8 +65,20 @@ function Header() {
     <header className="header">
       <Container>
         <div className="header__content">
-          <NavLink className="header__logo" to="/" onClick={closeMenu}>
-            GM Eventos
+          <NavLink
+            className="header__logo"
+            to="/"
+            onClick={closeMenu}
+            aria-label="GM Eventos - Ir al inicio"
+          >
+            <img
+              className="header__logo-image"
+              src="/assets/img/events/favicon-48x48.png"
+              alt=""
+              aria-hidden="true"
+            />
+
+            <span className="header__logo-text">Eventos</span>
           </NavLink>
 
           <nav

@@ -1,28 +1,33 @@
-import { Link } from "react-router-dom";
-
+import { ArrowUp } from "lucide-react";
+import { Link, NavLink } from "react-router-dom";
 import "./Footer.css";
 
-import Container from "../../components/Container/Container";
-
-const WHATSAPP_NUMBER = "56989340450";
-
 function Footer() {
-  const currentYear = new Date().getFullYear();
-  const handleBackToTop = () => {
+  const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-      left: 0,
       behavior: "smooth",
     });
   };
 
   return (
     <footer className="footer">
-      <Container>
+      <div className="container">
         <div className="footer__top">
           <div className="footer__brand">
-            <Link className="footer__logo" to="/">
-              GM Eventos
+            <Link
+              className="footer__logo"
+              to="/"
+              aria-label="GM Eventos - Ir al inicio"
+            >
+              <img
+                className="footer__logo-image"
+                src="/assets/img/events/favicon-48x48.png"
+                alt=""
+                aria-hidden="true"
+              />
+
+              <span className="footer__logo-text">Eventos</span>
             </Link>
 
             <p className="footer__description">
@@ -33,52 +38,42 @@ function Footer() {
 
           <div className="footer__navigation">
             <div className="footer__column">
-              <p className="footer__heading">Navegación</p>
-
-              <nav aria-label="Navegación del pie de página">
-                <Link to="/">Inicio</Link>
-                <Link to="/nosotros">Nosotros</Link>
-                <Link to="/servicios">Servicios</Link>
-                <Link to="/eventos">Eventos</Link>
-                <Link to="/contacto">Contacto</Link>
+              <h3 className="footer__heading">Navegación</h3>
+              <nav>
+                <NavLink to="/">Inicio</NavLink>
+                <NavLink to="/nosotros">Nosotros</NavLink>
+                <NavLink to="/servicios">Servicios</NavLink>
+                <NavLink to="/eventos">Eventos</NavLink>
+                <NavLink to="/contacto">Contacto</NavLink>
               </nav>
             </div>
 
             <div className="footer__column">
-              <p className="footer__heading">Contacto</p>
-
+              <h3 className="footer__heading">Contacto</h3>
               <div className="footer__links">
                 <a
-                  href={`https://wa.me/${WHATSAPP_NUMBER}`}
+                  href="https://wa.me/56900000000"
                   target="_blank"
                   rel="noreferrer"
                 >
                   WhatsApp
                 </a>
-
                 <a href="mailto:contacto@gmeventos.cl">contacto@gmeventos.cl</a>
-
                 <span>Santiago, Chile</span>
               </div>
             </div>
 
             <div className="footer__column">
-              <p className="footer__heading">Redes sociales</p>
-
+              <h3 className="footer__heading">Redes sociales</h3>
               <div className="footer__links">
                 <a
-                  href="https://www.instagram.com/gmeventos.cl/"
+                  href="https://instagram.com"
                   target="_blank"
                   rel="noreferrer"
                 >
                   Instagram
                 </a>
-
-                <a
-                  href="https://www.facebook.com/"
-                  target="_blank"
-                  rel="noreferrer"
-                >
+                <a href="https://facebook.com" target="_blank" rel="noreferrer">
                   Facebook
                 </a>
               </div>
@@ -87,19 +82,20 @@ function Footer() {
         </div>
 
         <div className="footer__bottom">
-          <p>© {currentYear} GM Eventos. Todos los derechos reservados.</p>
+          <p>© 2026 GM Eventos. Todos los derechos reservados.</p>
 
           <button
-            className="footer__back-to-top"
             type="button"
-            onClick={handleBackToTop}
-            aria-label="Volver al comienzo de la página"
+            className="footer__back-to-top"
+            onClick={scrollToTop}
           >
-            Volver arriba
-            <span aria-hidden="true">↑</span>
+            Volver arriba{" "}
+            <span>
+              <ArrowUp size={16} />
+            </span>
           </button>
         </div>
-      </Container>
+      </div>
     </footer>
   );
 }

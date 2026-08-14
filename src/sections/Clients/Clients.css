@@ -1,12 +1,19 @@
 .clients {
   position: relative;
+  overflow: hidden;
 
   padding-block: 4.5rem;
 
-  background-color: var(--color-background-deep);
+  background:
+    radial-gradient(
+      circle at 15% 20%,
+      rgba(var(--color-primary-strong-rgb), 0.12),
+      transparent 32%
+    ),
+    var(--color-background-alt);
 
-  border-top: 1px solid var(--border-default);
-  border-bottom: 1px solid var(--border-default);
+  border-top: 1px solid rgba(var(--color-white-rgb), 0.07);
+  border-bottom: 1px solid rgba(var(--color-white-rgb), 0.07);
 }
 
 /* ========================================

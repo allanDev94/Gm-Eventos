@@ -6,7 +6,13 @@
 
   padding-block: 7rem;
 
-  background-color: var(--color-background-deep);
+  background:
+    radial-gradient(
+      circle at 15% 20%,
+      rgba(var(--color-primary-strong-rgb), 0.12),
+      transparent 32%
+    ),
+    var(--color-background-alt);
 }
 
 /* ========================================
