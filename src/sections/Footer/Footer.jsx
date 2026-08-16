@@ -1,8 +1,14 @@
 import { ArrowUp } from "lucide-react";
 import { Link, NavLink } from "react-router-dom";
+
 import "./Footer.css";
 
 function Footer() {
+  const whatsappNumber = import.meta.env.VITE_GM_WHATSAPP_NUMBER;
+  const whatsappUrl = `https://wa.me/${whatsappNumber}`;
+
+  const instagramUrl = "https://www.instagram.com/gmeventos.cl/";
+
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
@@ -39,6 +45,7 @@ function Footer() {
           <div className="footer__navigation">
             <div className="footer__column">
               <h3 className="footer__heading">Navegación</h3>
+
               <nav>
                 <NavLink to="/">Inicio</NavLink>
                 <NavLink to="/nosotros">Nosotros</NavLink>
@@ -50,31 +57,24 @@ function Footer() {
 
             <div className="footer__column">
               <h3 className="footer__heading">Contacto</h3>
+
               <div className="footer__links">
-                <a
-                  href="https://wa.me/56900000000"
-                  target="_blank"
-                  rel="noreferrer"
-                >
+                <a href={whatsappUrl} target="_blank" rel="noreferrer">
                   WhatsApp
                 </a>
+
                 <a href="mailto:contacto@gmeventos.cl">contacto@gmeventos.cl</a>
+
                 <span>Santiago, Chile</span>
               </div>
             </div>
 
             <div className="footer__column">
               <h3 className="footer__heading">Redes sociales</h3>
+
               <div className="footer__links">
-                <a
-                  href="https://instagram.com"
-                  target="_blank"
-                  rel="noreferrer"
-                >
+                <a href={instagramUrl} target="_blank" rel="noreferrer">
                   Instagram
-                </a>
-                <a href="https://facebook.com" target="_blank" rel="noreferrer">
-                  Facebook
                 </a>
               </div>
             </div>
@@ -91,7 +91,7 @@ function Footer() {
           >
             Volver arriba{" "}
             <span>
-              <ArrowUp size={16} />
+              <ArrowUp size={16} aria-hidden="true" />
             </span>
           </button>
         </div>
