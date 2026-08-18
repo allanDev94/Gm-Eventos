@@ -54,6 +54,8 @@ export async function verifyTurnstileToken({
       errorCodes: Array.isArray(result["error-codes"])
         ? result["error-codes"]
         : [],
+
+      hostname: result.hostname,
     };
   }
 
@@ -61,6 +63,7 @@ export async function verifyTurnstileToken({
     return {
       success: false,
       error: "hostname-mismatch",
+      hostname: result.hostname,
     };
   }
 

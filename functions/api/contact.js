@@ -118,6 +118,13 @@ export async function onRequestPost(context) {
   }
 
   if (!turnstileResult.success) {
+    console.warn("Turnstile validation failed:", {
+      error: turnstileResult.error,
+      errorCodes: turnstileResult.errorCodes,
+      hostname: turnstileResult.hostname,
+      expectedHostname,
+    });
+
     return errorResponse(
       "La verificación de seguridad no fue válida. Inténtalo nuevamente.",
       400,
