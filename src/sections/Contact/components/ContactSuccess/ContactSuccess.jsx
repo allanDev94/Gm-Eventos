@@ -1,8 +1,16 @@
-import { CircleCheckBig, RotateCcw } from "lucide-react";
+import { CircleCheckBig, MessageCircle, RotateCcw } from "lucide-react";
 
 import "./ContactSuccess.css";
 
-function ContactSuccess({ onReset }) {
+function ContactSuccess({ onReset, whatsappUrl }) {
+  const handleWhatsApp = () => {
+    if (!whatsappUrl) {
+      return;
+    }
+
+    window.open(whatsappUrl, "_blank", "noopener,noreferrer");
+  };
+
   return (
     <div className="contact-success" role="status" aria-live="polite">
       <span className="contact-success__icon">
@@ -10,18 +18,25 @@ function ContactSuccess({ onReset }) {
       </span>
 
       <div>
-        <h3>Tu solicitud está lista</h3>
+        <h3>Solicitud recibida</h3>
 
         <p>
-          Abrimos WhatsApp con los datos de tu cotización. Revisa el mensaje y
-          presiona Enviar para comunicarte con GM Eventos.
+          Recibimos los datos de tu cotización. Te responderemos a la brevedad.
+          Si prefieres, también puedes continuar la conversación por WhatsApp.
         </p>
       </div>
 
-      <button type="button" onClick={onReset}>
-        <RotateCcw size={17} strokeWidth={1.9} aria-hidden="true" />
-        Enviar otra consulta
-      </button>
+      <div className="contact-success__actions">
+        <button type="button" onClick={handleWhatsApp}>
+          <MessageCircle size={17} strokeWidth={1.9} aria-hidden="true" />
+          Continuar por WhatsApp
+        </button>
+
+        <button type="button" onClick={onReset}>
+          <RotateCcw size={17} strokeWidth={1.9} aria-hidden="true" />
+          Enviar otra consulta
+        </button>
+      </div>
     </div>
   );
 }

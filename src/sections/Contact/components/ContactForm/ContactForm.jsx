@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useCallback, useRef, useState } from "react";
 
 import {
   CalendarDays,
@@ -20,11 +20,15 @@ import {
   validateContactForm,
 } from "../../validation/contactValidation";
 
+import { submitContactRequest } from "../../services/contactApi";
+
 import { buildWhatsAppMessage, createWhatsAppUrl } from "../../utils/whatsapp";
 
 import { contactColumnVariants } from "../../animations/contactAnimations";
 
 import ContactSuccess from "../ContactSuccess/ContactSuccess";
+import PrivacyConsent from "../PrivacyConsent/PrivacyConsent";
+import TurnstileWidget from "../TurnstileWidget/TurnstileWidget";
 
 import "./ContactForm.css";
 
@@ -37,6 +41,7 @@ const initialFormData = {
   location: "",
   services: [],
   message: "",
+  privacyAccepted: false,
 };
 
 function ContactForm() {
@@ -46,7 +51,14 @@ function ContactForm() {
   const [formData, setFormData] = useState(initialFormData);
   const [errors, setErrors] = useState({});
   const [submitError, setSubmitError] = useState("");
+
+  const [turnstileToken, setTurnstileToken] = useState("");
+  const [turnstileKey, setTurnstileKey] = useState(0);
+
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   const [submitted, setSubmitted] = useState(false);
+  const [whatsappUrl, setWhatsappUrl] = useState("");
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -95,6 +107,20 @@ function ContactForm() {
     setSubmitError("");
   };
 
+  const handlePrivacyChange = (checked) => {
+    setFormData((currentData) => ({
+      ...currentData,
+      privacyAccepted: checked,
+    }));
+
+    setErrors((currentErrors) => ({
+      ...currentErrors,
+      privacyAccepted: "",
+    }));
+
+    setSubmitError("");
+  };
+
   const focusFirstError = (validationErrors) => {
     const firstError = Object.keys(validationErrors)[0];
 
@@ -118,20 +144,83 @@ function ContactForm() {
     });
   };
 
-  const handleSubmit = (event) => {
+  const resetTurnstile = useCallback(() => {
+    setTurnstileToken("");
+    setTurnstileKey((currentKey) => currentKey + 1);
+  }, []);
+
+  const handleTurnstileVerify = useCallback((token) => {
+    setTurnstileToken(token);
+    setSubmitError("");
+  }, []);
+
+  const handleTurnstileExpire = useCallback(() => {
+    setTurnstileToken("");
+
+    setSubmitError(
+      "La verificación de seguridad expiró. Espera unos segundos e inténtalo nuevamente.",
+    );
+  }, []);
+
+  const handleTurnstileError = useCallback(() => {
+    setTurnstileToken("");
+
+    setSubmitError(
+      "No pudimos completar la verificación de seguridad. Inténtalo nuevamente.",
+    );
+  }, []);
+
+  const handleSubmit = async (event) => {
     event.preventDefault();
+
+    if (isSubmitting) {
+      return;
+    }
 
     setSubmitError("");
 
+    /*
+     * Primera capa:
+     * validación inmediata en el navegador.
+     */
     const validationErrors = validateContactForm(formData);
 
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
       focusFirstError(validationErrors);
+
       return;
     }
 
+    /*
+     * Turnstile debe haber generado un token
+     * antes de enviar la solicitud.
+     */
+    if (!turnstileToken) {
+      setSubmitError(
+        "Espera a que finalice la verificación de seguridad antes de continuar.",
+      );
+
+      return;
+    }
+
+    setIsSubmitting(true);
+
     try {
+      /*
+       * Segunda capa:
+       * backend de Cloudflare Pages.
+       *
+       * Los datos vuelven a normalizarse y validarse,
+       * Turnstile se verifica en servidor y finalmente
+       * se envía la cotización mediante Resend.
+       */
+      await submitContactRequest(formData, turnstileToken);
+
+      /*
+       * Preparamos WhatsApp como canal secundario.
+       * No se abre automáticamente.
+       */
       const phoneNumber = import.meta.env.VITE_GM_WHATSAPP_NUMBER;
 
       const message = buildWhatsAppMessage(
@@ -140,21 +229,32 @@ function ContactForm() {
         availableServices,
       );
 
-      const whatsappUrl = createWhatsAppUrl(phoneNumber, message);
+      const nextWhatsappUrl = createWhatsAppUrl(phoneNumber, message);
 
-      /*
-       * Abrimos WhatsApp solamente en una nueva pestaña.
-       * No usamos window.location ni ningún fallback
-       * que reemplace la página actual.
-       */
-      window.open(whatsappUrl, "_blank", "noopener,noreferrer");
+      setWhatsappUrl(nextWhatsappUrl);
 
       setErrors({});
       setSubmitted(true);
-    } catch {
+    } catch (error) {
+      const fieldErrors = error?.fieldErrors || {};
+
+      if (Object.keys(fieldErrors).length > 0) {
+        setErrors(fieldErrors);
+        focusFirstError(fieldErrors);
+      }
+
       setSubmitError(
-        "No pudimos preparar WhatsApp en este momento. Inténtalo nuevamente.",
+        error?.message ||
+          "No pudimos procesar tu solicitud. Inténtalo nuevamente.",
       );
+
+      /*
+       * Los tokens de Turnstile son de un solo uso.
+       * Generamos uno nuevo para permitir otro intento.
+       */
+      resetTurnstile();
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -162,11 +262,16 @@ function ContactForm() {
     setFormData(initialFormData);
     setErrors({});
     setSubmitError("");
+
+    setTurnstileToken("");
+    setTurnstileKey((currentKey) => currentKey + 1);
+
+    setWhatsappUrl("");
     setSubmitted(false);
   };
 
   if (submitted) {
-    return <ContactSuccess onReset={handleReset} />;
+    return <ContactSuccess onReset={handleReset} whatsappUrl={whatsappUrl} />;
   }
 
   return (
@@ -464,6 +569,22 @@ function ContactForm() {
         </div>
       </div>
 
+      {/* CONSENTIMIENTO DE PRIVACIDAD */}
+      <PrivacyConsent
+        checked={formData.privacyAccepted}
+        onChange={handlePrivacyChange}
+        error={errors.privacyAccepted}
+        disabled={isSubmitting}
+      />
+
+      {/* TURNSTILE */}
+      <TurnstileWidget
+        key={turnstileKey}
+        onVerify={handleTurnstileVerify}
+        onExpire={handleTurnstileExpire}
+        onError={handleTurnstileError}
+      />
+
       {/* ERROR GENERAL */}
       {submitError && (
         <p className="contact-form__submit-error" role="alert">
@@ -472,17 +593,22 @@ function ContactForm() {
       )}
 
       {/* BOTÓN */}
-      <button className="contact-form__submit" type="submit">
-        <span>Continuar por WhatsApp</span>
+      <button
+        className="contact-form__submit"
+        type="submit"
+        disabled={isSubmitting}
+      >
+        <span>
+          {isSubmitting ? "Enviando solicitud..." : "Solicitar cotización"}
+        </span>
 
         <MessageCircle size={19} strokeWidth={1.9} aria-hidden="true" />
       </button>
 
-      {/* PRIVACIDAD */}
+      {/* INFORMACIÓN DE PRIVACIDAD */}
       <p className="contact-form__privacy">
         Tus datos serán utilizados únicamente para gestionar y responder tu
-        solicitud de cotización. Este formulario no guarda una copia de tus
-        datos en el sitio.
+        solicitud de cotización.
       </p>
     </motion.form>
   );

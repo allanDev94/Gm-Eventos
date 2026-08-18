@@ -1,0 +1,21 @@
+.turnstile-widget {
+  width: 300px;
+  max-width: 100%;
+  min-height: 65px;
+
+  margin: 0 auto;
+}
+
+.turnstile-widget > div {
+  max-width: 100%;
+}
+
+/* ========================================
+   MÓVIL
+======================================== */
+
+@media (max-width: 400px) {
+  .turnstile-widget {
+    width: 100%;
+  }
+}

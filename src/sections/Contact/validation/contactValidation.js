@@ -1,4 +1,4 @@
-import { availableServices, eventTypes } from "../data/contactData";
+import { availableServices, eventTypes } from "../data/contactOptions";
 
 export const CONTACT_LIMITS = {
   name: 80,
@@ -165,6 +165,13 @@ export function validateContactField(fieldName, formData) {
 
       return "";
     }
+    case "privacyAccepted": {
+      if (value !== true) {
+        return "Debes aceptar la Política de Privacidad para enviar la solicitud.";
+      }
+
+      return "";
+    }
 
     default:
       return "";
@@ -181,6 +188,7 @@ export function validateContactForm(formData) {
     "location",
     "services",
     "message",
+    "privacyAccepted",
   ];
 
   return fields.reduce((errors, fieldName) => {

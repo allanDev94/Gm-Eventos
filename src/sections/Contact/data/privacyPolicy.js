@@ -1,0 +1,1 @@
+export const CONTACT_PRIVACY_VERSION = "2026-08-18";

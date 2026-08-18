@@ -1,0 +1,119 @@
+.privacy-consent {
+  width: 100%;
+
+  margin-top: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+
+.privacy-consent__label {
+  width: 100%;
+
+  display: flex !important;
+  align-items: flex-start;
+  gap: 0.7rem;
+
+  margin: 0 !important;
+
+  color: var(--color-text-62) !important;
+
+  font-size: 0.72rem !important;
+  font-weight: 500 !important;
+  line-height: 1.55 !important;
+
+  cursor: pointer;
+}
+
+/* ========================================
+   CHECKBOX
+======================================== */
+
+.contact-form .privacy-consent__label input {
+  width: 1rem;
+  min-width: 1rem;
+
+  height: 1rem;
+  min-height: 1rem;
+
+  flex: 0 0 1rem;
+
+  margin: 0.15rem 0 0;
+  padding: 0;
+
+  accent-color: var(--color-primary);
+
+  cursor: pointer;
+}
+
+/* ========================================
+   TEXTO
+======================================== */
+
+.privacy-consent__label > span {
+  min-width: 0;
+  flex: 1;
+
+  display: block;
+}
+
+.privacy-consent__label a {
+  color: var(--color-primary);
+
+  font-weight: 700;
+
+  text-decoration: underline;
+  text-underline-offset: 0.15rem;
+}
+
+.privacy-consent__label a:hover {
+  opacity: 0.85;
+}
+
+.privacy-consent__label a:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 0.2rem;
+
+  border-radius: 0.15rem;
+}
+
+/* ========================================
+   ERROR
+======================================== */
+
+.privacy-consent__error {
+  display: block;
+
+  margin-top: 0.4rem;
+  margin-left: 1.7rem;
+
+  color: var(--color-form-error);
+
+  font-size: 0.7rem;
+  line-height: 1.35;
+}
+
+.contact-form .privacy-consent__label input[aria-invalid="true"] {
+  outline: 2px solid rgba(var(--color-error-rgb), 0.55);
+  outline-offset: 2px;
+}
+
+.contact-form .privacy-consent__label input:disabled {
+  cursor: not-allowed;
+
+  opacity: 0.65;
+}
+
+/* ========================================
+   MÓVIL
+======================================== */
+
+@media (max-width: 600px) {
+  .privacy-consent {
+    margin-top: 0.9rem;
+  }
+
+  .privacy-consent__label {
+    gap: 0.6rem;
+
+    font-size: 0.7rem !important;
+  }
+}

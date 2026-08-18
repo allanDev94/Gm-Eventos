@@ -36,6 +36,11 @@ const ROUTE_METADATA = {
     description:
       "Cotiza tu evento con GM Eventos. Cuéntanos tu idea y recibe una propuesta adaptada al tipo de celebración, ubicación y servicios que necesitas.",
   },
+  "/privacidad": {
+    title: "Política de Privacidad | GM Eventos",
+    description:
+      "Conoce cómo GM Eventos recopila, utiliza y protege los datos personales enviados a través de su sitio web y formulario de cotización.",
+  },
 };
 
 function updateMetaContent(selector, content) {
