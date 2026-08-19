@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "include": [
+    "/",
+    "/nosotros",
+    "/nosotros/",
+    "/servicios",
+    "/servicios/",
+    "/eventos",
+    "/eventos/",
+    "/contacto",
+    "/contacto/",
+    "/privacidad",
+    "/privacidad/",
+    "/api/contact"
+  ],
+  "exclude": []
+}
