@@ -27,12 +27,12 @@ const headingVariants = {
 const introductionVariants = {
   hidden: {
     opacity: 0,
-    x: 42,
+    y: 28,
   },
 
   visible: {
     opacity: 1,
-    x: 0,
+    y: 0,
 
     transition: {
       duration: 0.78,
