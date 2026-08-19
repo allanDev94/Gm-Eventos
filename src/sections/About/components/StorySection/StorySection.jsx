@@ -116,33 +116,36 @@ function StorySection() {
             <span />
           </div>
         </motion.div>
-
-        <motion.ul
-          className="about__story-highlights"
-          variants={storyHighlightsVariants}
-        >
-          {storyHighlights.map((highlight) => {
-            const Icon = highlight.icon;
-
-            return (
-              <motion.li
-                key={highlight.id}
-                variants={storyHighlightItemVariants}
-              >
-                <span className="about__story-highlight-icon">
-                  <Icon size={22} strokeWidth={1.8} aria-hidden="true" />
-                </span>
-
-                <div>
-                  <strong>{highlight.title}</strong>
-
-                  <span>{highlight.description}</span>
-                </div>
-              </motion.li>
-            );
-          })}
-        </motion.ul>
       </motion.div>
+
+      <motion.ul
+        className="about__story-highlights"
+        variants={storyHighlightsVariants}
+        initial={shouldReduceMotion ? false : "hidden"}
+        whileInView={shouldReduceMotion ? undefined : "visible"}
+        viewport={{
+          once: true,
+          amount: 0.2,
+        }}
+      >
+        {storyHighlights.map((highlight) => {
+          const Icon = highlight.icon;
+
+          return (
+            <motion.li key={highlight.id} variants={storyHighlightItemVariants}>
+              <span className="about__story-highlight-icon">
+                <Icon size={22} strokeWidth={1.8} aria-hidden="true" />
+              </span>
+
+              <div>
+                <strong>{highlight.title}</strong>
+
+                <span>{highlight.description}</span>
+              </div>
+            </motion.li>
+          );
+        })}
+      </motion.ul>
     </div>
   );
 }

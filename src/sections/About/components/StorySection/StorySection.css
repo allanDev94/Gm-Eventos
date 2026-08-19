@@ -4,17 +4,22 @@
 
 .about__story {
   display: grid;
+
   grid-template-columns:
     minmax(0, 1fr)
     minmax(470px, 0.96fr);
 
-  gap: clamp(3.5rem, 6vw, 6rem);
+  column-gap: clamp(3.5rem, 6vw, 6rem);
+  row-gap: 1rem;
 
   align-items: start;
 }
 
 .about__story-content {
   min-width: 0;
+
+  grid-column: 1;
+  grid-row: 1 / span 2;
 }
 
 .about__story-title {
@@ -60,9 +65,10 @@
 .about__story-visual-column {
   min-width: 0;
 
-  display: grid;
+  grid-column: 2;
+  grid-row: 1;
 
-  gap: 1rem;
+  display: grid;
 
   margin-top: 3.6rem;
 }
@@ -327,6 +333,9 @@
 ======================================== */
 
 .about__story-highlights {
+  grid-column: 2;
+  grid-row: 2;
+
   display: grid;
 
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -464,24 +473,43 @@
 }
 
 /* ========================================
-   ESCRITORIO MEDIANO
+   ESCRITORIO MEDIANO / TABLET GRANDE
 ======================================== */
 
 @media (max-width: 1180px) {
   .about__story {
     grid-template-columns: 1fr;
 
-    gap: 4rem;
+    row-gap: 3rem;
   }
 
-  .about__story-content {
-    max-width: 850px;
-  }
+  /* 1. Primero aparecen las fotografías */
 
   .about__story-visual-column {
+    grid-column: 1;
+    grid-row: 1;
+
     width: min(100%, 850px);
 
     margin-top: 0;
+  }
+
+  /* 2. Después aparece Quiénes somos */
+
+  .about__story-content {
+    grid-column: 1;
+    grid-row: 2;
+
+    max-width: 850px;
+  }
+
+  /* 3. Finalmente aparecen las tarjetas */
+
+  .about__story-highlights {
+    grid-column: 1;
+    grid-row: 3;
+
+    width: min(100%, 850px);
   }
 
   .about__story-gallery {
@@ -495,6 +523,10 @@
 
 @media (max-width: 900px) {
   .about__story-visual-column {
+    width: min(100%, 760px);
+  }
+
+  .about__story-highlights {
     width: min(100%, 760px);
   }
 
@@ -516,7 +548,7 @@
 
 @media (max-width: 700px) {
   .about__story {
-    gap: 3rem;
+    row-gap: 2.5rem;
   }
 
   .about__story-gallery {
