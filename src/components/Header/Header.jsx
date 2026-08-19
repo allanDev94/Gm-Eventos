@@ -73,7 +73,7 @@ function Header() {
           >
             <img
               className="header__logo-image"
-              src="/assets/img/events/favicon-48x48.png"
+              src="/assets/img/events/android-chrome-192x192.png"
               alt=""
               aria-hidden="true"
             />
