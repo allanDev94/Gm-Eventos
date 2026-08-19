@@ -1,8 +1,9 @@
 import { lazy, Suspense } from "react";
-import { Navigate, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 
 import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
 import PageMetadata from "./components/PageMetadata/PageMetadata";
+import NotFound from "./components/NotFound/NotFound";
 
 const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
 const AboutPage = lazy(() => import("./pages/AboutPage/AboutPage"));
@@ -26,7 +27,7 @@ function App() {
           <Route path="/contacto" element={<ContactPage />} />
           <Route path="/privacidad" element={<PrivacyPage />} />
 
-          <Route path="*" element={<Navigate to="/" replace />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </Suspense>
     </>
